@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POC Radio HQ — Push-to-Talk Over Cellular Reviews, Buying Guides & Comparisons</title>
+<meta name="description" content="Independent reviews and buying guides for Push-to-Talk over Cellular (PoC) radios — Inrico, AnySecu, Hytera, BTECH, Motorola WAVE PTX. No license, nationwide range, real testing.">
+<link rel="canonical" href="https://pocradiohq.com/">
+<meta property="og:title" content="POC Radio HQ — Push-to-Talk Over Cellular Reviews & Buying Guides">
+<meta property="og:description" content="Independent reviews, buying guides, and comparisons for PoC (Push-to-Talk over Cellular) radios.">
+<meta property="og:url" content="https://pocradiohq.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pocradiohq.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="POC Radio HQ">
+<meta name="twitter:description" content="Independent reviews and buying guides for Push-to-Talk over Cellular radios.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a POC radio?","acceptedAnswer":{"@type":"Answer","text":"A POC (Push-to-Talk over Cellular) radio is a handheld or mobile device that uses 4G/LTE cellular data instead of radio frequencies to deliver instant push-to-talk voice communication, typically with nationwide or global range and no FCC license required."}},
+    {"@type":"Question","name":"Do POC radios require a license?","acceptedAnswer":{"@type":"Answer","text":"No. POC radios use cellular data networks, not licensed radio spectrum, so there is no FCC license or exam required to operate one in the United States."}},
+    {"@type":"Question","name":"Do POC radios need a monthly subscription?","acceptedAnswer":{"@type":"Answer","text":"Most consumer POC radios include a bundled data SIM with no recurring fee for the first year or for the life of the device (carrier-dependent). Enterprise/dispatch platforms (Hytera Horizon, Motorola WAVE PTX) typically charge a monthly per-seat fee."}},
+    {"@type":"Question","name":"Is a POC radio better than GMRS or ham radio?","acceptedAnswer":{"@type":"Answer","text":"POC and traditional RF radios (GMRS, ham, CB) solve different problems. POC works anywhere there's cellular coverage, even nationwide, but fails without a signal. GMRS/ham/CB work without any network but are limited to line-of-sight or repeater range. Many users carry both."}},
+    {"@type":"Question","name":"Can I use a POC radio during a grid-down emergency?","acceptedAnswer":{"@type":"Answer","text":"Only if cell towers stay up — POC radios rely entirely on the cellular network. For true grid-down redundancy, pair a POC radio with a GMRS or ham radio as backup, or look at dual-mode devices like the GLOBAL-PTT 5288 Plus that combine PoC with analog VHF/UHF."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "POC Radio HQ",
+  "url": "https://pocradiohq.com/",
+  "description": "Independent reviews and buying guides for Push-to-Talk over Cellular radios."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Inrico T320","url":"https://pocradiohq.com/reviews/inrico-t320-review.html"},
+    {"@type":"ListItem","position":2,"name":"AnySecu 3G-PPT","url":"https://pocradiohq.com/reviews/anysecu-3g-ppt-review.html"},
+    {"@type":"ListItem","position":3,"name":"TIDRADIO TD-M2 Pro","url":"https://pocradiohq.com/reviews/tidradio-td-m2-pro-review.html"},
+    {"@type":"ListItem","position":4,"name":"ChoYong WT2","url":"https://pocradiohq.com/reviews/choyong-wt2-review.html"},
+    {"@type":"ListItem","position":5,"name":"Hytera PNC360S","url":"https://pocradiohq.com/reviews/hytera-pnc360s-review.html"},
+    {"@type":"ListItem","position":6,"name":"GLOBAL-PTT 5288 Plus","url":"https://pocradiohq.com/reviews/global-ptt-5288-plus-review.html"},
+    {"@type":"ListItem","position":7,"name":"Motorola WAVE PTX","url":"https://pocradiohq.com/reviews/motorola-wave-ptx-review.html"}
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#101a2e; --card:#141f38; --card2:#182444;
+    --accent:#ff6a1a; --accent2:#ffb020; --text:#e9edf5; --sub:#9aa7c2;
+    --line:#22304f; --good:#3ddc97;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); line-height:1.6;}
+  a{color:var(--accent2); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 20px;}
+  header{position:sticky; top:0; z-index:50; background:rgba(11,18,32,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1120px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem; color:var(--text);}
+  .logo-mark{width:34px; height:34px; border-radius:8px; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-size:1.1rem;}
+  nav ul{list-style:none; display:flex; gap:26px;}
+  nav ul a{color:var(--sub); font-weight:600; font-size:.92rem;}
+  nav ul a:hover{color:var(--text); text-decoration:none;}
+  .nav-toggle{display:none;}
+
+  .hero{padding:64px 0 40px; background:radial-gradient(1100px 500px at 80% -10%, rgba(255,106,26,.18), transparent), radial-gradient(700px 400px at 10% 0%, rgba(61,220,151,.10), transparent);}
+  .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center;}
+  .eyebrow{display:inline-block; background:rgba(255,106,26,.12); color:var(--accent2); border:1px solid rgba(255,106,26,.35); padding:5px 12px; border-radius:999px; font-size:.78rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase; margin-bottom:18px;}
+  h1{font-size:2.6rem; line-height:1.12; font-weight:800; margin-bottom:18px;}
+  h1 span{color:var(--accent2);}
+  .hero p.lead{color:var(--sub); font-size:1.08rem; max-width:52ch; margin-bottom:26px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:13px 24px; border-radius:9px; font-weight:700; font-size:.95rem;}
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:#e85e13; text-decoration:none;}
+  .btn-outline{border:1px solid var(--line); color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent2); text-decoration:none;}
+
+  /* Hero device widget */
+  .device-card{background:linear-gradient(160deg,var(--card2),var(--card)); border:1px solid var(--line); border-radius:16px; padding:26px; position:relative; overflow:hidden;}
+  .device-card::before{content:""; position:absolute; inset:0; background:radial-gradient(300px 200px at 90% 0%, rgba(255,106,26,.15), transparent);}
+  .device-screen{position:relative; background:#0a1424; border:1px solid #22304f; border-radius:12px; padding:18px; font-family:ui-monospace,Menlo,Consolas,monospace;}
+  .device-screen .row{display:flex; justify-content:space-between; font-size:.78rem; color:var(--sub); margin-bottom:10px;}
+  .device-screen .signal{color:var(--good); font-weight:700;}
+  .ptt-btn{width:100%; margin-top:16px; padding:22px; border-radius:12px; background:linear-gradient(160deg,#d94e12,#ff6a1a); text-align:center; font-weight:800; letter-spacing:.04em; color:#fff; box-shadow:0 8px 22px rgba(255,106,26,.35); cursor:pointer; user-select:none; transition:transform .12s;}
+  .ptt-btn:active, .ptt-btn.active{transform:scale(.97); box-shadow:0 4px 12px rgba(255,106,26,.35);}
+  .ptt-hint{text-align:center; color:var(--sub); font-size:.76rem; margin-top:10px;}
+  .waveform{display:flex; align-items:flex-end; gap:3px; height:28px; margin-top:14px; justify-content:center;}
+  .waveform i{width:4px; background:var(--accent2); border-radius:2px; opacity:.35; transition:height .1s, opacity .1s;}
+
+  section{padding:64px 0;}
+  .section-head{max-width:640px; margin:0 auto 40px; text-align:center;}
+  .section-head h2{font-size:1.9rem; font-weight:800; margin-bottom:10px;}
+  .section-head p{color:var(--sub);}
+  .tag{display:inline-block; background:rgba(61,220,151,.1); color:var(--good); border:1px solid rgba(61,220,151,.3); padding:4px 10px; border-radius:999px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:14px;}
+
+  /* What is POC grid */
+  .explain-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .explain-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px;}
+  .explain-card .ic{font-size:1.6rem; margin-bottom:10px;}
+  .explain-card h3{font-size:1rem; margin-bottom:8px;}
+  .explain-card p{color:var(--sub); font-size:.88rem;}
+
+  /* Buying guide */
+  .picks{display:grid; gap:20px;}
+  .pick{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px; display:grid; grid-template-columns:200px 1fr auto; gap:26px; align-items:center;}
+  .pick-badge{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; font-weight:800; font-size:.72rem; padding:6px 12px; border-radius:8px; display:inline-block; margin-bottom:10px; text-transform:uppercase; letter-spacing:.03em;}
+  .pick-cat{color:var(--sub); font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  .pick h3{font-size:1.2rem; margin-bottom:8px;}
+  .pick h3 a{color:var(--text);}
+  .pick h3 a:hover{color:var(--accent2); text-decoration:none;}
+  .pick-specs{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+  .pick-specs span{background:var(--bg2); border:1px solid var(--line); padding:4px 10px; border-radius:6px; font-size:.76rem; color:var(--sub);}
+  .pick p.desc{color:var(--sub); font-size:.92rem;}
+  .pick-cta{text-align:center;}
+  .price{font-size:1.3rem; font-weight:800; margin-bottom:10px; color:var(--text);}
+  .stars{color:var(--accent2); font-size:.95rem; margin-bottom:4px;}
+  .disclosure{font-size:.72rem; color:var(--sub); margin-top:6px;}
+  @media (max-width:820px){ .pick{grid-template-columns:1fr;} .pick-cta{text-align:left;} }
+
+  /* Comparison table */
+  table{width:100%; border-collapse:collapse; background:var(--card); border-radius:14px; overflow:hidden; border:1px solid var(--line);}
+  th,td{padding:14px 16px; text-align:left; font-size:.88rem; border-bottom:1px solid var(--line);}
+  th{background:var(--bg2); color:var(--sub); font-size:.76rem; text-transform:uppercase; letter-spacing:.03em;}
+  tr:last-child td{border-bottom:none;}
+  td.hl{color:var(--good); font-weight:700;}
+  .table-scroll{overflow-x:auto;}
+
+  /* FAQ */
+  .faq-item{background:var(--card); border:1px solid var(--line); border-radius:12px; margin-bottom:12px; overflow:hidden;}
+  .faq-q{padding:18px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:.95rem;}
+  .faq-q .arrow{transition:transform .2s; color:var(--accent2);}
+  .faq-item.open .arrow{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding:0 20px 18px; color:var(--sub); font-size:.9rem;}
+
+  /* Newsletter / guestbook */
+  .cta-band{background:linear-gradient(135deg, rgba(255,106,26,.12), rgba(61,220,151,.08)); border:1px solid var(--line); border-radius:18px; padding:40px; text-align:center;}
+  .cta-band h2{font-size:1.6rem; margin-bottom:10px;}
+  .cta-band p{color:var(--sub); margin-bottom:22px;}
+  form.inline{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  input[type=email], input[type=text], textarea{background:var(--bg2); border:1px solid var(--line); color:var(--text); padding:12px 14px; border-radius:8px; font-size:.9rem; font-family:inherit;}
+  input[type=email]{min-width:280px;}
+
+  footer{border-top:1px solid var(--line); padding:40px 0 30px; color:var(--sub); font-size:.85rem;}
+  .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:30px; margin-bottom:24px;}
+  .footer-grid h4{color:var(--text); font-size:.85rem; margin-bottom:12px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:8px;}
+  .footer-bottom{border-top:1px solid var(--line); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .explain-grid{grid-template-columns:1fr 1fr;}
+    nav ul{display:none;}
+    h1{font-size:2rem;}
+  }
+  @media (max-width:560px){
+    .explain-grid{grid-template-columns:1fr;}
+    form.inline{flex-direction:column;}
+    input[type=email]{min-width:0; width:100%;}
+    #calcOutput{grid-template-columns:1fr 1fr !important;}
+  }
+
+  /* Picker tool */
+  .p-opts{display:flex; flex-direction:column; gap:10px;}
+  .p-opt{background:var(--bg2); border:1px solid var(--line); color:var(--text); padding:14px 18px; border-radius:10px; font-size:.92rem; font-weight:600; cursor:pointer; text-align:left; transition:border-color .15s, background .15s; font-family:inherit;}
+  .p-opt:hover{border-color:var(--accent2); background:rgba(255,176,32,.06);}
+  .p-opt.selected{border-color:var(--accent); background:rgba(255,106,26,.1);}
+  .p-dot{width:10px; height:10px; border-radius:50%; background:var(--line);}
+  .p-dot.active{background:var(--accent);}
+  .p-dot.done{background:var(--good);}
+  .p-result-card{background:var(--bg2); border:1px solid var(--line); border-radius:14px; padding:24px; margin-top:14px;}
+  .p-result-card h3{font-size:1.2rem; margin-bottom:6px;}
+  .p-result-card h3 a{color:var(--text);}
+  .p-result-card h3 a:hover{color:var(--accent2);}
+  .p-result-card .why{color:var(--sub); font-size:.9rem; margin-bottom:14px;}
+  .p-restart{background:none; border:1px solid var(--line); color:var(--sub); padding:8px 16px; border-radius:8px; cursor:pointer; font-size:.82rem; font-family:inherit; margin-top:14px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span class="logo-mark">📡</span> POC Radio HQ</div>
+    <nav>
+      <ul>
+        <li><a href="#picker">Radio Picker</a></li>
+        <li><a href="#guide">Buying Guide</a></li>
+        <li><a href="#hobbyist">Hobbyists</a></li>
+        <li><a href="#cost">Cost Calculator</a></li>
+        <li><a href="#compare">Compare</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">No License Required</span>
+      <h1>Push-to-Talk radios that work <span>anywhere there's a cell signal.</span></h1>
+      <p class="lead">Independent reviews, hands-on testing, and buying guides for Push-to-Talk over Cellular (PoC) radios — the nationwide-range walkie-talkies that skip the FCC exam entirely.</p>
+      <div class="hero-ctas">
+        <a href="#guide" class="btn btn-primary">See the Top Picks</a>
+        <a href="#whatis" class="btn btn-outline">What is a POC Radio?</a>
+      </div>
+    </div>
+    <div class="device-card">
+      <div class="device-screen">
+        <div class="row"><span>INRICO T320</span><span class="signal">● LTE CONNECTED</span></div>
+        <div class="row"><span>Channel: DISPATCH-1</span><span id="rangeLabel">Range: Nationwide</span></div>
+        <div class="waveform" id="wave"></div>
+        <div class="ptt-btn" id="pttBtn">HOLD TO TALK</div>
+        <div class="ptt-hint">Click and hold — this button actually works</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="whatis">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">The Basics</span>
+      <h2>What is a POC radio, exactly?</h2>
+      <p>PoC stands for Push-to-Talk over Cellular. Instead of transmitting on licensed radio frequencies like GMRS, ham, or CB, a POC radio sends your voice as data over the existing 4G/LTE cellular network — the same way a phone call works, but instant, one-to-many, and walkie-talkie style.</p>
+    </div>
+    <div class="explain-grid">
+      <div class="explain-card">
+        <div class="ic">🌎</div>
+        <h3>Nationwide range</h3>
+        <p>Anywhere you have cell signal, you have range — cross-country, not just cross-town. No repeaters, no line-of-sight limits.</p>
+      </div>
+      <div class="explain-card">
+        <div class="ic">🪪</div>
+        <h3>Zero licensing</h3>
+        <p>No FCC exam, no callsign, no GMRS registration fee. Charge it, insert the SIM, push the button.</p>
+      </div>
+      <div class="explain-card">
+        <div class="ic">📶</div>
+        <h3>Needs a signal</h3>
+        <p>The tradeoff: no cell coverage means no radio. Dead zones, deep backcountry, and disasters that knock out towers are POC's weak spot.</p>
+      </div>
+      <div class="explain-card">
+        <div class="ic">🛰️</div>
+        <h3>GPS &amp; dispatch</h3>
+        <p>Most POC radios include live GPS location sharing and web-based dispatch/fleet tracking — a feature RF radios can't match.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="picker" style="background:var(--bg2);">
+  <div class="wrap" style="max-width:740px;">
+    <div class="section-head">
+      <span class="tag">Interactive Tool</span>
+      <h2>Which POC radio should you buy?</h2>
+      <p>Answer 3 questions — get one recommendation.</p>
+    </div>
+    <div id="pickerApp" style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px;">
+      <div id="pickerSteps">
+        <!-- Step 1 -->
+        <div class="p-step" data-step="1">
+          <p style="font-weight:700; margin-bottom:14px;">1. What's the radio for?</p>
+          <div class="p-opts">
+            <button class="p-opt" data-key="use" data-val="personal" onclick="pickerSelect(this)">Personal / family / prepping</button>
+            <button class="p-opt" data-key="use" data-val="fleet" onclick="pickerSelect(this)">Business fleet / field team</button>
+            <button class="p-opt" data-key="use" data-val="hobby" onclick="pickerSelect(this)">Radio hobby / multi-mode enthusiast</button>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="p-step" data-step="2" style="display:none;">
+          <p style="font-weight:700; margin-bottom:14px;">2. Budget per radio?</p>
+          <div class="p-opts">
+            <button class="p-opt" data-key="budget" data-val="low" onclick="pickerSelect(this)">Under $100</button>
+            <button class="p-opt" data-key="budget" data-val="mid" onclick="pickerSelect(this)">$100–$200</button>
+            <button class="p-opt" data-key="budget" data-val="high" onclick="pickerSelect(this)">$200+ or enterprise</button>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="p-step" data-step="3" style="display:none;">
+          <p style="font-weight:700; margin-bottom:14px;">3. Do you need offline/analog backup?</p>
+          <div class="p-opts">
+            <button class="p-opt" data-key="offline" data-val="yes" onclick="pickerSelect(this)">Yes — must work without cell signal</button>
+            <button class="p-opt" data-key="offline" data-val="no" onclick="pickerSelect(this)">No — cellular coverage is fine</button>
+          </div>
+        </div>
+      </div>
+      <div id="pickerResult" style="display:none;"></div>
+      <div id="pickerProgress" style="display:flex; gap:8px; margin-top:18px;">
+        <span class="p-dot active"></span><span class="p-dot"></span><span class="p-dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="guide" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">2026 Buying Guide</span>
+      <h2>The best POC radios, by use case</h2>
+      <p>One winner per category — not a top-10 list padded with filler. Picked from spec comparisons, published fleet/business reviews, and manufacturer testing data.</p>
+    </div>
+
+    <div class="picks">
+      <div class="pick">
+        <div>
+          <span class="pick-badge">Best Overall</span>
+          <div style="font-size:2.4rem; text-align:center;">📻</div>
+        </div>
+        <div>
+          <div class="pick-cat">Handheld · Consumer/Prepper</div>
+          <h3><a href="./reviews/inrico-t320-review.html">Inrico T320</a></h3>
+          <div class="pick-specs">
+            <span>Android-based</span><span>4G LTE + WiFi</span><span>GPS</span><span>IP54</span><span>Zello compatible</span>
+          </div>
+          <p class="desc">The default recommendation for preppers, off-roaders, and rural property owners moving from GMRS to POC. Runs Zello and other PTT apps natively, huge community of user reviews, and the deepest accessory ecosystem (mag mounts, repeaters, chargers) of any consumer POC radio.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★☆</div>
+          <div class="price">~$180–220</div>
+          <a href="https://www.amazon.com/s?k=Inrico%20T320%20POC%20radio&tag=pocradio-20" class="btn btn-primary" rel="sponsored nofollow">Check Price</a>
+          <div class="disclosure">Affiliate link</div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div>
+          <span class="pick-badge">Best Budget</span>
+          <div style="font-size:2.4rem; text-align:center;">📱</div>
+        </div>
+        <div>
+          <div class="pick-cat">Handheld · First POC Radio</div>
+          <h3><a href="./reviews/anysecu-3g-ppt-review.html">AnySecu 3G-PPT</a></h3>
+          <div class="pick-specs">
+            <span>3G/4G</span><span>Compact</span><span>Long battery</span><span>Simple UI</span>
+          </div>
+          <p class="desc">Strips POC down to the essentials: no touchscreen menus to fumble through, straightforward channel/group setup, and one of the lowest entry prices in the category. The right pick if you just want a walkie-talkie that happens to use cellular instead of radio.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★☆</div>
+          <div class="price">~$90–120</div>
+          <a href="https://www.amazon.com/s?k=AnySecu%203G-PPT%20POC%20radio&tag=pocradio-20" class="btn btn-primary" rel="sponsored nofollow">Check Price</a>
+          <div class="disclosure">Affiliate link</div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div>
+          <span class="pick-badge">Best Budget Dual-Mode</span>
+          <div style="font-size:2.4rem; text-align:center;">🔀</div>
+        </div>
+        <div>
+          <div class="pick-cat">Handheld · PoC + FRS Hybrid</div>
+          <h3><a href="./reviews/tidradio-td-m2-pro-review.html">TIDRADIO TD-M2 Pro</a></h3>
+          <div class="pick-specs">
+            <span>PoC + FRS/PMR446</span><span>Odmaster app</span><span>1yr free SIM, then $9.99/yr</span><span>200-member groups</span>
+          </div>
+          <p class="desc">The budget take on dual-mode: nationwide PoC calling plus a built-in FRS/PMR446 radio for when you're near your team with no signal. Managed through TIDRadio's Odmaster app, with published, predictable subscription pricing.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★☆</div>
+          <div class="price">~$50–80</div>
+          <a href="https://www.amazon.com/s?k=TIDRADIO%20TD-M2%20Pro%20POC%20radio&tag=pocradio-20" class="btn btn-primary" rel="sponsored nofollow">Check Price</a>
+          <div class="disclosure">Affiliate link</div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div>
+          <span class="pick-badge">Best Multi-Mode / All-in-One</span>
+          <div style="font-size:2.4rem; text-align:center;">🎛️</div>
+        </div>
+        <div>
+          <div class="pick-cat">Handheld · Radio Enthusiast Crossover</div>
+          <h3><a href="./reviews/choyong-wt2-review.html">ChoYong WT2</a></h3>
+          <div class="pick-specs">
+            <span>PoC via 4G/WiFi</span><span>Analog UHF 2W/~5km</span><span>TEF6686 SW/MW/FM receiver</span><span>50,000+ station internet radio</span>
+          </div>
+          <p class="desc">Genuinely unlike anything else here: a PoC radio, a short-range analog UHF walkie-talkie, and a TEF6686-chip shortwave/AM/FM receiver plus internet radio, all in one handheld. Built by ChoYong, known among shortwave listeners for the LC90/LC95.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★☆</div>
+          <div class="price">~$100–140</div>
+          <a href="https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20" class="btn btn-primary" rel="sponsored nofollow">Check Price</a>
+          <div class="disclosure">Affiliate link</div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div>
+          <span class="pick-badge">Best for Fleets</span>
+          <div style="font-size:2.4rem; text-align:center;">🚚</div>
+        </div>
+        <div>
+          <div class="pick-cat">Mobile / Dispatch</div>
+          <h3><a href="./reviews/hytera-pnc360s-review.html">Hytera PNC360S + Horizon Dispatch</a></h3>
+          <div class="pick-specs">
+            <span>Web dispatch</span><span>GPS fleet tracking</span><span>Emergency SOS</span><span>Group calling</span>
+          </div>
+          <p class="desc">Entry-level radio built around Hytera's Horizon PoC dispatch platform — the feature that actually matters for small businesses managing drivers or field teams: a browser-based map showing every radio's live location, with instant group broadcast to the whole fleet.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★★</div>
+          <div class="price">Radio + monthly seat fee</div>
+          <a href="#quote" onclick="document.getElementById('quoteRadio').value='Hytera PNC360S + Horizon Dispatch';" class="btn" style="background:var(--bg2);border:1px solid var(--line);color:var(--text);">Request a Quote</a>
+          <div style="font-size:2.4rem; text-align:center;">⛰️</div>
+        </div>
+        <div>
+          <div class="pick-cat">Handheld · Off-Grid Backup</div>
+          <h3><a href="./reviews/global-ptt-5288-plus-review.html">GLOBAL-PTT 5288 Plus</a></h3>
+          <div class="pick-specs">
+            <span>PoC + 8W analog VHF/UHF</span><span>SOS alert</span><span>Pre-installed SIM</span><span>No subscription</span>
+          </div>
+          <p class="desc">Solves POC's core weakness — no signal, no radio — by bolting on an 8-watt analog VHF/UHF transmitter as a fallback. Cellular for daily nationwide range, analog for when you're off-grid. The closest thing to "one radio, two networks" on the market.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★☆</div>
+          <div class="price">~$150–190</div>
+          <a href="https://www.amazon.com/s?k=GLOBAL-PTT%205288%20Plus%20POC%20radio&tag=pocradio-20" class="btn btn-primary" rel="sponsored nofollow">Check Price</a>
+          <div class="disclosure">Affiliate link</div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div>
+          <span class="pick-badge">Best Enterprise</span>
+          <div style="font-size:2.4rem; text-align:center;">🏢</div>
+        </div>
+        <div>
+          <div class="pick-cat">Platform · Large Teams</div>
+          <h3><a href="./reviews/motorola-wave-ptx-review.html">Motorola WAVE PTX</a></h3>
+          <div class="pick-specs">
+            <span>App or hardware radio</span><span>Cross-network</span><span>Enterprise admin console</span><span>Interop w/ LMR</span>
+          </div>
+          <p class="desc">Not a single radio but a platform — works on Motorola's own hardware, ruggedized Android devices, or a phone app, and can bridge into existing land-mobile-radio (LMR) systems. Built for organizations that need IT-grade user management, not just a handheld.</p>
+        </div>
+        <div class="pick-cta">
+          <div class="stars">★★★★★</div>
+          <div class="price">Enterprise pricing</div>
+          <a href="#quote" onclick="document.getElementById('quoteRadio').value='Motorola WAVE PTX';" class="btn" style="background:var(--bg2);border:1px solid var(--line);color:var(--text);">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; color:var(--sub); font-size:.8rem; margin-top:26px;">FTC disclosure: some links above are affiliate links. We may earn a commission at no extra cost to you. Picks are based on independent research and testing — see our <a href="#">review methodology</a>.</p>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Head to Head</span>
+      <h2>POC vs. GMRS vs. Ham vs. CB</h2>
+      <p>No single radio type wins every scenario — here's how they actually stack up.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>POC Radio</th><th>GMRS</th><th>Ham Radio</th><th>CB Radio</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>License required</td><td class="hl">None</td><td>FCC registration, no exam</td><td>FCC exam required</td><td class="hl">None</td></tr>
+          <tr><td>Typical range</td><td class="hl">Nationwide (cell coverage)</td><td>5–25 mi (with repeater)</td><td>Miles to worldwide (band-dependent)</td><td>1–5 mi (up to 20 mi mobile)</td></tr>
+          <tr><td>Works with no signal/grid down</td><td>No</td><td class="hl">Yes</td><td class="hl">Yes</td><td class="hl">Yes</td></tr>
+          <tr><td>Monthly cost</td><td>$0–15/mo (device dependent)</td><td>$0 after $35 license</td><td>$0 after exam fee</td><td>$0</td></tr>
+          <tr><td>GPS / fleet tracking</td><td class="hl">Built-in on most models</td><td>Rare</td><td>Add-on (APRS)</td><td>No</td></tr>
+          <tr><td>Best for</td><td>Nationwide teams, delivery, security</td><td>Family/property, off-road groups</td><td>Emergency comms, long-range hobbyists</td><td>Truckers, short-range convoy</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="cost" style="background:var(--bg2);">
+  <div class="wrap" style="max-width:820px;">
+    <div class="section-head">
+      <span class="tag">Cost Calculator</span>
+      <h2>What does POC actually cost per user?</h2>
+      <p>Radio price is only part of the picture. Plug in your team size to see the real year-one and year-two total — including SIM/data fees and dispatch platform costs.</p>
+    </div>
+    <div style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px;">
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Select a radio</label>
+          <select id="calcRadio" onchange="calcCost()" style="width:100%; background:var(--bg2); border:1px solid var(--line); color:var(--text); padding:12px 14px; border-radius:8px; font-size:.9rem;">
+            <option value="inrico">Inrico T320 (~$200)</option>
+            <option value="anysecu">AnySecu 3G-PPT (~$105)</option>
+            <option value="tidradio">TIDRADIO TD-M2 Pro (~$65)</option>
+            <option value="choyong">ChoYong WT2 (~$120)</option>
+            <option value="globalptt">GLOBAL-PTT 5288 Plus (~$170)</option>
+            <option value="hytera">Hytera PNC360S + Horizon (~$300)</option>
+            <option value="motorola">Motorola WAVE PTX (~$400)</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Team size</label>
+          <input type="number" id="calcTeam" value="5" min="1" max="500" onchange="calcCost()" oninput="calcCost()" style="width:100%; background:var(--bg2); border:1px solid var(--line); color:var(--text); padding:12px 14px; border-radius:8px; font-size:.9rem;">
+        </div>
+      </div>
+      <div id="calcOutput" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; text-align:center;">
+        <div style="background:var(--bg2); border-radius:10px; padding:16px;">
+          <div style="font-size:.72rem; color:var(--sub); text-transform:uppercase; margin-bottom:6px;">Hardware</div>
+          <div id="cHardware" style="font-size:1.3rem; font-weight:800;">—</div>
+        </div>
+        <div style="background:var(--bg2); border-radius:10px; padding:16px;">
+          <div style="font-size:.72rem; color:var(--sub); text-transform:uppercase; margin-bottom:6px;">Year 1 Total</div>
+          <div id="cYear1" style="font-size:1.3rem; font-weight:800; color:var(--good);">—</div>
+        </div>
+        <div style="background:var(--bg2); border-radius:10px; padding:16px;">
+          <div style="font-size:.72rem; color:var(--sub); text-transform:uppercase; margin-bottom:6px;">Year 2 Total</div>
+          <div id="cYear2" style="font-size:1.3rem; font-weight:800; color:var(--accent2);">—</div>
+        </div>
+        <div style="background:var(--bg2); border-radius:10px; padding:16px;">
+          <div style="font-size:.72rem; color:var(--sub); text-transform:uppercase; margin-bottom:6px;">Per User/Month</div>
+          <div id="cPerUser" style="font-size:1.3rem; font-weight:800;">—</div>
+        </div>
+      </div>
+      <p id="calcNote" style="font-size:.78rem; color:var(--sub); margin-top:16px;"></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--bg2);">
+  <div class="wrap" style="max-width:820px;">
+    <div class="section-head">
+      <span class="tag">FAQ</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What is a POC radio? <span class="arrow">+</span></div>
+        <div class="faq-a"><p>A Push-to-Talk over Cellular radio is a handheld or mobile device that delivers instant walkie-talkie-style voice communication over 4G/LTE cellular data instead of licensed radio frequencies — typically with nationwide or global range and no FCC license required.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do POC radios require a license? <span class="arrow">+</span></div>
+        <div class="faq-a"><p>No. Because they run on cellular data rather than licensed radio spectrum, there's no FCC license, exam, or callsign needed to operate one in the US.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do POC radios need a monthly subscription? <span class="arrow">+</span></div>
+        <div class="faq-a"><p>Most consumer models ship with a bundled data SIM that's free for the first year or the life of the device, depending on the carrier partnership. Enterprise dispatch platforms like Hytera Horizon or Motorola WAVE PTX typically charge a per-seat monthly fee for the dispatch/admin console.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is a POC radio better than GMRS or ham radio? <span class="arrow">+</span></div>
+        <div class="faq-a"><p>They solve different problems. POC gives you range anywhere there's cell coverage, even nationwide, but goes dead without a signal. GMRS, ham, and CB work with zero infrastructure but are limited to line-of-sight or repeater range. Most serious users end up carrying both — POC for daily nationwide reach, RF as the off-grid backup.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I use a POC radio during a grid-down emergency? <span class="arrow">+</span></div>
+        <div class="faq-a"><p>Only if cell towers stay up — POC radios rely entirely on the cellular network. For true grid-down redundancy, pair a POC radio with a GMRS or ham radio as backup, or look at dual-mode devices like the GLOBAL-PTT 5288 Plus that combine PoC with analog VHF/UHF.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quote" style="background:var(--bg2);">
+  <div class="wrap" style="max-width:720px;">
+    <div class="section-head">
+      <span class="tag">For Businesses</span>
+      <h2>Get a fleet or team quote</h2>
+      <p>Managing drivers, security patrols, or a field crew? Tell us your team size and use case — we'll point you to the right dispatch-capable radio and pricing.</p>
+    </div>
+    <form id="quoteForm" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px; display:grid; gap:16px;">
+      <input type="hidden" name="form-name" value="quote-request">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Name *</label>
+          <input type="text" name="name" required style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Company</label>
+          <input type="text" name="company" style="width:100%;">
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Email *</label>
+          <input type="email" name="email" required style="width:100%;">
+        </div>
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Phone</label>
+          <input type="text" name="phone" style="width:100%;">
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Interested in</label>
+          <select id="quoteRadio" name="radio_interest" style="width:100%; background:var(--bg2); border:1px solid var(--line); color:var(--text); padding:12px 14px; border-radius:8px; font-size:.9rem;">
+            <option value="Hytera PNC360S + Horizon Dispatch">Hytera PNC360S + Horizon Dispatch</option>
+            <option value="Motorola WAVE PTX">Motorola WAVE PTX</option>
+            <option value="Not sure yet">Not sure yet — need a recommendation</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">Team size</label>
+          <select name="team_size" style="width:100%; background:var(--bg2); border:1px solid var(--line); color:var(--text); padding:12px 14px; border-radius:8px; font-size:.9rem;">
+            <option>1–5</option>
+            <option>6–20</option>
+            <option>21–50</option>
+            <option>50+</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label style="font-size:.82rem; color:var(--sub); display:block; margin-bottom:6px;">What are you trying to solve?</label>
+        <textarea name="message" rows="4" placeholder="e.g. dispatching 12 delivery drivers, need live GPS tracking" style="width:100%; resize:vertical;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="justify-self:start;">Request a Quote</button>
+      <p style="font-size:.76rem; color:var(--sub); margin:0;">We'll route your request to the right vendor contact and follow up by email — no obligation.</p>
+    </form>
+  </div>
+</section>
+
+<section id="hobbyist">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Radio Hobbyists</span>
+      <h2>POC for the radio enthusiast</h2>
+      <p>Already licensed? Into shortwave, GMRS, or ham? POC radios aren't a replacement for RF — they're a powerful addition to your kit. Here's how hobbyists are using them.</p>
+    </div>
+    <div class="explain-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="explain-card">
+        <div class="ic">🏔️</div>
+        <h3>SOTA &amp; POTA backup</h3>
+        <p>Use a PoC radio as your nationwide coordination layer while you operate HF or VHF on a summit or park. No repeater needed — your base camp can reach you anywhere there's cell signal.</p>
+      </div>
+      <div class="explain-card">
+        <div class="ic">📡</div>
+        <h3>Zello for ham nets</h3>
+        <p>Many ham clubs run linked Zello nets alongside their repeater systems. A PoC radio lets you participate from anywhere in the country without finding a linked repeater or setting up EchoLink.</p>
+      </div>
+      <div class="explain-card">
+        <div class="ic">🌐</div>
+        <h3>SW + POC in one device</h3>
+        <p>The ChoYong WT2 pairs a TEF6686-chip shortwave receiver with full PoC capability. One handheld covers DXing, internet radio, and nationwide PTT — the hobbyist crossover device the market was missing.</p>
+        <a href="./reviews/choyong-wt2-review.html" style="display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;">Read our hands-on review →</a>
+      </div>
+      <div class="explain-card">
+        <div class="ic">🛡️</div>
+        <h3>Prepper dual-mode</h3>
+        <p>For emergency preparedness, pair a PoC radio (nationwide range while towers stand) with a GMRS or ham radio (works grid-down). The GLOBAL-PTT 5288 Plus does both in one device.</p>
+        <a href="./reviews/global-ptt-5288-plus-review.html" style="display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;">Read the review →</a>
+      </div>
+      <div class="explain-card">
+        <div class="ic">🔁</div>
+        <h3>POC vs linked repeaters</h3>
+        <p>A linked repeater system covers a region. A PoC radio covers the country — no trustee, no maintenance, no dependency on someone else's infrastructure staying up.</p>
+        <a href="./guides/poc-radio-for-hobbyists.html" style="display:inline-block;margin-top:10px;font-size:.82rem;font-weight:700;">Full hobbyist guide →</a>
+      </div>
+      <div class="explain-card">
+        <div class="ic">📻</div>
+        <h3>From our sister sites</h3>
+        <p>We cover the full radio hobby across our network — shortwave listening, CB, GMRS, and now POC. If you found us through one of our other sites, welcome.</p>
+        <div style="margin-top:10px; display:flex; flex-direction:column; gap:6px;">
+          <a href="https://hqshortwaveradio.com" target="_blank" rel="noopener" style="font-size:.82rem; font-weight:700;">Shortwave Radio HQ →</a>
+          <a href="https://cbradiohq.com" target="_blank" rel="noopener" style="font-size:.82rem; font-weight:700;">CB Radio HQ →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="./guides/poc-radio-for-hobbyists.html" class="btn btn-primary">Read the full hobbyist guide</a>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Own a POC radio? Tell us what you think.</h2>
+      <p>Real owner reviews shape our buying guide. Drop your model, use case, and how it's held up.</p>
+      <form class="inline" name="guestbook" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="guestbook">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="radio" placeholder="Radio model (e.g. Inrico T320)" required>
+        <input type="email" name="email" placeholder="Email (not published)" required>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid" style="grid-template-columns:2fr 1fr 1fr 1fr;">
+      <div>
+        <div class="logo" style="margin-bottom:10px;">📡 POC Radio HQ</div>
+        <p>Independent reviews, testing, and buying guides for Push-to-Talk over Cellular radios. Not affiliated with any manufacturer.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#picker">Radio Picker</a></li>
+          <li><a href="#guide">Buying Guide</a></li>
+          <li><a href="#hobbyist">Hobbyists</a></li>
+          <li><a href="#cost">Cost Calculator</a></li>
+          <li><a href="#compare">Compare</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#quote">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Radio Sites</h4>
+        <ul>
+          <li><a href="https://hqshortwaveradio.com" target="_blank" rel="noopener">Shortwave Radio HQ</a></li>
+          <li><a href="https://cbradiohq.com" target="_blank" rel="noopener">CB Radio HQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="./about.html">About / Why Trust Us</a></li>
+          <li><a href="#">Affiliate Disclosure</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="mailto:hqshortwaveradio@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 POC Radio HQ. All rights reserved.</span>
+      <span>As an Amazon Associate we earn from qualifying purchases.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+      if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+
+  // Waveform bars
+  const wave = document.getElementById('wave');
+  const barCount = 28;
+  for(let i=0;i<barCount;i++){ const b=document.createElement('i'); b.style.height='4px'; wave.appendChild(b); }
+  const bars = wave.querySelectorAll('i');
+  let waveInterval = null;
+
+  function randomizeWave(){
+    bars.forEach(b=>{
+      const h = 4 + Math.random()*24;
+      b.style.height = h+'px';
+      b.style.opacity = .4 + Math.random()*.6;
+    });
+  }
+  function resetWave(){
+    bars.forEach(b=>{ b.style.height='4px'; b.style.opacity=.35; });
+  }
+
+  // PTT button
+  const ptt = document.getElementById('pttBtn');
+  const rangeLabel = document.getElementById('rangeLabel');
+  function startTalk(e){
+    e.preventDefault();
+    ptt.classList.add('active');
+    ptt.textContent = 'TRANSMITTING…';
+    rangeLabel.textContent = 'Range: Nationwide 📡';
+    waveInterval = setInterval(randomizeWave, 90);
+  }
+  function stopTalk(){
+    ptt.classList.remove('active');
+    ptt.textContent = 'HOLD TO TALK';
+    rangeLabel.textContent = 'Range: Nationwide';
+    clearInterval(waveInterval);
+    resetWave();
+  }
+  ptt.addEventListener('mousedown', startTalk);
+  ptt.addEventListener('touchstart', startTalk, {passive:false});
+  ptt.addEventListener('mouseup', stopTalk);
+  ptt.addEventListener('mouseleave', stopTalk);
+  ptt.addEventListener('touchend', stopTalk);
+
+  // ── Radio Picker ──
+  const pickerData = {
+    personal_low_no:  { name:'TIDRADIO TD-M2 Pro', slug:'tidradio-td-m2-pro-review', icon:'🔀', why:'Cheapest POC entry point. PoC + FRS backup for when you\'re near your group with no signal. $9.99/yr after the free first year — no surprises.', link:'https://www.amazon.com/s?k=TIDRADIO%20TD-M2%20Pro%20POC%20radio&tag=pocradio-20' },
+    personal_low_yes: { name:'TIDRADIO TD-M2 Pro', slug:'tidradio-td-m2-pro-review', icon:'🔀', why:'At this budget the M2 Pro is the only dual-mode option. FRS backup is short-range, but it keeps you talking when signal drops.', link:'https://www.amazon.com/s?k=TIDRADIO%20TD-M2%20Pro%20POC%20radio&tag=pocradio-20' },
+    personal_mid_no:  { name:'Inrico T320', slug:'inrico-t320-review', icon:'📻', why:'The safest first PoC purchase. Runs Zello natively, biggest accessory ecosystem, most community support. No analog backup needed if you have cell coverage.', link:'https://www.amazon.com/s?k=Inrico%20T320%20POC%20radio&tag=pocradio-20' },
+    personal_mid_yes: { name:'GLOBAL-PTT 5288 Plus', slug:'global-ptt-5288-plus-review', icon:'⛰️', why:'Only radio in this guide with a real 8W analog VHF/UHF fallback. Cellular daily, analog when towers are down.', link:'https://www.amazon.com/s?k=GLOBAL-PTT%205288%20Plus%20POC%20radio&tag=pocradio-20' },
+    personal_high_no: { name:'Inrico T320', slug:'inrico-t320-review', icon:'📻', why:'At this budget you could buy two T320s — one for home, one for your vehicle. Deepest ecosystem and proven reliability.', link:'https://www.amazon.com/s?k=Inrico%20T320%20POC%20radio&tag=pocradio-20' },
+    personal_high_yes:{ name:'GLOBAL-PTT 5288 Plus', slug:'global-ptt-5288-plus-review', icon:'⛰️', why:'8W analog fallback is the real differentiator for serious preparedness. Budget allows adding accessories and a spare battery.', link:'https://www.amazon.com/s?k=GLOBAL-PTT%205288%20Plus%20POC%20radio&tag=pocradio-20' },
+    fleet_low_no:     { name:'TIDRADIO TD-M2 Pro', slug:'tidradio-td-m2-pro-review', icon:'🔀', why:'Lowest per-unit cost for a fleet rollout. Odmaster app manages groups up to 200 members. Clear subscription pricing.', link:'https://www.amazon.com/s?k=TIDRADIO%20TD-M2%20Pro%20POC%20radio&tag=pocradio-20' },
+    fleet_low_yes:    { name:'TIDRADIO TD-M2 Pro', slug:'tidradio-td-m2-pro-review', icon:'🔀', why:'Only dual-mode option under $100. FRS backup is short-range but keeps your team connected in parking garages and dead zones.', link:'https://www.amazon.com/s?k=TIDRADIO%20TD-M2%20Pro%20POC%20radio&tag=pocradio-20' },
+    fleet_mid_no:     { name:'Hytera PNC360S', slug:'hytera-pnc360s-review', icon:'🚚', why:'Horizon dispatch platform gives you a live GPS map of every radio. The dispatch view is what makes this a fleet tool, not just a walkie-talkie.', link:'#quote' },
+    fleet_mid_yes:    { name:'GLOBAL-PTT 5288 Plus', slug:'global-ptt-5288-plus-review', icon:'⛰️', why:'Dual-mode for field crews that operate in mixed-coverage areas. No dispatch platform, but the analog fallback matters more than GPS tracking if your crew works off-grid.', link:'https://www.amazon.com/s?k=GLOBAL-PTT%205288%20Plus%20POC%20radio&tag=pocradio-20' },
+    fleet_high_no:    { name:'Motorola WAVE PTX', slug:'motorola-wave-ptx-review', icon:'🏢', why:'Enterprise-grade admin console, bridges into existing LMR systems, runs on phones or dedicated hardware. Built for 50+ user deployments.', link:'#quote' },
+    fleet_high_yes:   { name:'Motorola WAVE PTX', slug:'motorola-wave-ptx-review', icon:'🏢', why:'At enterprise budget, WAVE PTX with LMR interop covers both cellular and legacy radio infrastructure in one platform.', link:'#quote' },
+    hobby_low_no:     { name:'AnySecu 3G-PPT', slug:'anysecu-3g-ppt-review', icon:'📱', why:'Simple, cheap, button-driven — good for experimenting with POC without a big commitment. Check network compatibility first.', link:'https://www.amazon.com/s?k=AnySecu%203G-PPT%20POC%20radio&tag=pocradio-20' },
+    hobby_low_yes:    { name:'TIDRADIO TD-M2 Pro', slug:'tidradio-td-m2-pro-review', icon:'🔀', why:'Budget dual-mode with FRS backup. Good for tinkering with both POC and analog in one device.', link:'https://www.amazon.com/s?k=TIDRADIO%20TD-M2%20Pro%20POC%20radio&tag=pocradio-20' },
+    hobby_mid_no:     { name:'ChoYong WT2', slug:'choyong-wt2-review', icon:'🎛️', why:'The hobbyist\'s dream: PoC + analog UHF + TEF6686-chip shortwave/AM/FM receiver + 50,000 internet radio stations in one handheld. Nothing else in this category comes close for feature density.', link:'https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20' },
+    hobby_mid_yes:    { name:'ChoYong WT2', slug:'choyong-wt2-review', icon:'🎛️', why:'PoC for nationwide reach, 2W analog UHF for local backup, plus a proper shortwave receiver. The most capability per dollar for a radio enthusiast.', link:'https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20' },
+    hobby_high_no:    { name:'ChoYong WT2', slug:'choyong-wt2-review', icon:'🎛️', why:'Even at higher budgets, nothing else packs PoC + analog + SW/MW/FM + internet radio into one handheld. Spend the leftover budget on an external antenna or a second unit.', link:'https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20' },
+    hobby_high_yes:   { name:'ChoYong WT2', slug:'choyong-wt2-review', icon:'🎛️', why:'PoC + 2W analog UHF + TEF6686 receiver. The analog side is only 2W/~5km — for serious off-grid RF you\'d pair this with a GMRS handheld, but for a single do-everything device it\'s unmatched.', link:'https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20' }
+  };
+  let pickerAnswers = {};
+  const dots = document.querySelectorAll('.p-dot');
+  const steps = document.querySelectorAll('.p-step');
+
+  function pickerSelect(btn) {
+    const key = btn.dataset.key;
+    const val = btn.dataset.val;
+    pickerAnswers[key] = val;
+    btn.parentElement.querySelectorAll('.p-opt').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const currentStep = parseInt(btn.closest('.p-step').dataset.step);
+    dots[currentStep - 1].classList.remove('active');
+    dots[currentStep - 1].classList.add('done');
+    setTimeout(() => {
+      if (currentStep < 3) {
+        steps[currentStep - 1].style.display = 'none';
+        steps[currentStep].style.display = '';
+        dots[currentStep].classList.add('active');
+      } else {
+        showPickerResult();
+      }
+    }, 200);
+  }
+
+  function showPickerResult() {
+    steps.forEach(s => s.style.display = 'none');
+    const k = pickerAnswers.use + '_' + pickerAnswers.budget + '_' + pickerAnswers.offline;
+    const r = pickerData[k];
+    const isQuote = r.link === '#quote';
+    document.getElementById('pickerResult').style.display = '';
+    document.getElementById('pickerResult').innerHTML = `
+      <p style="color:var(--good); font-weight:700; font-size:.85rem; margin-bottom:8px;">✓ YOUR MATCH</p>
+      <div class="p-result-card">
+        <h3><a href="./reviews/${r.slug}.html">${r.icon} ${r.name}</a></h3>
+        <p class="why">${r.why}</p>
+        <a href="${r.link}" class="btn btn-primary" ${isQuote ? '' : 'rel="sponsored nofollow"'}>${isQuote ? 'Request a Quote' : 'Check Price on Amazon'}</a>
+        ${!isQuote ? '<span style="font-size:.72rem; color:var(--sub); margin-left:8px;">Affiliate link</span>' : ''}
+      </div>
+      <button class="p-restart" onclick="resetPicker()">↩ Start over</button>
+    `;
+    document.getElementById('pickerProgress').style.display = 'none';
+  }
+
+  function resetPicker() {
+    pickerAnswers = {};
+    steps.forEach((s, i) => { s.style.display = i === 0 ? '' : 'none'; s.querySelectorAll('.p-opt').forEach(b => b.classList.remove('selected')); });
+    dots.forEach((d, i) => { d.classList.remove('done','active'); if (i === 0) d.classList.add('active'); });
+    document.getElementById('pickerResult').style.display = 'none';
+    document.getElementById('pickerProgress').style.display = 'flex';
+  }
+
+  // ── Cost Calculator ──
+  const radios = {
+    inrico:    { unit: 200, simY1: 0, simY2: 60, dispatch: 0, note: 'SIM bundled year one (carrier-dependent). Year 2+ estimate ~$5/mo. No dispatch fee — uses third-party apps (Zello Work is ~$6/mo if desired, not included here).' },
+    anysecu:   { unit: 105, simY1: 0, simY2: 60, dispatch: 0, note: 'Bundled SIM year one. Year 2+ SIM ~$5/mo estimate. No dispatch platform.' },
+    tidradio:  { unit: 65,  simY1: 0, simY2: 10, dispatch: 0, note: 'First year SIM free. Year 2+ published at $9.99/yr ($0.83/mo). Managed via free Odmaster app.' },
+    choyong:   { unit: 120, simY1: 0, simY2: 60, dispatch: 0, note: 'Bundled data plan varies by region. Year 2+ SIM ~$5/mo estimate. No dispatch platform fee.' },
+    globalptt: { unit: 170, simY1: 0, simY2: 0,  dispatch: 0, note: 'Pre-installed SIM with no published recurring fee. Dual-mode: PoC + analog VHF/UHF fallback.' },
+    hytera:    { unit: 300, simY1: 0, simY2: 0,  dispatch: 180, note: 'Horizon dispatch platform ~$15/user/mo. SIM/data typically bundled into the dispatch seat fee. Hardware cost is estimate — request a formal quote.' },
+    motorola:  { unit: 400, simY1: 0, simY2: 0,  dispatch: 300, note: 'WAVE PTX platform ~$25/user/mo. Enterprise pricing varies — this is a typical mid-market estimate. Request a formal quote for accurate numbers.' }
+  };
+
+  function calcCost() {
+    const sel = document.getElementById('calcRadio').value;
+    const team = Math.max(1, parseInt(document.getElementById('calcTeam').value) || 1);
+    const r = radios[sel];
+    const hw = r.unit * team;
+    const y1 = hw + (r.simY1 * team) + (r.dispatch * team);
+    const y2 = (r.simY2 * team) + (r.dispatch * team);
+    const totalY1 = y1;
+    const totalY2 = y1 + y2;
+    const perUserMo = Math.round((totalY1 / team / 12) * 100) / 100;
+    document.getElementById('cHardware').textContent = '$' + hw.toLocaleString();
+    document.getElementById('cYear1').textContent = '$' + totalY1.toLocaleString();
+    document.getElementById('cYear2').textContent = '$' + totalY2.toLocaleString();
+    document.getElementById('cPerUser').textContent = '$' + perUserMo.toFixed(2);
+    document.getElementById('calcNote').textContent = r.note;
+  }
+  calcCost();
+</script>
+
+</body>
+</html>
