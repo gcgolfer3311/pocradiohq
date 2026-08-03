@@ -954,5 +954,20 @@
   calcCost();
 </script>
 
-</body>
+<section id="newsletter">
+<div class="wrap" style="max-width:640px;">
+<div class="cta-band">
+<h2>📬 Get new reviews in your inbox</h2>
+<p>No spam — just new POC radio reviews, buying guide updates, and app news when they drop. Unsubscribe anytime.</p>
+<form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:grid; gap:12px; max-width:480px; margin:0 auto;">
+<input type="hidden" name="form-name" value="newsletter">
+<p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+<div style="display:grid; grid-template-columns:1fr auto; gap:10px;">
+<input type="email" name="email" placeholder="Your email address" required style="width:100%;">
+<button type="submit" class="btn btn-primary">Subscribe</button>
+</div>
+<p style="font-size:.74rem; color:var(--sub); margin:0; text-align:center;">We use Netlify Forms — your email is never shared or sold.</p>
+</form>
+</div>
+</div></body>
 </html>
