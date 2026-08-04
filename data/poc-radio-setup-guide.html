@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POC Radio Setup Guide (2026): I Just Bought One, Now What? | POC Radio HQ</title>
+<meta name="description" content="Just bought a Push-to-Talk over Cellular radio? Step-by-step setup guide — SIM activation, app pairing, channel setup, range testing, and troubleshooting for every major POC radio.">
+<link rel="canonical" href="https://pocradiohq.com/guides/poc-radio-setup-guide.html">
+<meta property="og:title" content="POC Radio Setup Guide (2026) | POC Radio HQ">
+<meta property="og:description" content="I just bought a POC radio, now what? The complete setup walkthrough — activation, app pairing, channels, range testing, and common fixes.">
+<meta property="og:url" content="https://pocradiohq.com/guides/poc-radio-setup-guide.html">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://pocradiohq.com/"},
+    {"@type":"ListItem","position":2,"name":"Guides","item":"https://pocradiohq.com/guides/"},
+    {"@type":"ListItem","position":3,"name":"Setup Guide","item":"https://pocradiohq.com/guides/poc-radio-setup-guide.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to set up a POC (Push-to-Talk over Cellular) radio",
+  "step": [
+    {"@type":"HowToStep","name":"Charge and power on","text":"Fully charge the radio before first use, then power on and confirm it finds a cellular or WiFi connection."},
+    {"@type":"HowToStep","name":"Activate the SIM","text":"Most radios ship with a pre-activated data SIM. Confirm activation status in the companion app or on-device menu."},
+    {"@type":"HowToStep","name":"Install and pair the app","text":"Install the correct app for your radio model (Zello, Odmaster, Horizon, WAVE PTX, or none if the radio is self-contained) and pair the device."},
+    {"@type":"HowToStep","name":"Create or join a channel","text":"Set up your first talk channel or group and invite the people you'll be communicating with."},
+    {"@type":"HowToStep","name":"Test range and audio","text":"Do a short test call to confirm audio clarity and PTT button response before relying on the radio."}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to activate a SIM card in my POC radio?",
+      "acceptedAnswer": {"@type":"Answer","text":"Most consumer POC radios ship with a pre-activated data SIM already installed — you don't need to buy or activate anything separately for the first year. Check your radio's app or on-screen status bar for a signal/SIM indicator to confirm it's active."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my POC radio connect after unboxing?",
+      "acceptedAnswer": {"@type":"Answer","text":"The most common cause is a weak WiFi or cellular signal during first-time activation. Move near a window or outdoors, power cycle the radio, and give it 2-3 minutes to register on the network. If it still won't connect, confirm you're on 2.4GHz WiFi rather than 5GHz — several POC radios only support 2.4GHz."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a POC radio without downloading an app?",
+      "acceptedAnswer": {"@type":"Answer","text":"Yes, for radios with a self-contained POC system — the ChoYong WT2, Hytera PNC360S, and Motorola WAVE PTX hardware all manage channels on-device or through the manufacturer's own network without a separate consumer app. Android-based radios like the Inrico T320 and TIDRADIO TD-M2 Pro do need an app (Zello or Odmaster) to create and manage channels."}
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add someone to my POC radio channel?",
+      "acceptedAnswer": {"@type":"Answer","text":"In app-based systems (Zello, Odmaster), send a channel invite or share a join code from within the app — the other person needs the same app installed. On enterprise platforms (Horizon, WAVE PTX), an admin adds users through the web dispatch console."}
+    }
+  ]
+}
+</script>
+<style>
+  .step-list{counter-reset:step;margin-top:18px;}
+  .step-card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 20px 20px 62px;margin-bottom:14px;}
+  .step-card::before{counter-increment:step;content:counter(step);position:absolute;left:18px;top:20px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:800;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
+  .step-title{font-weight:800;font-size:1.02rem;margin-bottom:6px;}
+  .step-body{color:var(--sub);font-size:.9rem;}
+  .radio-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
+  .radio-tab{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:700;cursor:pointer;}
+  .radio-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;}
+  .radio-panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .radio-panel.active{display:block;}
+  .fix-item{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px;}
+  .fix-icon{font-size:1.3rem;}
+  .checklist{list-style:none;margin-top:14px;padding:0;}
+  .checklist li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--sub);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{content:"☐";color:var(--accent);font-size:1rem;flex-shrink:0;}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Buying Guide</a>
+  </div>
+</header>
+
+<div class="wrap" style="max-width:860px;">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#guide">Guides</a> / Setup Guide</div>
+
+  <div class="review-hero">
+    <span class="badge">Setup Guide · 2026</span>
+    <h1>🔋 I just bought a POC radio. Now what?</h1>
+    <div class="cat">Activation · App Setup · Channels · Range Testing · Troubleshooting</div>
+    <p style="max-width:65ch;">The radio's out of the box, it's charging, and you have no idea what to do next. This is the walkthrough — five steps that get any POC radio talking, plus model-specific setup notes and fixes for the problems people actually run into.</p>
+  </div>
+
+  <section class="block">
+    <h2>The 5-step setup, start to finish</h2>
+    <div class="step-list">
+      <div class="step-card">
+        <div class="step-title">Charge fully before first power-on</div>
+        <div class="step-body">Give it a full charge — most POC radios ship at a partial charge and the first network registration draws more power than normal standby. A full charge also avoids a mid-setup shutdown.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-title">Power on and confirm SIM activation</div>
+        <div class="step-body">Power on somewhere with strong signal — near a window or outdoors, not a basement. Most radios ship with a pre-activated data SIM; look for a signal bar or "connected" indicator on the screen or in the app within the first 2–3 minutes. No signal after 5 minutes usually means a SIM or activation issue — see troubleshooting below.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-title">Install and pair the correct app</div>
+        <div class="step-body">Not every radio needs one. Check the model-specific notes below — Android-based radios (Inrico, AnySecu) need Zello, TIDRADIO needs Odmaster, and self-contained radios (ChoYong, Hytera, Motorola) manage channels without a separate app.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-title">Create your first channel and add your people</div>
+        <div class="step-body">Set up one channel, name it something you'll remember, and send join invites or share the channel code with whoever you're communicating with. Start with one channel — you can always add more once the basics work.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-title">Test before you rely on it</div>
+        <div class="step-body">Do a real test call with the other person before a trip, shift, or event — not the day of. Confirm audio is clear both directions, the PTT button responds without lag, and battery holds up over a couple hours of standby.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Setup notes by radio model</h2>
+    <p style="color:var(--sub);font-size:.9rem;">Click your radio for model-specific setup details.</p>
+    <div class="radio-tabs">
+      <div class="radio-tab active" data-panel="inrico">Inrico T320</div>
+      <div class="radio-tab" data-panel="tidradio">TIDRADIO TD-M2 Pro</div>
+      <div class="radio-tab" data-panel="choyong">ChoYong WT2</div>
+      <div class="radio-tab" data-panel="anysecu">AnySecu 3G-PPT</div>
+      <div class="radio-tab" data-panel="hytera">Hytera PNC360S</div>
+      <div class="radio-tab" data-panel="motorola">Motorola WAVE PTX</div>
+    </div>
+
+    <div class="radio-panel active" id="panel-inrico">
+      <p style="color:var(--sub);font-size:.9rem;">Android-based, so it runs any PTT app. Install Zello from the pre-loaded app store or sideload it, sign in, and map the physical PTT side button in Zello's settings under Hardware Button. Once mapped, the button works system-wide, even with the screen off. <a href="../reviews/inrico-t320-review.html">Full review →</a></p>
+    </div>
+    <div class="radio-panel" id="panel-tidradio">
+      <p style="color:var(--sub);font-size:.9rem;">Comes with Odmaster pre-installed. Sign in with the QR code or account shown on first boot, confirm the SIM shows active in the app's status screen, and create a group — up to 200 members per group. The analog FRS/PMR446 side is a separate physical channel dial, no app needed for that part. <a href="../reviews/tidradio-td-m2-pro-review.html">Full review →</a></p>
+    </div>
+    <div class="radio-panel" id="panel-choyong">
+      <p style="color:var(--sub);font-size:.9rem;">No app — POC channels are set up directly on the device menu. Critical tip: pair it on 2.4GHz WiFi, not 5GHz — the WT2 doesn't support 5GHz and will fail to connect silently if that's the only network available. The analog UHF and shortwave/internet radio functions are separate modes, switched from the main menu. <a href="../reviews/choyong-wt2-review.html">Full review →</a></p>
+    </div>
+    <div class="radio-panel" id="panel-anysecu">
+      <p style="color:var(--sub);font-size:.9rem;">Android-based like the Inrico — same Zello setup applies. The simplified UI means fewer settings menus to dig through; the PTT button is usually auto-detected without manual mapping.</p>
+    </div>
+    <div class="radio-panel" id="panel-hytera">
+      <p style="color:var(--sub);font-size:.9rem;">Managed through the Hytera Horizon web dispatch console, not a phone app on the radio side. An admin creates the account, adds the radio by its device ID, and assigns it to a talkgroup from the browser console. Individual users don't self-onboard — it's admin-provisioned. <a href="../reviews/hytera-pnc360s-review.html">Full review →</a></p>
+    </div>
+    <div class="radio-panel" id="panel-motorola">
+      <p style="color:var(--sub);font-size:.9rem;">WAVE PTX works on dedicated hardware, ruggedized Android devices, or the WAVE PTX phone app — setup path depends which you have. All three connect through the same enterprise admin console, where IT provisions the user and assigns talkgroups before the device is handed out. <a href="../reviews/motorola-wave-ptx-review.html">Full review →</a></p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Common first-time problems, fixed</h2>
+    <div class="fix-item">
+      <div class="fix-icon">📶</div>
+      <div><strong>Radio won't get a signal after power-on.</strong> <span style="color:var(--sub);">Move near a window or outside, power cycle, and wait a full 3 minutes — first-time network registration is slower than normal reconnects. If it's WiFi-based, confirm you're on 2.4GHz, not 5GHz.</span></div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-icon">🔇</div>
+      <div><strong>Other person can't hear you, or audio cuts out.</strong> <span style="color:var(--sub);">Usually a weak connection on one end, not a hardware fault — check both radios show full signal bars before assuming it's broken. Background wind noise on handhelds is normal; cup your hand near the mic in windy conditions.</span></div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-icon">🔘</div>
+      <div><strong>PTT button doesn't do anything.</strong> <span style="color:var(--sub);">On Android-based radios, this almost always means the button isn't mapped in the app yet — check Zello's Hardware Button settings. On self-contained radios, confirm you're actually on a channel and not still in a menu screen.</span></div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-icon">👥</div>
+      <div><strong>Can't find or add the other person to your channel.</strong> <span style="color:var(--sub);">Both people need the exact same app and, for private channels, the exact same channel name or invite code — small typos create a separate channel that looks identical.</span></div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-icon">🔋</div>
+      <div><strong>Battery drains much faster than expected.</strong> <span style="color:var(--sub);">Standby on cellular data draws more than WiFi — if you're near WiFi most of the day, connect to it instead of relying on cellular. Screen brightness and always-on displays are the other big drains on Android-based models.</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Before you rely on it — a quick checklist</h2>
+    <ul class="checklist">
+      <li>Full charge confirmed, not just "charging" light on</li>
+      <li>Signal/SIM status shows connected, not searching</li>
+      <li>App installed and signed in (if your model needs one)</li>
+      <li>PTT button tested and mapped correctly</li>
+      <li>Test call completed with the other person — both directions</li>
+      <li>Channel name and invite code written down somewhere you won't lose it</li>
+    </ul>
+  </section>
+
+  <section class="block" style="border-bottom:none;">
+    <h2>Related</h2>
+    <div class="related">
+      <a href="best-poc-apps.html">📲 Best POC apps — full breakdown</a>
+      <a href="../reviews/inrico-t320-review.html">📻 Inrico T320 review</a>
+      <a href="../reviews/tidradio-td-m2-pro-review.html">🔀 TIDRADIO TD-M2 Pro review</a>
+      <a href="../index.html#picker">🎯 Radio Picker Quiz</a>
+      <a href="../index.html#compare">📊 POC vs GMRS vs Ham vs CB</a>
+    </div>
+  </section>
+</div>
+
+<footer>© 2026 POC Radio HQ. As an Amazon Associate we earn from qualifying purchases. <a href="../index.html">Back to home</a></footer>
+
+<script>
+  document.querySelectorAll('.radio-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.radio-tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.radio-panel').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-'+tab.dataset.panel).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
