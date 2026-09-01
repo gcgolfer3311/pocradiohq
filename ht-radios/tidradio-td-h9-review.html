@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIDRADIO TD-H9 Review (2026): Hands-On HT Testing — POC Radio HQ</title>
+<meta name="description" content="Full hands-on review of the TIDRADIO TD-H9 handheld ham radio. Real transmit power testing (2m and 70cm), APRS/GPS, programming, and an honest look at pros and cons.">
+<link rel="canonical" href="https://pocradiohq.com/ht-radios/tidradio-td-h9-review.html">
+<meta property="og:title" content="TIDRADIO TD-H9 Review (2026) — Hands-On | POC Radio HQ">
+<meta property="og:description" content="Full hands-on review of the TIDRADIO TD-H9. 10W tri-band, APRS/GPS, Bluetooth programming — real transmit power testing and an honest verdict.">
+<meta property="og:url" content="https://pocradiohq.com/ht-radios/tidradio-td-h9-review.html">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "TIDRADIO TD-H9",
+  "description": "10W tri-band handheld ham radio with GPS, APRS, Bluetooth programming, SMS messaging, wireless cloning, and real-time spectrum analysis.",
+  "brand": { "@type": "Brand", "name": "TIDRADIO" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": 69,
+    "highPrice": 140
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.3",
+    "reviewCount": "1"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": { "@type": "Rating", "ratingValue": "4.3", "bestRating": "5" },
+    "author": { "@type": "Organization", "name": "POC Radio HQ" },
+    "datePublished": "2026-09-01",
+    "reviewBody": "The TIDRADIO TD-H9 packs 10W tri-band transmit, GPS/APRS, Bluetooth programming, and a spectrum analyzer into a budget handheld. Real-world power testing measured 7.8W on 2m and 6.9W on 70cm — short of the advertised 10W ceiling but still strong output for the price. Programming is genuinely easy via the ODMaster app, and feature density is outstanding for the cost, with the main trade-offs being APRS setup complexity and reports of a squeal issue some users have run into."
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://pocradiohq.com/"},
+    {"@type":"ListItem","position":2,"name":"HT Radios","item":"https://pocradiohq.com/#ht-radios"},
+    {"@type":"ListItem","position":3,"name":"TIDRADIO TD-H9 Review","item":"https://pocradiohq.com/ht-radios/tidradio-td-h9-review.html"}
+  ]
+}
+</script>
+<style>
+  .score-row{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;}
+  .score-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;text-align:center;min-width:90px;}
+  .score-box .label{font-size:.7rem;color:var(--sub);text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px;}
+  .score-box .val{font-size:1.4rem;font-weight:800;color:var(--good);}
+  .score-box .val.warn{color:var(--accent2);}
+  .spec-table{width:100%;border-collapse:collapse;font-size:.88rem;}
+  .spec-table td{padding:10px 14px;border-bottom:1px solid var(--line);}
+  .spec-table td:first-child{color:var(--sub);width:40%;}
+  .spec-table tr:last-child td{border-bottom:none;}
+  .tip{background:rgba(61,220,151,.08);border:1px solid rgba(61,220,151,.25);border-radius:8px;padding:12px 16px;font-size:.88rem;margin:16px 0;}
+  .tip strong{color:var(--good);}
+  .warning{background:rgba(255,106,26,.08);border:1px solid rgba(255,106,26,.25);border-radius:8px;padding:12px 16px;font-size:.88rem;margin:16px 0;}
+  .warning strong{color:var(--accent2);}
+  .measured-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:16px 0;}
+  .measured-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);}
+  .measured-row:last-child{border-bottom:none;}
+  .measured-row .band{color:var(--sub);font-size:.85rem;}
+  .measured-row .watts{font-size:1.15rem;font-weight:800;color:var(--good);}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QHPFB16VF4');
+</script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html#ht-radios" class="btn" style="padding:8px 16px;font-size:.85rem;">HT Radio Reviews</a>
+  </div>
+</header>
 
+<div class="wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#ht-radios">HT Radios</a> / TIDRADIO TD-H9 Review</div>
+
+  <div class="review-hero">
+    <span class="badge">Best Budget Feature Set <span style="background:rgba(61,220,151,.2);color:var(--good);padding:3px 8px;border-radius:4px;font-size:.8em;">HANDS-ON TESTED</span></span>
+    <h1>📻 TIDRADIO TD-H9 Review (2026)</h1>
+    <div class="cat">Handheld HT · Tri-Band · GPS/APRS · Bluetooth Programming</div>
+    <div class="rating-row">
+      <span class="stars">★★★★½</span>
+      <span class="rating-num">4.3 / 5</span>
+      <span class="rating-count">Hands-on tested · POC Radio HQ</span>
+    </div>
+
+    <div style="margin:20px 0; border-radius:14px; overflow:hidden; border:1px solid var(--line); max-width:480px;">
+      <img src="../images/tidradio_td_h9_pic.jpg" alt="Michael from POC Radio HQ holding the TIDRADIO TD-H9 handheld ham radio, showing the color display tuned to 145.41000 MHz" style="width:100%; display:block;">
+      <div style="padding:10px 14px; background:var(--card); font-size:.78rem; color:var(--sub);">TIDRADIO TD-H9 — hands-on review unit tested by POC Radio HQ.</div>
+    </div>
+
+    <p style="max-width:65ch;">The TD-H9 is TIDRADIO's flagship budget handheld — a tri-band HT that packs GPS, APRS, Bluetooth programming, SMS messaging, wireless cloning, and a real-time spectrum analyzer into a sub-$140 radio. This is our first HT/ham radio review on the site, and we put it through real transmit power testing, programming, and everyday handling to see if the spec sheet holds up.</p>
+
+    <div class="score-row">
+      <div class="score-box"><div class="label">Feature Set</div><div class="val">9/10</div></div>
+      <div class="score-box"><div class="label">TX Power</div><div class="val">8/10</div></div>
+      <div class="score-box"><div class="label">Programming</div><div class="val">9/10</div></div>
+      <div class="score-box"><div class="label">Display</div><div class="val">8/10</div></div>
+      <div class="score-box"><div class="label">Build</div><div class="val warn">7/10</div></div>
+      <div class="score-box"><div class="label">Value for Price</div><div class="val">9/10</div></div>
+    </div>
+
+    <div class="price-box" style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin:20px 0;flex-wrap:wrap;gap:12px;">
+      <div><div style="font-size:.78rem;color:var(--sub);text-transform:uppercase;">Current Price</div><div class="price">~$70–140</div></div>
+      <a href="https://www.amazon.com/s?k=TIDRADIO+TD-H9&tag=pocradio-20" class="btn" rel="sponsored nofollow">Check Price on Amazon</a>
+    </div>
+    <p style="font-size:.76rem;color:var(--sub);">Affiliate link — we earn a small commission at no extra cost to you. Pricing varies by retailer and bundle (1-pack vs. 2-pack/4-pack).</p>
+  </div>
+
+  <section class="block">
+    <h2>Real transmit power — measured, not marketing</h2>
+    <p>TIDRADIO advertises 10W on the TD-H9, so we measured actual output on both bands rather than taking the spec sheet at face value.</p>
+    <div class="measured-box">
+      <div class="measured-row"><span class="band">2 Meter (VHF)</span><span class="watts">7.8W measured</span></div>
+      <div class="measured-row"><span class="band">70cm (UHF)</span><span class="watts">6.9W measured</span></div>
+    </div>
+    <p>Both bands came in below the advertised 10W ceiling — which isn't unusual for budget HTs, where the rated wattage often reflects a best-case, freshly-charged, ideal-conditions number rather than sustained real-world output. That said, 7.8W and 6.9W are still strong numbers for a radio in this price range — plenty of punch for most handheld use, simplex contacts, and repeater access, even if it doesn't fully hit the number on the box.</p>
+    <div class="tip"><strong>Context:</strong> For comparison, a lot of budget HTs in this class (Baofeng UV-5R territory) top out around 4–5W actual output. Even short of its own claimed 10W, the TD-H9's measured power still comfortably beats that tier.</div>
+  </section>
+
+  <section class="block">
+    <h2>Programming — genuinely easy</h2>
+    <p>This is one of the TD-H9's strongest points. Programming via the ODMaster app over Bluetooth is straightforward — channels, offsets, and settings go in without wrestling with tiny buttons or a confusing menu tree on the radio itself. For anyone who's suffered through programming a cheap HT by hand, this is a real quality-of-life upgrade, and it matches what multiple other hands-on reviewers online have also found: setup and channel programming is one of the least frustrating parts of owning this radio.</p>
+  </section>
+
+  <section class="block">
+    <h2>Feature set — where the TD-H9 earns its reputation</h2>
+    <p>For the price, the TD-H9 is genuinely one of the most feature-dense handhelds on the market right now. Tri-band transmit, built-in GPS with APRS beaconing, Bluetooth programming and audio, wireless cloning, SMS messaging, NOAA weather alerts, and a real-time spectrum analyzer are all packed into a radio that regularly sells for well under $150. A 2400mAh battery and a 1.77" color LCD round out the package — the screen is thin, sharp, and easy to read without the geometric distortion some cheaper displays show.</p>
+  </section>
+
+  <section class="block">
+    <h2>APRS — powerful but not plug-and-play</h2>
+    <p>GPS-sourced APRS beaconing is a legitimately rare feature at this price point — most competitors charge Yaesu-tier money for it. But APRS setup on the TD-H9 is more involved than the rest of the radio's programming experience; getting beaconing configured correctly takes more patience than the general channel programming does. Budget extra time here if APRS is a priority for you, not because it doesn't work, but because it's a genuinely more complex protocol layered onto an otherwise simple setup process.</p>
+  </section>
+
+  <section class="block">
+    <h2>Known issues worth knowing about</h2>
+    <p>A handful of TD-H9 owners have reported a squeal/feedback issue in certain conditions — this has come up in radio community discussions (including on Reddit's r/gmrs) as a known quirk some units exhibit. It doesn't appear to be universal, but it's a real reported issue worth being aware of rather than a fabricated complaint. Separately, the button/key coating has been reported to wear down with regular pocket carry over time — a cosmetic durability issue rather than a functional one, but worth knowing if you plan to carry this daily rather than keep it in a case.</p>
+    <div class="warning"><strong>Bottom line on issues:</strong> Neither of these is a dealbreaker for most buyers, but they're the kind of real-world caveats that don't show up on a spec sheet — exactly the sort of thing hands-on testing and community feedback surface that manufacturer marketing won't.</div>
+  </section>
+
+  <section class="block">
+    <h2>Full specifications</h2>
+    <table class="spec-table" style="background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;">
+      <tr><td>Transmit power (rated)</td><td>10W (2m/70cm)</td></tr>
+      <tr><td>Transmit power (measured)</td><td>7.8W on 2m, 6.9W on 70cm</td></tr>
+      <tr><td>Bands</td><td>Tri-band: 2m (VHF), 1.25m (220MHz), 70cm (UHF)</td></tr>
+      <tr><td>RX frequency range</td><td>76–108, 108–136, 136–174, 220–260, 350–390, 400–520 MHz</td></tr>
+      <tr><td>GPS/APRS</td><td>Built-in GPS, APRS beaconing and messaging</td></tr>
+      <tr><td>Programming</td><td>Bluetooth via ODMaster app, wireless cloning</td></tr>
+      <tr><td>Other features</td><td>SMS messaging, NOAA weather alerts, real-time spectrum analyzer, FM broadcast radio (87–108MHz), airband RX</td></tr>
+      <tr><td>Display</td><td>1.77" color LCD</td></tr>
+      <tr><td>Battery</td><td>2400mAh</td></tr>
+      <tr><td>CPU / storage</td><td>240MHz CPU, 120MB storage</td></tr>
+      <tr><td>Charging</td><td>USB-C</td></tr>
+      <tr><td>Price</td><td>~$70–140 depending on retailer/bundle</td></tr>
+    </table>
+  </section>
+
+  <section class="block">
+    <h2>Pros &amp; cons</h2>
+    <div class="pros-cons">
+      <div class="pros">
+        <h3>Pros</h3>
+        <ul>
+          <li>Outstanding feature density for the price — GPS/APRS, Bluetooth programming, spectrum analyzer, SMS, and more</li>
+          <li>Genuinely easy to program via the ODMaster app over Bluetooth</li>
+          <li>Strong real-world transmit power (7.8W on 2m, 6.9W on 70cm) even though it falls short of the advertised 10W</li>
+          <li>Sharp, easy-to-read 1.77" color LCD with no geometric distortion</li>
+          <li>Tri-band transmit and a wide RX frequency range, including airband and NOAA weather</li>
+          <li>Wireless cloning makes setting up multiple radios fast</li>
+          <li>Outstanding overall value — most of this feature set is normally reserved for far more expensive radios</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h3>Cons</h3>
+        <ul>
+          <li>Measured transmit power on both bands falls short of the advertised 10W rating</li>
+          <li>APRS setup is more complex than the rest of the radio's otherwise simple programming</li>
+          <li>Some users report a squeal/feedback issue in certain conditions (not universal, but a known reported quirk)</li>
+          <li>Button/key coating reportedly wears with regular pocket carry over time</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Who should buy the TIDRADIO TD-H9</h2>
+    <p><strong>Buy it if:</strong> You want the most feature-dense budget HT available — GPS/APRS, Bluetooth programming, and a spectrum analyzer at a price most competitors can't match — and you're comfortable putting in a bit of extra setup time for APRS specifically.</p>
+    <p><strong>Skip it if:</strong> You need guaranteed full 10W output for long-distance simplex or marginal repeater access, or you want the simplest possible out-of-box APRS experience with zero configuration.</p>
+  </section>
+
+  <section class="block">
+    <h2>Verdict</h2>
+    <div class="verdict-box">
+      <p>The TIDRADIO TD-H9 is, feature for feature, one of the best values in the budget HT space right now. GPS-sourced APRS beaconing alone is usually reserved for radios costing two or three times as much, and TIDRADIO builds it into a sub-$140 handheld alongside Bluetooth programming, wireless cloning, SMS messaging, NOAA weather alerts, and a genuinely useful real-time spectrum analyzer. Programming this radio is where it really separates itself from the pack of similarly-priced competitors — the ODMaster app over Bluetooth makes channel setup fast and painless, without the fussy button-mashing that makes cheaper HTs miserable to configure.</p>
+      <p style="margin-top:10px;">Our own power testing measured 7.8W on 2m and 6.9W on 70cm — both a step below the advertised 10W ceiling, which is worth knowing going in rather than assuming you'll get the full rated output in practice. Even so, those numbers comfortably outperform the sub-5W actual output typical of Baofeng-tier budget HTs, so this isn't a case of the radio underdelivering relative to its price class — just relative to its own marketing number. APRS setup takes more patience than the rest of the radio's programming, and a handful of owners have reported a squeal issue and gradual key-coating wear with heavy pocket carry — real caveats worth going in aware of, even though neither one appears to affect every unit.</p>
+      <p style="margin-top:10px;">Taken as a whole, the TD-H9 delivers an enormous amount of radio for the money. It's an easy recommendation for hams who want APRS and GPS tracking without paying Yaesu prices, for anyone who values easy Bluetooth programming over on-radio button navigation, and for buyers who are comfortable with the reality that "10W advertised" and "10W measured" aren't always the same number on a budget handheld. If you go in with realistic expectations on power output and APRS setup time, this radio punches well above its price class.</p>
+      <p style="margin-top:10px; color:var(--accent2); font-weight:700;">Rating: 4.3/5 — Highly recommended for the price, especially for APRS/GPS features and ease of programming.</p>
+    </div>
+  </section>
+
+  <section class="block" style="border-bottom:none;">
+    <h2>More from POC Radio HQ</h2>
+    <div class="related">
+      <a href="../reviews/tidradio-td-m2-pro-review.html">🔀 TIDRADIO TD-M2 Pro (PoC)</a>
+      <a href="../index.html#ht-radios">📻 More HT Radio Reviews</a>
+      <a href="../index.html#guide">🎯 PoC Radio Buying Guide</a>
+    </div>
+  </section>
+</div>
+
+<footer>© 2026 POC Radio HQ. As an Amazon Associate we earn from qualifying purchases. <a href="../index.html">Back to home</a></footer>
+</body>
+</html>
