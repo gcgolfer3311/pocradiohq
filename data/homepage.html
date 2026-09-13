@@ -935,5 +935,161 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  // ---- PTT hold-to-talk waveform ----
+  var wave = document.getElementById('wave');
+  var pttBtn = document.getElementById('pttBtn');
+  var waveTimer = null;
+  if (wave) {
+    for (var i = 0; i < 24; i++) {
+      var bar = document.createElement('i');
+      bar.style.height = '4px';
+      wave.appendChild(bar);
+    }
+  }
+  function startTalking(){
+    if (!pttBtn) return;
+    pttBtn.classList.add('active');
+    pttBtn.textContent = 'TRANSMITTING...';
+    if (wave) {
+      waveTimer = setInterval(function(){
+        Array.prototype.forEach.call(wave.children, function(bar){
+          var h = 4 + Math.random() * 24;
+          bar.style.height = h + 'px';
+          bar.style.opacity = 0.4 + Math.random() * 0.6;
+        });
+      }, 90);
+    }
+  }
+  function stopTalking(){
+    if (!pttBtn) return;
+    pttBtn.classList.remove('active');
+    pttBtn.textContent = 'HOLD TO TALK';
+    if (waveTimer) { clearInterval(waveTimer); waveTimer = null; }
+    if (wave) {
+      Array.prototype.forEach.call(wave.children, function(bar){
+        bar.style.height = '4px';
+        bar.style.opacity = 0.35;
+      });
+    }
+  }
+  if (pttBtn) {
+    pttBtn.addEventListener('mousedown', startTalking);
+    pttBtn.addEventListener('touchstart', function(e){ e.preventDefault(); startTalking(); }, {passive:false});
+    ['mouseup','mouseleave'].forEach(function(evt){ pttBtn.addEventListener(evt, stopTalking); });
+    pttBtn.addEventListener('touchend', function(e){ e.preventDefault(); stopTalking(); });
+  }
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.closest('.faq-item');
+      var answer = item.querySelector('.faq-a');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ---- Radio picker quiz ----
+  var answers = {};
+  var currentStep = 1;
+  var TOTAL_STEPS = 3;
+
+  var RECOMMENDATIONS = {
+    'personal|low|no':   {name:'AnySecu 3G-PPT', reason:'Cheapest way into PoC for personal or family use — pure cellular, no offline fallback needed.', link:'./reviews/anysecu-3g-ppt-review.html'},
+    'personal|low|yes':  {name:'TIDRADIO TD-M2 Pro', reason:'Budget dual-mode — one-touch switch between network PoC and offline FRS/PMR466 when there is no signal.', link:'./reviews/tidradio-td-m2-pro-review.html'},
+    'personal|mid|no':   {name:'Inrico T320', reason:'Our overall pick — deepest accessory ecosystem and community support for everyday personal use.', link:'./reviews/inrico-t320-review.html'},
+    'personal|mid|yes':  {name:'Global-PTT 5288 Plus', reason:'Dual-band UV analog backup plus PoC, built rugged for off-grid personal use.', link:'./reviews/global-ptt-5288-plus-review.html'},
+    'personal|high|no':  {name:'Wouxun KG-WV9', reason:'Established radio brand, premium build, pure cellular PoC for personal use where budget is not the constraint.', link:'./reviews/wouxun-kg-wv9-review.html'},
+    'personal|high|yes': {name:'ChoYong WT2', reason:'All-in-one: PoC plus analog UHF, shortwave, AM/FM, and internet radio — the do-everything pick.', link:'./reviews/choyong-wt2-review.html'},
+
+    'fleet|low|no':      {name:'AnySecu 3G-PPT', reason:'Lowest per-unit cost for outfitting a small team on pure cellular PoC.', link:'./reviews/anysecu-3g-ppt-review.html'},
+    'fleet|low|yes':     {name:'TIDRADIO TD-M2 Pro', reason:'Budget dual-mode fleet units with an offline FRS/PMR466 fallback built in.', link:'./reviews/tidradio-td-m2-pro-review.html'},
+    'fleet|mid|no':      {name:'Hytera PNC360S', reason:'Our pick for fleets — built for dispatch and multi-user group management.', link:'./reviews/hytera-pnc360s-review.html'},
+    'fleet|mid|yes':     {name:'Global-PTT 5288 Plus', reason:'Rugged dual-band fleet radio with analog backup when cellular coverage drops.', link:'./reviews/global-ptt-5288-plus-review.html'},
+    'fleet|high|no':     {name:'Motorola WAVE PTX', reason:'Enterprise-grade platform built for larger fleets and dispatch integration.', link:'./reviews/motorola-wave-ptx-review.html'},
+    'fleet|high|yes':    {name:'Hytera PNC360S', reason:'Fleet-focused dispatch features with the budget to add analog backup radios alongside it.', link:'./reviews/hytera-pnc360s-review.html'},
+
+    'hobby|low|no':      {name:'CARRBORG X13', reason:'Best bright-screen value pick for hobbyists getting started with PoC.', link:'./reviews/carrborg-x13-review.html'},
+    'hobby|low|yes':     {name:'TIDRADIO TD-M2 Pro', reason:'Budget dual-mode radio hobbyists can flip between PoC and offline FRS/PMR466.', link:'./reviews/tidradio-td-m2-pro-review.html'},
+    'hobby|mid|no':      {name:'OMIZN M9', reason:'Built for outdoor hobbyist use — rugged aluminum body, dust-proof design.', link:'./reviews/omizn-m9-review.html'},
+    'hobby|mid|yes':     {name:'Global-PTT 5288 Plus', reason:'Dual-band analog plus PoC — a favorite for multi-mode radio hobbyists.', link:'./reviews/global-ptt-5288-plus-review.html'},
+    'hobby|high|no':     {name:'Wouxun KG-WV9', reason:'A trusted radio brand hobbyists already know, now in a PoC form factor.', link:'./reviews/wouxun-kg-wv9-review.html'},
+    'hobby|high|yes':    {name:'ChoYong WT2', reason:'The multi-mode hobbyist pick — PoC, analog UHF, shortwave, AM/FM, and internet radio in one unit.', link:'./reviews/choyong-wt2-review.html'}
+  };
+
+  window.pickerSelect = function(el){
+    var key = el.getAttribute('data-key');
+    var val = el.getAttribute('data-val');
+    answers[key] = val;
+
+    var opts = el.closest('.p-opts').querySelectorAll('.p-opt');
+    opts.forEach(function(o){ o.classList.remove('selected'); });
+    el.classList.add('selected');
+
+    setTimeout(function(){
+      if (currentStep < TOTAL_STEPS) {
+        var curStepEl = document.querySelector('.p-step[data-step="' + currentStep + '"]');
+        if (curStepEl) curStepEl.style.display = 'none';
+        currentStep++;
+        var nextStepEl = document.querySelector('.p-step[data-step="' + currentStep + '"]');
+        if (nextStepEl) nextStepEl.style.display = '';
+        updateDots();
+      } else {
+        showPickerResult();
+      }
+    }, 220);
+  };
+
+  function updateDots(){
+    var dots = document.querySelectorAll('#pickerProgress .p-dot');
+    dots.forEach(function(dot, i){
+      dot.classList.toggle('active', i < currentStep);
+    });
+  }
+
+  function showPickerResult(){
+    var key = [answers.use, answers.budget, answers.offline].join('|');
+    var rec = RECOMMENDATIONS[key];
+    var stepsEl = document.getElementById('pickerSteps');
+    var resultEl = document.getElementById('pickerResult');
+    var progressEl = document.getElementById('pickerProgress');
+    if (!rec || !resultEl) return;
+    if (stepsEl) stepsEl.style.display = 'none';
+    if (progressEl) progressEl.style.display = 'none';
+    resultEl.style.display = '';
+    resultEl.innerHTML =
+      '<p style="font-family:var(--mono);font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;">Your match</p>' +
+      '<h3 style="font-size:1.4rem;margin-bottom:10px;">' + rec.name + '</h3>' +
+      '<p style="margin-bottom:18px;">' + rec.reason + '</p>' +
+      '<a href="' + rec.link + '" class="btn btn-primary">Read the full review →</a>' +
+      '<div style="margin-top:14px;"><a href="#" onclick="pickerReset();return false;" style="font-size:.85rem;color:var(--sub);">Start over</a></div>';
+  }
+
+  window.pickerReset = function(){
+    answers = {};
+    currentStep = 1;
+    document.querySelectorAll('.p-opt.selected').forEach(function(o){ o.classList.remove('selected'); });
+    document.querySelectorAll('.p-step').forEach(function(s){
+      s.style.display = (s.getAttribute('data-step') === '1') ? '' : 'none';
+    });
+    var resultEl = document.getElementById('pickerResult');
+    var stepsEl = document.getElementById('pickerSteps');
+    var progressEl = document.getElementById('pickerProgress');
+    if (resultEl) { resultEl.style.display = 'none'; resultEl.innerHTML = ''; }
+    if (stepsEl) stepsEl.style.display = '';
+    if (progressEl) progressEl.style.display = '';
+    updateDots();
+  };
+})();
+</script>
 </body>
 </html>
