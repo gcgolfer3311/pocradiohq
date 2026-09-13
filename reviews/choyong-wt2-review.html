@@ -56,7 +56,8 @@
   .score-box .label{font-size:.7rem;color:var(--sub);text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px;}
   .score-box .val{font-size:1.4rem;font-weight:800;color:var(--good);}
   .score-box .val.warn{color:var(--accent2);}
-  .inline-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:800;font-size:.7rem;padding:4px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.03em;vertical-align:middle;margin-left:6px;}
+  .inline-badge{display:inline-flex;align-items:center;gap:5px;background:none;border:1px solid var(--accent);color:var(--accent);font-family:var(--mono);font-weight:600;font-size:.7rem;padding:3px 8px 3px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;vertical-align:middle;margin-left:6px;}
+  .inline-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);}
   blockquote{border-left:3px solid var(--accent);padding:14px 18px;background:var(--card);border-radius:0 10px 10px 0;margin:20px 0;font-style:italic;color:var(--sub);}
   .spec-table{width:100%;border-collapse:collapse;font-size:.88rem;}
   .spec-table td{padding:10px 14px;border-bottom:1px solid var(--line);}
@@ -64,8 +65,8 @@
   .spec-table tr:last-child td{border-bottom:none;}
   .tip{background:rgba(61,220,151,.08);border:1px solid rgba(61,220,151,.25);border-radius:8px;padding:12px 16px;font-size:.88rem;margin:16px 0;}
   .tip strong{color:var(--good);}
-  .warning{background:rgba(255,106,26,.08);border:1px solid rgba(255,106,26,.25);border-radius:8px;padding:12px 16px;font-size:.88rem;margin:16px 0;}
-  .warning strong{color:var(--accent2);}
+  .warning{background:rgba(240,162,57,.08);border:1px solid rgba(240,162,57,.3);border-radius:8px;padding:12px 16px;font-size:.88rem;margin:16px 0;}
+  .warning strong{color:var(--accent);}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
@@ -79,7 +80,7 @@
 <body>
 <header>
   <div class="nav">
-    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html" class="logo"><svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M8.5 8a5 5 0 0 1 7 0"/><path d="M5.5 5a9 9 0 0 1 13 0"/><circle cx="12" cy="21" r="1.4" fill="currentColor" stroke="none"/></svg> POC Radio HQ</a>
     <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Full Buying Guide</a>
   </div>
 </header>
@@ -98,7 +99,7 @@
     </div>
 
     <div style="margin:20px 0; border-radius:14px; overflow:hidden; border:1px solid var(--line); max-width:480px;">
-      <img src="../images/choy_wt2_pic.png" alt="ChoYong WT2 POC radio sitting in a wooden stand on a desk, showing the channel list on the color display" style="width:100%; display:block;">
+      <img width="896" height="1195" loading="lazy" src="../images/choy_wt2_pic.png" alt="ChoYong WT2 POC radio sitting in a wooden stand on a desk, showing the channel list on the color display" style="width:100%; display:block;">
       <div style="padding:10px 14px; background:var(--card); font-size:.78rem; color:var(--sub);">ChoYong WT2 — hands-on review unit tested by POC Radio HQ. Screen shows active POC group channel (GlobaGroup, 72/2510 members).</div>
     </div>
 
