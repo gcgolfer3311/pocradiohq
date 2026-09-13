@@ -12,49 +12,55 @@ fs.mkdirSync(reviewsDir, { recursive: true });
 
 // ---- shared styles (extracted, reused across all pages) ----
 const sharedCSS = `
-:root{--bg:#14161a;--bg2:#1a1d22;--card:#1f2329;--card2:#262b32;--accent:#d64545;--accent2:#5b8fd9;--text:#eceff2;--sub:#98a1ad;--line:#2b3038;--good:#4dbf8a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{--bg:#0b0e13;--bg2:#10141b;--card:#151a22;--card2:#1b212a;--accent:#f0a239;--accent-ink:#1a1204;--accent2:#3ddc97;--text:#e9edf2;--sub:#8d97a4;--line:#232a34;--good:#3ddc97;--sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--head:'Space Grotesk',var(--sans);--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-family:var(--sans);}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);line-height:1.6;}
 a{color:var(--accent2);text-decoration:none;}
 a:hover{text-decoration:underline;}
+h1,h2,h3{font-family:var(--head);}
 .wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-header{position:sticky;top:0;z-index:50;background:rgba(20,22,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+header{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1120px;margin:0 auto;}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;color:var(--text);}
-.logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
-.breadcrumb{font-size:.82rem;color:var(--sub);padding:18px 0;}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.1rem;color:var(--text);font-family:var(--head);}
+.logo-mark{color:var(--accent);display:inline-flex;flex-shrink:0;}
+.breadcrumb{font-size:.8rem;color:var(--sub);padding:18px 0;font-family:var(--mono);}
 .breadcrumb a{color:var(--sub);}
 .review-hero{padding:20px 0 30px;border-bottom:1px solid var(--line);}
-.badge{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:800;font-size:.72rem;padding:6px 12px;border-radius:8px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:14px;}
-h1{font-size:2.1rem;font-weight:800;margin-bottom:10px;}
-.cat{color:var(--sub);font-size:.9rem;margin-bottom:16px;}
+.badge{display:inline-flex;align-items:center;gap:7px;background:none;border:1px solid var(--accent);color:var(--accent);font:600 .72rem/1 var(--mono);padding:7px 11px 7px 9px;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+h1{font-size:2.1rem;font-weight:700;margin-bottom:10px;}
+.cat{color:var(--sub);font-size:.9rem;margin-bottom:16px;font-family:var(--mono);}
 .rating-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
-.stars{color:var(--accent2);font-size:1.1rem;}
-.rating-num{font-weight:700;}
+.stars{color:var(--accent);font-size:1.1rem;}
+.rating-num{font-weight:700;font-family:var(--mono);}
 .rating-count{color:var(--sub);font-size:.85rem;}
-.price-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin:20px 0;flex-wrap:wrap;gap:12px;}
-.price-box .price{font-size:1.4rem;font-weight:800;}
-.btn{display:inline-block;padding:12px 22px;border-radius:9px;font-weight:700;font-size:.9rem;background:var(--accent);color:#fff;}
-.btn:hover{background:#e85e13;text-decoration:none;}
+.price-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin:20px 0;flex-wrap:wrap;gap:12px;}
+.price-box .price{font-size:1.4rem;font-weight:700;font-family:var(--mono);}
+.btn{display:inline-block;padding:12px 22px;border-radius:6px;font-weight:600;font-size:.9rem;background:var(--accent);color:var(--accent-ink);}
+.btn:hover{background:#f7b559;text-decoration:none;}
 .specs-grid{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
-.specs-grid span{background:var(--bg2);border:1px solid var(--line);padding:6px 12px;border-radius:6px;font-size:.82rem;color:var(--sub);}
+.specs-grid span{background:var(--bg2);border:1px solid var(--line);padding:6px 12px;border-radius:4px;font-size:.8rem;color:var(--sub);font-family:var(--mono);}
 section.block{padding:30px 0;border-bottom:1px solid var(--line);}
 section.block:last-of-type{border-bottom:none;}
-h2{font-size:1.35rem;margin-bottom:14px;}
+h2{font-size:1.35rem;margin-bottom:14px;font-weight:600;}
 p{color:var(--sub);margin-bottom:10px;}
 .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.pros-cons h3{font-size:1rem;color:var(--text);margin-bottom:10px;}
+.pros-cons h3{font-size:1rem;color:var(--text);margin-bottom:10px;font-family:var(--head);}
 .pros-cons ul{list-style:none;}
 .pros-cons li{padding:6px 0 6px 22px;position:relative;font-size:.9rem;color:var(--sub);}
-.pros li::before{content:"+";position:absolute;left:0;color:var(--good);font-weight:800;}
-.cons li::before{content:"–";position:absolute;left:0;color:#ff6a6a;font-weight:800;}
-.verdict-box{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:20px;}
+.pros li::before{content:"+";position:absolute;left:0;color:var(--good);font-weight:800;font-family:var(--mono);}
+.cons li::before{content:"–";position:absolute;left:0;color:#ef5b5b;font-weight:800;font-family:var(--mono);}
+.verdict-box{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:6px;padding:20px;}
 .related{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
-.related a{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:8px;font-size:.85rem;}
+.related a{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:6px;font-size:.85rem;}
+.review-photo{display:block;margin:0 auto 20px;max-height:420px;width:auto;max-width:100%;border-radius:10px;}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--sub);font-size:.82rem;text-align:center;}
 @media(max-width:640px){.pros-cons{grid-template-columns:1fr;}}
 `;
+
+const LOGO_SVG = '<svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M8.5 8a5 5 0 0 1 7 0"/><path d="M5.5 5a9 9 0 0 1 13 0"/><circle cx="12" cy="21" r="1.4" fill="currentColor" stroke="none"/></svg>';
 
 const AFF_TAG = 'pocradio-20';
 function amazonLink(r) {
@@ -136,7 +142,7 @@ function reviewPage(r, allReviews) {
 <body>
 <header>
   <div class="nav">
-    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html" class="logo">${LOGO_SVG} POC Radio HQ</a>
     <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Full Buying Guide</a>
   </div>
 </header>
@@ -145,7 +151,7 @@ function reviewPage(r, allReviews) {
 
   <div class="review-hero">
     <span class="badge">${r.badge}</span>
-    <h1>${r.icon} ${r.name} Review</h1>
+    <h1>${r.name} Review</h1>
     <div class="cat">${r.category}</div>
     <div class="rating-row">
       <span class="stars">${starString(r.rating)}</span>
@@ -181,7 +187,7 @@ function reviewPage(r, allReviews) {
   <section class="block">
     <h2>Compare with other POC radios</h2>
     <div class="related">
-      ${related.map(x => `<a href="./${x.slug}.html">${x.icon} ${x.name}</a>`).join('')}
+      ${related.map(x => `<a href="./${x.slug}.html">${x.name}</a>`).join('')}
       <a href="../index.html#compare">POC vs GMRS vs Ham vs CB →</a>
     </div>
   </section>
@@ -252,7 +258,7 @@ function blogIndexPage(allPosts) {
 <body>
 <header>
   <div class="nav">
-    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html" class="logo">${LOGO_SVG} POC Radio HQ</a>
     <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Full Buying Guide</a>
   </div>
 </header>
@@ -330,7 +336,7 @@ function postPage(p, allPosts) {
 <body>
 <header>
   <div class="nav">
-    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html" class="logo">${LOGO_SVG} POC Radio HQ</a>
     <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Full Buying Guide</a>
   </div>
 </header>
@@ -443,7 +449,7 @@ function usecasePage(uc) {
 <body>
 <header>
   <div class="nav">
-    <a href="../index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="../index.html" class="logo">${LOGO_SVG} POC Radio HQ</a>
     <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Full Buying Guide</a>
   </div>
 </header>
