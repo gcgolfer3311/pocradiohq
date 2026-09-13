@@ -53,19 +53,20 @@
   .about-hero{padding:48px 0 32px; border-bottom:1px solid var(--line);}
   .about-hero h1{font-size:2rem; font-weight:800; margin-bottom:12px;}
   .about-hero p{color:var(--sub); max-width:62ch; font-size:1.05rem;}
-  .cred-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:32px 0;}
-  .cred-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px;}
-  .cred-card .ic{font-size:1.8rem; margin-bottom:10px;}
-  .cred-card h3{font-size:1rem; margin-bottom:6px;}
+  .cred-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:32px 0; counter-reset:cred;}
+  .cred-card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:22px; position:relative;}
+  .cred-card .ic{display:none;}
+  .cred-card::before{counter-increment:cred; content:"0" counter(cred); position:absolute; top:18px; right:20px; font-family:var(--mono); font-size:.78rem; color:var(--accent); opacity:.7;}
+  .cred-card h3{font-size:1rem; margin-bottom:6px; padding-right:24px;}
   .cred-card p{color:var(--sub); font-size:.88rem;}
   .network-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:20px 0;}
-  .network-card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; display:flex; align-items:center; gap:14px;}
-  .network-card .ic{font-size:1.6rem;}
-  .network-card h4{font-size:.95rem; margin-bottom:4px;}
+  .network-card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px; display:flex; align-items:center; gap:14px; border-left:2px solid var(--accent2);}
+  .network-card .ic{font-size:1.4rem;}
+  .network-card h4{font-size:.95rem; margin-bottom:4px; font-family:var(--head);}
   .network-card p{color:var(--sub); font-size:.82rem; margin:0;}
   .method-step{display:flex; gap:16px; margin-bottom:24px; align-items:flex-start;}
-  .method-num{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; font-weight:800; border-radius:50%; width:32px; height:32px; min-width:32px; display:flex; align-items:center; justify-content:center; font-size:.9rem;}
-  .disclosure-box{background:rgba(61,220,151,.08); border:1px solid rgba(61,220,151,.25); border-radius:12px; padding:22px; margin:24px 0;}
+  .method-num{background:var(--accent); color:var(--accent-ink); font-weight:700; font-family:var(--mono); border-radius:6px; width:30px; height:30px; min-width:30px; display:flex; align-items:center; justify-content:center; font-size:.85rem;}
+  .disclosure-box{background:rgba(61,220,151,.08); border:1px solid rgba(61,220,151,.25); border-radius:8px; padding:22px; margin:24px 0;}
   @media(max-width:700px){.cred-grid{grid-template-columns:1fr;} .network-grid{grid-template-columns:1fr;}}
 </style>
 <!-- Google tag (gtag.js) -->
@@ -80,7 +81,7 @@
 <body>
 <header>
   <div class="nav">
-    <a href="./index.html" class="logo"><span class="logo-mark">📡</span> POC Radio HQ</a>
+    <a href="./index.html" class="logo"><svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M8.5 8a5 5 0 0 1 7 0"/><path d="M5.5 5a9 9 0 0 1 13 0"/><circle cx="12" cy="21" r="1.4" fill="currentColor" stroke="none"/></svg> POC Radio HQ</a>
     <a href="./index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Buying Guide</a>
   </div>
 </header>
