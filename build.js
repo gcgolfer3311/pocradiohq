@@ -369,32 +369,39 @@ for (const r of reviews) {
   fs.writeFileSync(path.join(reviewsDir, `${r.slug}.html`), reviewPage(r, reviews));
 }
 
+// HT/DMR (ham radio) reviews — separate section, separate folder from PoC reviews.
+// Same pattern: drop a standalone .html file in /ht-radios/ at repo root and it
+// gets copied to dist/ht-radios/ and auto-added to the sitemap below.
+// NOTE: compute this BEFORE the reviews/ override pass below, so we can guard
+// against the recurring upload mistake of an HT file also landing in reviews/
+// (caused 3-way duplicate-content on tidradio-td-h9 — fixed and guarded here).
+const htRadiosSrcDir = path.join(__dirname, 'ht-radios');
+const htRadiosDistDir = path.join(distDir, 'ht-radios');
+let htRadioSlugs = [];
+let htRadioFilenames = new Set();
+if (fs.existsSync(htRadiosSrcDir)) {
+  fs.mkdirSync(htRadiosDistDir, { recursive: true });
+  const htFiles = fs.readdirSync(htRadiosSrcDir).filter(f => f.endsWith('.html'));
+  htRadioFilenames = new Set(htFiles);
+  htRadioSlugs = htFiles.map(f => {
+    fs.copyFileSync(path.join(htRadiosSrcDir, f), path.join(htRadiosDistDir, f));
+    console.log(`  → HT radio review: ${f}`);
+    return f.replace(/\.html$/, '');
+  });
+}
+
 // Override with standalone hands-on reviews if they exist in /reviews/
 const standaloneDir = path.join(__dirname, 'reviews');
 if (fs.existsSync(standaloneDir)) {
   fs.readdirSync(standaloneDir).forEach(f => {
-    if (f.endsWith('.html')) {
-      fs.copyFileSync(path.join(standaloneDir, f), path.join(reviewsDir, f));
-      console.log(`  → Standalone review override: ${f}`);
+    if (!f.endsWith('.html')) return;
+    if (htRadioFilenames.has(f)) {
+      console.warn(`  ⚠ SKIPPED reviews/${f}: also exists in ht-radios/ — this file belongs in ht-radios/ ONLY. Delete it from reviews/ in the repo to clear this warning.`);
+      return;
     }
+    fs.copyFileSync(path.join(standaloneDir, f), path.join(reviewsDir, f));
+    console.log(`  → Standalone review override: ${f}`);
   });
-}
-
-// HT/DMR (ham radio) reviews — separate section, separate folder from PoC reviews.
-// Same pattern: drop a standalone .html file in /ht-radios/ at repo root and it
-// gets copied to dist/ht-radios/ and auto-added to the sitemap below.
-const htRadiosSrcDir = path.join(__dirname, 'ht-radios');
-const htRadiosDistDir = path.join(distDir, 'ht-radios');
-let htRadioSlugs = [];
-if (fs.existsSync(htRadiosSrcDir)) {
-  fs.mkdirSync(htRadiosDistDir, { recursive: true });
-  htRadioSlugs = fs.readdirSync(htRadiosSrcDir)
-    .filter(f => f.endsWith('.html'))
-    .map(f => {
-      fs.copyFileSync(path.join(htRadiosSrcDir, f), path.join(htRadiosDistDir, f));
-      console.log(`  → HT radio review: ${f}`);
-      return f.replace(/\.html$/, '');
-    });
 }
 
 // ── Use-case landing pages ──
@@ -506,6 +513,15 @@ const homepageSrc = fs.existsSync(path.join(__dirname, 'data/homepage.html'))
   : path.join(__dirname, 'index.html');
 fs.copyFileSync(homepageSrc, path.join(distDir, 'index.html'));
 fs.copyFileSync(path.join(__dirname, 'about.html'), path.join(distDir, 'about.html'));
+for (const legalPage of ['privacy-policy.html', 'terms.html', 'affiliate-disclosure.html']) {
+  const legalSrc = path.join(__dirname, legalPage);
+  if (fs.existsSync(legalSrc)) {
+    fs.copyFileSync(legalSrc, path.join(distDir, legalPage));
+    console.log(`  → Legal page: ${legalPage}`);
+  } else {
+    console.warn(`  ⚠ Missing legal page: ${legalPage} (footer links to it but the file isn't in the repo root)`);
+  }
+}
 if (fs.existsSync(path.join(__dirname, 'netlify.toml'))) {
   fs.copyFileSync(path.join(__dirname, 'netlify.toml'), path.join(distDir, 'netlify.toml'));
 }
@@ -539,7 +555,7 @@ if (fs.existsSync(videosrc)) {
 const knownSlugs = new Set(reviews.map(r => r.slug));
 const extraReviewSlugs = fs.existsSync(standaloneDir)
   ? fs.readdirSync(standaloneDir)
-      .filter(f => f.endsWith('.html'))
+      .filter(f => f.endsWith('.html') && !htRadioFilenames.has(f))
       .map(f => f.replace(/\.html$/, ''))
       .filter(slug => !knownSlugs.has(slug))
   : [];
@@ -550,6 +566,9 @@ if (extraReviewSlugs.length) {
 const urls = [
   { loc: `${SITE}/`, priority: '1.0' },
   { loc: `${SITE}/about.html`, priority: '0.6' },
+  { loc: `${SITE}/privacy-policy.html`, priority: '0.3' },
+  { loc: `${SITE}/terms.html`, priority: '0.3' },
+  { loc: `${SITE}/affiliate-disclosure.html`, priority: '0.3' },
   ...reviews.map(r => ({ loc: `${SITE}/reviews/${r.slug}.html`, priority: '0.8' })),
   ...extraReviewSlugs.map(slug => ({ loc: `${SITE}/reviews/${slug}.html`, priority: '0.8' })),
   ...htRadioSlugs.map(slug => ({ loc: `${SITE}/ht-radios/${slug}.html`, priority: '0.8' })),
