@@ -43,9 +43,9 @@
     "runnerUp": "inrico-t320-review",
     "runnerUpName": "Inrico T320",
     "runnerUpWhy": "For contract security companies that can't justify Hytera's per-seat fee. Runs Zello, which has its own dispatch-like features at lower cost. Android-based means guards can also use it for incident-report photo capture.",
-    "budgetPick": "anysecu-3g-ppt-review",
-    "budgetPickName": "AnySecu 3G-PPT",
-    "budgetPickWhy": "Simplest, cheapest option for a small-site security team that just needs a talk channel. Physical buttons work with gloves. No dispatch platform, but at this price you can equip every guard without a large budget ask."
+    "budgetPick": "radtel-p8-review",
+    "budgetPickName": "Radtel P8",
+    "budgetPickWhy": "Sold as a 2-pack with SIMs included for the first year (about $10 per card per year after, per Radtel), so a small-site team can be equipped cheaply. In our hands-on testing the audio was clear and loud and the zinc-alloy body felt solid. Expect a 1 to 2 second PTT delay and no dispatch console."
   },
   {
     "slug": "best-poc-radio-for-events",
@@ -59,8 +59,8 @@
     "runnerUp": "inrico-t320-review",
     "runnerUpName": "Inrico T320",
     "runnerUpWhy": "For event companies that run productions regularly and want a more capable device. Android-based means it doubles as a communication tool and a field reference device. Zello groups are easy to set up and tear down per event.",
-    "budgetPick": "anysecu-3g-ppt-review",
-    "budgetPickName": "AnySecu 3G-PPT",
-    "budgetPickWhy": "Dead-simple, hand-it-to-a-volunteer simple. No touchscreen confusion, no app to explain. For one-off events where you need radios in untrained hands, simplicity beats features."
+    "budgetPick": "radtel-p8-review",
+    "budgetPickName": "Radtel P8",
+    "budgetPickWhy": "Hand-it-to-a-volunteer simple: SIM included for year one, about $10 per card per year after (per Radtel). Our test unit had clear, loud audio, which matters in noisy venues. The trade-off is a 1 to 2 second PTT delay, so staff need to pause a beat before talking."
   }
 ]

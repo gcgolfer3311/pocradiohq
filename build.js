@@ -10,55 +10,10 @@ const distDir = path.join(__dirname, 'dist');
 const reviewsDir = path.join(distDir, 'reviews');
 fs.mkdirSync(reviewsDir, { recursive: true });
 
-// ---- shared styles (extracted, reused across all pages) ----
-const sharedCSS = `
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-:root{--bg:#0b0e13;--bg2:#10141b;--card:#151a22;--card2:#1b212a;--accent:#f0a239;--accent-ink:#1a1204;--accent2:#3ddc97;--text:#e9edf2;--sub:#8d97a4;--line:#232a34;--good:#3ddc97;--sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--head:'Space Grotesk',var(--sans);--mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-family:var(--sans);}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);line-height:1.6;}
-a{color:var(--accent2);text-decoration:none;}
-a:hover{text-decoration:underline;}
-h1,h2,h3{font-family:var(--head);}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-header{position:sticky;top:0;z-index:50;background:rgba(11,14,19,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1120px;margin:0 auto;}
-.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.1rem;color:var(--text);font-family:var(--head);}
-.logo-mark{color:var(--accent);display:inline-flex;flex-shrink:0;}
-.breadcrumb{font-size:.8rem;color:var(--sub);padding:18px 0;font-family:var(--mono);}
-.breadcrumb a{color:var(--sub);}
-.review-hero{padding:20px 0 30px;border-bottom:1px solid var(--line);}
-.badge{display:inline-flex;align-items:center;gap:7px;background:none;border:1px solid var(--accent);color:var(--accent);font:600 .72rem/1 var(--mono);padding:7px 11px 7px 9px;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
-.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
-h1{font-size:2.1rem;font-weight:700;margin-bottom:10px;}
-.cat{color:var(--sub);font-size:.9rem;margin-bottom:16px;font-family:var(--mono);}
-.rating-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
-.stars{color:var(--accent);font-size:1.1rem;}
-.rating-num{font-weight:700;font-family:var(--mono);}
-.rating-count{color:var(--sub);font-size:.85rem;}
-.price-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;margin:20px 0;flex-wrap:wrap;gap:12px;}
-.price-box .price{font-size:1.4rem;font-weight:700;font-family:var(--mono);}
-.btn{display:inline-block;padding:12px 22px;border-radius:6px;font-weight:600;font-size:.9rem;background:var(--accent);color:var(--accent-ink);}
-.btn:hover{background:#f7b559;text-decoration:none;}
-.specs-grid{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
-.specs-grid span{background:var(--bg2);border:1px solid var(--line);padding:6px 12px;border-radius:4px;font-size:.8rem;color:var(--sub);font-family:var(--mono);}
-section.block{padding:30px 0;border-bottom:1px solid var(--line);}
-section.block:last-of-type{border-bottom:none;}
-h2{font-size:1.35rem;margin-bottom:14px;font-weight:600;}
-p{color:var(--sub);margin-bottom:10px;}
-.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.pros-cons h3{font-size:1rem;color:var(--text);margin-bottom:10px;font-family:var(--head);}
-.pros-cons ul{list-style:none;}
-.pros-cons li{padding:6px 0 6px 22px;position:relative;font-size:.9rem;color:var(--sub);}
-.pros li::before{content:"+";position:absolute;left:0;color:var(--good);font-weight:800;font-family:var(--mono);}
-.cons li::before{content:"–";position:absolute;left:0;color:#ef5b5b;font-weight:800;font-family:var(--mono);}
-.verdict-box{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:6px;padding:20px;}
-.related{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
-.related a{background:var(--card);border:1px solid var(--line);padding:10px 16px;border-radius:6px;font-size:.85rem;}
-.review-photo{display:block;margin:0 auto 20px;max-height:420px;width:auto;max-width:100%;border-radius:10px;}
-footer{border-top:1px solid var(--line);padding:30px 0;color:var(--sub);font-size:.82rem;text-align:center;}
-@media(max-width:640px){.pros-cons{grid-template-columns:1fr;}}
-`;
+// ---- shared styles: HQ Network design system lives in data/hq-shared.css ----
+const sharedCSS = fs.readFileSync(path.join(__dirname, 'data/hq-shared.css'), 'utf8');
+const bench = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/bench.json'), 'utf8'));
+const { brandify, homeBlocks } = require('./hq-brand');
 
 const LOGO_SVG = '<svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M8.5 8a5 5 0 0 1 7 0"/><path d="M5.5 5a9 9 0 0 1 13 0"/><circle cx="12" cy="21" r="1.4" fill="currentColor" stroke="none"/></svg>';
 
@@ -85,17 +40,6 @@ function reviewPage(r, allReviews) {
     "image": `${SITE}/og-image.png`,
     "description": r.summary,
     "brand": { "@type": "Brand", "name": r.name.split(' ')[0] },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": r.rating,
-      "reviewCount": r.reviewCount
-    },
-    "review": {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": "5" },
-      "author": { "@type": "Organization", "name": "POC Radio HQ" },
-      "reviewBody": r.verdict
-    }
   };
   if (buyLink && r.priceLow) {
     productSchema.offers = {
@@ -150,14 +94,9 @@ function reviewPage(r, allReviews) {
   <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#guide">Buying Guide</a> / ${r.name}</div>
 
   <div class="review-hero">
-    <span class="badge">${r.badge}</span>
+    <span class="badge badge-spec">${r.badge}</span>
     <h1>${r.name} Review</h1>
     <div class="cat">${r.category}</div>
-    <div class="rating-row">
-      <span class="stars">${starString(r.rating)}</span>
-      <span class="rating-num">${r.rating}/5</span>
-      <span class="rating-count">based on ${r.reviewCount} owner reports &amp; spec analysis</span>
-    </div>
     <p>${r.summary}</p>
     <div class="specs-grid">${r.specs.map(s => `<span>${s}</span>`).join('')}</div>
     <div class="price-box">
@@ -517,7 +456,24 @@ const standaloneGuides = path.join(__dirname, 'data');
 const homepageSrc = fs.existsSync(path.join(__dirname, 'data/homepage.html'))
   ? path.join(__dirname, 'data/homepage.html')
   : path.join(__dirname, 'index.html');
-fs.copyFileSync(homepageSrc, path.join(distDir, 'index.html'));
+const hb = homeBlocks(bench);
+let homeHtml = fs.readFileSync(homepageSrc, 'utf8')
+  .replace('<!--HQ:ROWS-->', hb.rows)
+  .replace('<!--HQ:PICKS-->', hb.picks)
+  .replace('<!--HQ:RADAR-->', hb.radar)
+  .replace('<!--HQ:LCD-->', hb.lcd)
+  .replace('<!--HQ:ITEMLIST-->', hb.itemList)
+  .replace('<!--HQ:COUNT-->', hb.count)
+  .replace('/*HQ:COST*/[]', hb.costData)
+  .replace('/*HQ:PICKER*/{}', hb.pickerData);
+if (/<!--HQ:|\/\*HQ:/.test(homeHtml)) throw new Error('Homepage placeholder left unfilled');
+fs.writeFileSync(path.join(distDir, 'index.html'), homeHtml);
+for (const extra of ['how-we-test.html', '_redirects']) {
+  if (fs.existsSync(path.join(__dirname, extra))) {
+    fs.copyFileSync(path.join(__dirname, extra), path.join(distDir, extra));
+    console.log(`  → Copied ${extra}`);
+  }
+}
 fs.copyFileSync(path.join(__dirname, 'about.html'), path.join(distDir, 'about.html'));
 for (const legalPage of ['privacy-policy.html', 'terms.html', 'affiliate-disclosure.html']) {
   const legalSrc = path.join(__dirname, legalPage);
@@ -538,6 +494,7 @@ const imagedst = path.join(distDir, 'images');
 if (fs.existsSync(imagesrc)) {
   fs.mkdirSync(imagedst, { recursive: true });
   fs.readdirSync(imagesrc).forEach(f => {
+    if (!fs.statSync(path.join(imagesrc, f)).isFile()) return;
     fs.copyFileSync(path.join(imagesrc, f), path.join(imagedst, f));
     console.log(`  → Image: ${f}`);
   });
@@ -572,6 +529,7 @@ if (extraReviewSlugs.length) {
 const urls = [
   { loc: `${SITE}/`, priority: '1.0' },
   { loc: `${SITE}/about.html`, priority: '0.6' },
+  { loc: `${SITE}/how-we-test.html`, priority: '0.7' },
   { loc: `${SITE}/privacy-policy.html`, priority: '0.3' },
   { loc: `${SITE}/terms.html`, priority: '0.3' },
   { loc: `${SITE}/affiliate-disclosure.html`, priority: '0.3' },
@@ -598,5 +556,24 @@ Allow: /
 
 Sitemap: ${SITE}/sitemap.xml`;
 fs.writeFileSync(path.join(distDir, 'robots.txt'), robots);
+
+// ── HQ brand layer: shared masthead/footer, signal-bar ratings, stamps ──
+function walkHtml(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {
+    const p = path.join(dir, e.name);
+    return e.isDirectory() ? walkHtml(p) : (e.name.endsWith('.html') ? [p] : []);
+  });
+}
+let branded = 0;
+for (const file of walkHtml(distDir)) {
+  const rel = path.relative(distDir, file).split(path.sep);
+  const prefix = rel.length > 1 ? '../'.repeat(rel.length - 1) : './';
+  const kind = rel.length === 1 && rel[0] === 'index.html' ? 'home' : rel[0] === 'reviews' ? 'review' : rel[0] === 'ht-radios' ? 'ht' : 'page';
+  const out = brandify(fs.readFileSync(file, 'utf8'), { prefix, bench, kind });
+  if (!out.includes('class="hq-mast"') || !out.includes('class="hq-foot"')) throw new Error(`Brand layer failed on ${rel.join('/')}`);
+  fs.writeFileSync(file, out);
+  branded++;
+}
+console.log(`  → HQ brand layer applied to ${branded} pages`);
 
 console.log(`Built ${reviews.length} review pages + ${usecases.length} use-case guides + index + sitemap + robots.txt into dist/`);

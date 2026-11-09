@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Test PoC Radios | POC Radio HQ</title>
+<meta name="description" content="How POC Radio HQ tests Push-to-Talk over Cellular radios: who tests them, the six-point bench checklist, how PTT delay is timed, how scores work, and how review units are handled.">
+<link rel="canonical" href="https://pocradiohq.com/how-we-test.html">
+<meta property="og:title" content="How We Test PoC Radios | POC Radio HQ">
+<meta property="og:description" content="The six-point bench checklist behind every POC Radio HQ score.">
+<meta property="og:url" content="https://pocradiohq.com/how-we-test.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://pocradiohq.com/og-image.png">
+<link rel="stylesheet" href="./styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How We Test PoC Radios","author":{"@type":"Person","name":"Michael Smith"},"publisher":{"@type":"Organization","name":"POC Radio HQ"},"datePublished":"2026-11-09","dateModified":"2026-11-09","mainEntityOfPage":"https://pocradiohq.com/how-we-test.html"}</script>
+<style>
+  .ht-steps{list-style:none;counter-reset:s;margin:10px 0 6px;}
+  .ht-steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .ht-steps li::before{content:counter(s,decimal-leading-zero);font:700 1rem/1.5 var(--mono);color:var(--accent);}
+  .ht-steps h3{font-size:1.1rem;margin-bottom:4px;}
+  .ht-steps p{margin:0;font-size:.95rem;}
+  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0;}
+  .scale div{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px;font-size:.85rem;color:var(--sub);}
+  .scale b{display:block;font:700 1.1rem/1 var(--mono);color:var(--accent);margin-bottom:6px;}
+  @media(max-width:700px){.scale{grid-template-columns:1fr 1fr;}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QHPFB16VF4');
+</script>
+</head>
+<body>
+<header></header>
+<div class="wrap">
+  <div class="breadcrumb"><a href="./index.html">Home</a> / How we test</div>
+  <div class="review-hero">
+    <span class="badge">Method</span>
+    <h1>How we test PoC radios</h1>
+    <p style="max-width:65ch;">Short version: a licensed radio operator uses each radio on a live cell network, runs the same six checks every time, and publishes the cons alongside the pros. A radio we haven't used gets a spec-based overview and no score.</p>
+  </div>
+
+  <section class="block">
+    <h2>Who tests</h2>
+    <p>Every bench-tested radio on this site is used by Michael Smith, a licensed amateur radio operator (KM7FMJ) in Arizona. Michael also runs <a href="https://hqshortwaveradio.com" target="_blank" rel="noopener">HQ Shortwave Radio</a>, part of the same HQ Radio Network, so radios here are judged by someone who uses conventional radios too and knows what PoC does and doesn't replace.</p>
+  </section>
+
+  <section class="block">
+    <h2>The bench checklist</h2>
+    <p>Every radio that gets a score goes through the same six checks.</p>
+    <ol class="ht-steps">
+      <li><div><h3>Out of the box</h3><p>What's in the box, whether the SIM is included, and how long it takes to get from box to a first working call.</p></div></li>
+      <li><div><h3>Audio</h3><p>How clear and how loud voices are on real calls, at both ends.</p></div></li>
+      <li><div><h3>PTT delay</h3><p>The time from pressing the talk button to the other radio hearing you, timed with a stopwatch or on video. We started timing on the Radtel P8 (1 to 2 seconds) and are adding it to earlier radios as we re-test them. Until then the bench shows "not timed yet" rather than a guess.</p></div></li>
+      <li><div><h3>Build and screen</h3><p>How it feels in the hand, button feel, weight, and whether the screen is readable outdoors.</p></div></li>
+      <li><div><h3>App and groups</h3><p>How groups and contacts are set up, whether you can find other users, and anything buggy along the way.</p></div></li>
+      <li><div><h3>Real cost</h3><p>Hardware price plus the SIM or platform fee in year two and beyond, using the brand's published pricing. If a brand doesn't publish it, we say so instead of estimating.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2>How scores work</h2>
+    <p>Scores are out of 5 and shown as signal bars. They're an overall judgement after hands-on use, weighing the checklist against the price.</p>
+    <div class="scale">
+      <div><b>4.5+</b>Easy recommendation for its job</div>
+      <div><b>4.0</b>Good, with trade-offs you should know</div>
+      <div><b>3.5</b>Fine for the right buyer only</div>
+      <div><b>3.0</b>Significant problems</div>
+      <div><b>&lt;3</b>We'd steer you elsewhere</div>
+    </div>
+    <p>We don't publish star ratings borrowed from store listings or "owner report" counts. If a radio hasn't been on the bench, it has no score.</p>
+  </section>
+
+  <section class="block">
+    <h2>Review units and money</h2>
+    <p>Many radios are sent to us free by the manufacturer for review. Manufacturers don't get a vote on the verdict, and every review lists the cons. Some links on the site are affiliate links (for example Amazon, tag pocradio-20), which pay a commission at no extra cost to you. See the <a href="./affiliate-disclosure.html">affiliate disclosure</a>.</p>
+  </section>
+
+  <section class="block">
+    <h2>Corrections</h2>
+    <p>If something on a review is wrong or out of date (prices, fees and bands change), <a href="./index.html#contact">tell us</a> and we'll fix it.</p>
+  </section>
+
+  <section class="block" style="border-bottom:none;">
+    <h2>See the results</h2>
+    <div class="related">
+      <a href="./index.html#bench">The Bench: all tested radios</a>
+      <a href="./index.html#picks">Tested picks</a>
+      <a href="./index.html#picker">Radio picker</a>
+    </div>
+  </section>
+</div>
+<footer></footer>
+</body>
+</html>

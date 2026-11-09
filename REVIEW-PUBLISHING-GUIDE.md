@@ -1,5 +1,25 @@
 # PocRadioHQ — Review Publishing Checklist
 
+## Nov 2026 update: the homepage is now data-driven (HQ brand system)
+
+Homepage bench table, tested-pick cards, "on our radar" list, ticker, picker
+links and cost calculator all come from **`data/bench.json`**. Do NOT hand-edit
+pick cards in `data/homepage.html` any more (step 5 below is replaced by this).
+
+To publish a new hands-on review:
+1. Review file → `reviews/<slug>-review.html` (keep the `HANDS-ON TESTED` badge text;
+   the build uses it to add the bench stamp + author card automatically).
+2. Card photo → `images/card_<slug>.webp`, 480x640 (3:4). Full photo can stay as-is.
+3. Add an entry at the TOP of `"tested"` in `data/bench.json` (top entry = hero LCD + ticker "latest").
+   `ptt` = measured PTT delay text or `null`. `cost` = `{hw, renew, src}` only if the brand publishes renewal pricing, else `null`.
+4. `node build.js` — must end with "HQ brand layer applied to N pages" and no errors.
+5. Push. Header, footer, network bar, signal-bar ratings and emoji cleanup are applied to every page at build time by `hq-brand.js`.
+
+Untested radios: add them to `"radar"`, never to `"tested"`, and never give them a score.
+
+---
+
+
 Why reviews "disappear": a finished review file in `reviews/` builds fine and is
 reachable by direct URL, but without the steps below it's an **orphan page** —
 not in the sitemap, not linked anywhere on the site, invisible to Google and

@@ -1,0 +1,135 @@
+{
+  "_readme": "Single source of truth for the homepage bench table, tested picks, 'on our radar' list, ticker and cost calculator. To publish a new hands-on review: add an entry to 'tested' (newest first), put a 480x640 card image at images/card_<slug>.webp, and run node build.js. ptt = measured PTT delay text, or null if not timed. cost = {hw: per-radio USD, renew: per-radio per-year USD after year 1, src: where the fee came from} or null if not confirmed.",
+  "tested": [
+    {
+      "slug": "radtel-p8",
+      "name": "Radtel P8",
+      "path": "reviews/radtel-p8-review.html",
+      "score": 4.5,
+      "badge": "Best Value, SIM Included",
+      "cat": "Handheld · 4G LTE · 2-pack with SIMs",
+      "img": "images/card_radtel_p8.webp",
+      "price": "From ~$99 / 2-pack",
+      "buy": "https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20",
+      "buyLabel": "Check Price",
+      "bestAt": "Clear, loud audio and a solid zinc-alloy body",
+      "watchOut": "1–2 s PTT delay; no published IP rating",
+      "ptt": "1–2 s",
+      "desc": "Clear, loud audio and a body that feels premium for the price, with SIMs included for the first year (about $10 per card per year after, per Radtel). Expect a 1 to 2 second pause after you press PTT.",
+      "lcd": [["PTT DELAY", "1–2 S"], ["AUDIO", "CLEAR, LOUD"], ["BUILD", "SOLID ZINC ALLOY"], ["SIM", "INCLUDED, YR 1"]],
+      "cost": {"hw": 50, "renew": 10, "src": "Radtel: 2-pack from ~$99; about $10 per SIM per year after year 1"}
+    },
+    {
+      "slug": "choyong-wt2",
+      "name": "ChoYong WT2",
+      "path": "reviews/choyong-wt2-review.html",
+      "score": 4.5,
+      "badge": "Best Multi-Mode",
+      "cat": "Handheld · PoC + UHF + SW/AM/FM + internet radio",
+      "img": "images/card_choyong_wt2.webp",
+      "price": "~$100–140",
+      "buy": "https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20",
+      "buyLabel": "Check Price",
+      "bestAt": "PoC, analog UHF, shortwave and internet radio in one",
+      "watchOut": "Use 2.4 GHz WiFi for PoC; compact for big hands",
+      "ptt": null,
+      "desc": "A PoC radio, a 2W analog UHF walkie-talkie and a TEF6686 shortwave/AM/FM receiver with internet radio, all in one handheld. PTT was excellent on 2.4 GHz WiFi; the analog UHF side is weak, as expected at 2W.",
+      "cost": null
+    },
+    {
+      "slug": "omizn-m9",
+      "name": "OMIZN M9",
+      "path": "reviews/omizn-m9-review.html",
+      "score": 4.4,
+      "badge": "Best Built for Outdoors",
+      "cat": "Handheld · 4G LTE · Aluminum alloy body",
+      "img": "images/card_omizn_m9.webp",
+      "price": "~$90–130",
+      "buy": "https://www.amazon.com/s?k=OMIZN+M9&tag=pocradio-20",
+      "buyLabel": "Check Price",
+      "bestAt": "Rugged aluminum body, great sound, readable screen",
+      "watchOut": "Heavy at 300 g; no public group directory",
+      "ptt": null,
+      "desc": "An aluminum alloy body and dust-proof, noise-reducing speaker that earn the outdoor pitch, with great sound and an easy-to-read screen. It is heavier than most, and there is no public directory for finding other users.",
+      "cost": null
+    },
+    {
+      "slug": "tidradio-td-m2-pro",
+      "name": "TIDRADIO TD-M2 Pro",
+      "path": "reviews/tidradio-td-m2-pro-review.html",
+      "score": 4.2,
+      "badge": "Best Budget Dual-Mode",
+      "cat": "Handheld · PoC + FRS/PMR446",
+      "img": "images/card_tidradio_td_m2_pro.webp",
+      "price": "~$50–80",
+      "buy": "https://www.amazon.com/dp/B0GCRMGKJ6?tag=pocradio-20",
+      "buyLabel": "Check Price",
+      "bestAt": "Two PTT buttons: nationwide PoC plus local FRS",
+      "watchOut": "Odmaster app is buggy; groups are hard to find",
+      "ptt": null,
+      "desc": "The cheapest way into dual-mode: PTT1 talks over LTE nationwide, PTT2 drops to license-free FRS when there is no signal. Solid in hand with clear audio. The Odmaster app is the weak spot.",
+      "cost": {"hw": 65, "renew": 9.99, "src": "TIDRADIO: first year free, published $9.99 per year after"}
+    },
+    {
+      "slug": "wouxun-kg-wv9",
+      "name": "Wouxun KG-WV9",
+      "path": "reviews/wouxun-kg-wv9-review.html",
+      "score": 4.2,
+      "badge": "Established Brand Pick",
+      "cat": "Handheld · 4G/3G/2G · GPS + SOS",
+      "img": "images/card_wouxun_kg_wv9.webp",
+      "price": "Contact for pricing",
+      "buy": "mailto:wouxun@wouxun.com?subject=KG-WV9%20Pricing%20Inquiry",
+      "buyLabel": "Request a Quote",
+      "bestAt": "Group and member calling built into the radio menu",
+      "watchOut": "Not sold through US retail; quote-only",
+      "ptt": null,
+      "desc": "Group and member calling run from the radio's own menu, with no app needed mid-call, backed by Wouxun's long two-way radio track record. Ordered direct from Wouxun or a distributor.",
+      "cost": null
+    },
+    {
+      "slug": "carrborg-x13",
+      "name": "CARRBORG X13",
+      "path": "reviews/carrborg-x13-review.html",
+      "score": 4.0,
+      "badge": "Best Bright-Screen Value",
+      "cat": "Handheld · 4G LTE · Lifetime free data",
+      "img": "images/card_carrborg_x13.webp",
+      "price": "~$130–180",
+      "buy": "https://www.amazon.com/s?k=CARRBORG+X13&tag=pocradio-20",
+      "buyLabel": "Check Price",
+      "bestAt": "Bright screen, clear audio, no data subscription",
+      "watchOut": "More PTT lag than faster rivals; large body",
+      "ptt": "Slower than rivals (untimed)",
+      "desc": "A genuinely bright, easy-to-read screen and clear voice audio, with lifetime free data that undercuts most rivals on long-term cost. A touch more PTT lag than faster radios, and a big body for small hands.",
+      "cost": {"hw": 155, "renew": 0, "src": "Seller listing: lifetime free data included"}
+    }
+  ],
+  "radar": [
+    {
+      "name": "Inrico T320",
+      "path": "reviews/inrico-t320-review.html",
+      "img": "images/card_inrico_t320.webp",
+      "note": "Android PoC radio that runs Zello; popular with preppers. Spec-based overview."
+    },
+    {
+      "name": "GLOBAL-PTT 5288 Plus",
+      "path": "reviews/global-ptt-5288-plus-review.html",
+      "img": "images/card_global_ptt_5288_plus.webp",
+      "note": "PoC plus an 8W analog VHF/UHF fallback. Spec-based overview.",
+      "buy": "https://www.amazon.com/dp/B0GKNYSQJF?tag=pocradio-20"
+    },
+    {
+      "name": "Hytera PNC360S",
+      "path": "reviews/hytera-pnc360s-review.html",
+      "img": "images/card_hytera_pnc360s.webp",
+      "note": "Built around Hytera's Horizon web dispatch and GPS fleet map. Spec-based overview."
+    },
+    {
+      "name": "Motorola WAVE PTX",
+      "path": "reviews/motorola-wave-ptx-review.html",
+      "img": "images/card_motorola_wave_ptx.webp",
+      "note": "Enterprise PTT platform that can bridge into land-mobile radio. Spec-based overview."
+    }
+  ]
+}
