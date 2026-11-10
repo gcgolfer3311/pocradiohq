@@ -81,6 +81,8 @@ function footer(prefix) {
       <li><a href="${prefix}index.html#picks">Tested Reviews</a></li>
       <li><a href="${prefix}index.html#picker">Radio Picker</a></li>
       <li><a href="${prefix}index.html#cost">Cost Calculator</a></li>
+      <li><a href="${prefix}guides/poc-radio-subscription-costs.html">Subscription Costs</a></li>
+      <li><a href="${prefix}guides/radtel-p8-vs-tidradio-td-m2-pro.html">Radtel P8 vs TD-M2 Pro</a></li>
       <li><a href="${prefix}guides/poc-radio-setup-guide.html">Setup Guide</a></li>
       <li><a href="${prefix}guides/best-poc-apps.html">Best PoC Apps</a></li>
       <li><a href="${prefix}blog/">Blog</a></li>
@@ -133,7 +135,55 @@ function starsToBars(html) {
 }
 
 // kind: 'home' | 'review' | 'ht' | 'page'
-function brandify(html, { prefix, bench, kind }) {
+function keyFacts(e) {
+  const cost = e.cost ? (e.cost.renew === 0 ? 'No renewal (lifetime data, per seller)' : `About $${e.cost.renew} per radio per year after year 1`) : 'Renewal price not published';
+  const rows = [['Our score', sigBars(e.score)], ['Best at', esc(e.bestAt)], ['Watch out', esc(e.watchOut)], ['PTT delay', e.ptt ? esc(e.ptt) : 'Not timed yet'], ['Price', esc(e.price)], ['Running cost', cost]];
+  return `<div class="kf"><div class="kf-h"><span>Key facts</span><span>Updated ${esc(e.updated || '')}</span></div><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>`;
+}
+function faqBlock(e) {
+  return `<div class="wrap"><section class="block rv-faq"><h2>${esc(e.name)}: common questions</h2>${e.faq.map(([q, a]) => `<div class="faq-item"><h3>${esc(q)}</h3><p>${esc(a)}</p></div>`).join('')}</section></div>`;
+}
+function faqSchema(e) {
+  return `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": e.faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) })}</script>`;
+}
+function buyBar(e) {
+  const attr = e.buy.startsWith('mailto:') ? '' : ' rel="sponsored nofollow" target="_blank"';
+  return `<div class="buybar" role="complementary" aria-label="Buy ${esc(e.name)}"><div><b>${esc(e.name)}</b><span>${sigBars(e.score)} · ${esc(e.price)}</span></div><a class="btn" href="${e.buy}"${attr}>${esc(e.buyLabel)}</a></div>`;
+}
+
+function llmsTxt(bench, SITE) {
+  const t = bench.tested;
+  return `# POC Radio HQ
+
+> Independent, hands-on reviews of Push-to-Talk over Cellular (PoC) radios, run by Michael Smith (licensed amateur radio operator KM7FMJ, Arizona). Part of the HQ Radio Network with HQ Shortwave Radio (hqshortwaveradio.com). Radios marked "bench tested" were used by the reviewer on live cell networks before being scored; radios marked "spec-based" have not been tested and carry no score.
+
+## Bench-tested PoC radio reviews (score out of 5)
+${t.map(r => `- [${r.name} review](${SITE}/${r.path}): ${r.score.toFixed(1)}/5. Best at: ${r.bestAt}. Watch out: ${r.watchOut}. PTT delay: ${r.ptt || 'not timed yet'}. Price: ${r.price}.`).join('\n')}
+
+## Spec-based overviews (not yet tested, no score)
+${bench.radar.map(r => `- [${r.name}](${SITE}/${r.path}): ${r.note}`).join('\n')}
+
+## Buying guides
+- [PoC radio subscription costs and no-monthly-fee options](${SITE}/guides/poc-radio-subscription-costs.html)
+- [Radtel P8 vs TIDRADIO TD-M2 Pro](${SITE}/guides/radtel-p8-vs-tidradio-td-m2-pro.html)
+- [ChoYong WT2 vs TIDRADIO TD-M2 Pro](${SITE}/guides/choyong-wt2-vs-tidradio-td-m2-pro.html)
+- [Best PoC radio for construction](${SITE}/guides/best-poc-radio-for-construction.html)
+- [Best PoC radio for delivery drivers](${SITE}/guides/best-poc-radio-for-delivery-drivers.html)
+- [Best PoC radio for security](${SITE}/guides/best-poc-radio-for-security.html)
+- [Best PoC radio for events](${SITE}/guides/best-poc-radio-for-events.html)
+- [PoC radio setup guide](${SITE}/guides/poc-radio-setup-guide.html)
+- [Best PoC apps](${SITE}/guides/best-poc-apps.html)
+
+## Method and site
+- [How we test](${SITE}/how-we-test.html): six-point bench checklist (out of box, audio, PTT delay, build and screen, app and groups, real cost).
+- [The Bench: all tested radios compared](${SITE}/#bench)
+- [About](${SITE}/about.html)
+- [Affiliate disclosure](${SITE}/affiliate-disclosure.html)
+`;
+}
+
+function brandify(html, { prefix, bench, kind, rel }) {
+  const entry = kind === 'review' ? bench.tested.find(r => r.path === rel) : null;
   const isHome = kind === 'home';
   // fonts + theme color
   html = html.replace(/@import url\('https:\/\/fonts\.googleapis\.com[^']*'\);?/g, '');
@@ -141,21 +191,23 @@ function brandify(html, { prefix, bench, kind }) {
   if (!html.includes('name="theme-color"')) html = html.replace('</head>', '<meta name="theme-color" content="#0a0b0e">\n</head>');
   // header + footer
   const mast = masthead(prefix, bench, isHome);
-  if (/<header\b[\s\S]*?<\/header>/.test(html)) html = html.replace(/<header\b[\s\S]*?<\/header>/, mast);
-  else html = html.replace(/<body([^>]*)>/, `<body$1>\n${mast}`);
+  if (/<header\b[\s\S]*?<\/header>/.test(html)) html = html.replace(/<header\b[\s\S]*?<\/header>/, () => mast);
+  else html = html.replace(/<body([^>]*)>/, (m, a) => `<body${a}>\n${mast}`);
   let foot = footer(prefix);
   const tested = /HANDS-ON TESTED|Hands-on tested/.test(html);
   if (kind === 'review' || kind === 'ht') {
     const heroEnd = /(<div class="review-hero">[\s\S]*?<h1[^>]*>[\s\S]*?<\/h1>)/;
     if (tested) {
-      html = html.replace(heroEnd, `$1\n    <div class="bench-stamp"><b></b>Bench tested · ${AUTHOR.call} · ${AUTHOR.where}</div>`);
-      foot = authorCard(prefix) + '\n' + foot;
+      const stamp = `\n    <div class="bench-stamp"><b></b>Bench tested · ${AUTHOR.call} · ${AUTHOR.where}</div>${entry ? '\n    ' + keyFacts(entry) : ''}`;
+      html = html.replace(heroEnd, m => m + stamp);
+      foot = (entry ? faqBlock(entry) + '\n' : '') + authorCard(prefix) + '\n' + foot + (entry ? '\n' + buyBar(entry) : '');
+      if (entry) html = html.replace('</head>', () => `${faqSchema(entry)}\n</head>`).replace(/<body([^>]*)>/, '<body$1 class="has-buybar">');
     } else if (kind === 'review') {
       html = html.replace(heroEnd, `$1\n    <div class="spec-note"><strong>Spec-based overview · not yet bench tested</strong>This page is built from manufacturer specs and published information. We haven't tested this radio ourselves yet, so it carries no score. <a href="${prefix}how-we-test.html">How we test</a> · <a href="${prefix}index.html#bench">Radios we have tested</a></div>`);
     }
   }
-  if (/<footer\b[\s\S]*?<\/footer>/.test(html)) html = html.replace(/<footer\b[\s\S]*?<\/footer>/, foot);
-  else html = html.replace('</body>', `${foot}\n</body>`);
+  if (/<footer\b[\s\S]*?<\/footer>/.test(html)) html = html.replace(/<footer\b[\s\S]*?<\/footer>/, () => foot);
+  else html = html.replace('</body>', () => `${foot}\n</body>`);
   html = starsToBars(html);
   html = stripEmoji(html);
   return html;
@@ -205,4 +257,4 @@ function homeBlocks(bench) {
   return { rows, picks, radar, lcd, itemList, costData, pickerData, count: String(t.length) };
 }
 
-module.exports = { brandify, homeBlocks, sigBars };
+module.exports = { brandify, homeBlocks, sigBars, llmsTxt };

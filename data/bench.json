@@ -16,8 +16,48 @@
       "watchOut": "1–2 s PTT delay; no published IP rating",
       "ptt": "1–2 s",
       "desc": "Clear, loud audio and a body that feels premium for the price, with SIMs included for the first year (about $10 per card per year after, per Radtel). Expect a 1 to 2 second pause after you press PTT.",
-      "lcd": [["PTT DELAY", "1–2 S"], ["AUDIO", "CLEAR, LOUD"], ["BUILD", "SOLID ZINC ALLOY"], ["SIM", "INCLUDED, YR 1"]],
-      "cost": {"hw": 50, "renew": 10, "src": "Radtel: 2-pack from ~$99; about $10 per SIM per year after year 1"}
+      "lcd": [
+        [
+          "PTT DELAY",
+          "1–2 S"
+        ],
+        [
+          "AUDIO",
+          "CLEAR, LOUD"
+        ],
+        [
+          "BUILD",
+          "SOLID ZINC ALLOY"
+        ],
+        [
+          "SIM",
+          "INCLUDED, YR 1"
+        ]
+      ],
+      "cost": {
+        "hw": 50,
+        "renew": 10,
+        "src": "Radtel: 2-pack from ~$99; about $10 per SIM per year after year 1"
+      },
+      "faq": [
+        [
+          "Does the Radtel P8 need a subscription?",
+          "The SIM is included for the first year. After that Radtel quotes about $10 per SIM per year, with the GXIN platform advertised as free for life. You can also buy it without a SIM and use your own AT&T, T-Mobile or Verizon SIM."
+        ],
+        [
+          "What is the Radtel P8's range?",
+          "Anywhere both radios have 4G LTE signal, so it can reach across the country. With no cell signal it can't talk at all; it has no off-network mode."
+        ],
+        [
+          "How much delay does the Radtel P8 have?",
+          "We measured about 1 to 2 seconds between pressing PTT and the other radio hearing us, slower than Radtel's claimed 0.3 to 1 second. Pause a beat after pressing the button."
+        ],
+        [
+          "Is the Radtel P8 waterproof?",
+          "Radtel claims water resistance but publishes no IP rating, so don't assume it survives heavy rain or submersion."
+        ]
+      ],
+      "updated": "November 2026"
     },
     {
       "slug": "choyong-wt2",
@@ -34,7 +74,22 @@
       "watchOut": "Use 2.4 GHz WiFi for PoC; compact for big hands",
       "ptt": null,
       "desc": "A PoC radio, a 2W analog UHF walkie-talkie and a TEF6686 shortwave/AM/FM receiver with internet radio, all in one handheld. PTT was excellent on 2.4 GHz WiFi; the analog UHF side is weak, as expected at 2W.",
-      "cost": null
+      "cost": null,
+      "faq": [
+        [
+          "Does the ChoYong WT2 need a SIM card?",
+          "No SIM is listed in the box. In our testing PoC worked over WiFi, and PTT was excellent on 2.4 GHz WiFi rather than 5 GHz."
+        ],
+        [
+          "Can the ChoYong WT2 receive shortwave?",
+          "Yes. It has a TEF6686-based shortwave, AM and FM receiver. Reception is good with an external loop antenna, AM is impressively sensitive and FM was flawless in our testing."
+        ],
+        [
+          "Does the WT2 work with no internet?",
+          "Its analog UHF side transmits at 2 W radio-to-radio with no network. It's a short-range safety net, weak as you'd expect at 2 W."
+        ]
+      ],
+      "updated": "November 2026"
     },
     {
       "slug": "omizn-m9",
@@ -51,7 +106,22 @@
       "watchOut": "Heavy at 300 g; no public group directory",
       "ptt": null,
       "desc": "An aluminum alloy body and dust-proof, noise-reducing speaker that earn the outdoor pitch, with great sound and an easy-to-read screen. It is heavier than most, and there is no public directory for finding other users.",
-      "cost": null
+      "cost": null,
+      "faq": [
+        [
+          "Does the OMIZN M9 need a subscription?",
+          "The SIM is pre-installed and OMIZN's manual says first-year SIM and data fees are covered. A renewal service is offered after that, but OMIZN doesn't publish the price."
+        ],
+        [
+          "Is the OMIZN M9 rugged?",
+          "It has an aluminum alloy body and a dust-proof, noise-reducing speaker, and it felt solid in our testing. At about 300 g it's heavier than most PoC radios."
+        ],
+        [
+          "Can you meet other users on the OMIZN M9?",
+          "There's no public group directory, so it's best for closed groups such as a family or a work team that sets up its own group."
+        ]
+      ],
+      "updated": "November 2026"
     },
     {
       "slug": "tidradio-td-m2-pro",
@@ -68,7 +138,26 @@
       "watchOut": "Odmaster app is buggy; groups are hard to find",
       "ptt": null,
       "desc": "The cheapest way into dual-mode: PTT1 talks over LTE nationwide, PTT2 drops to license-free FRS when there is no signal. Solid in hand with clear audio. The Odmaster app is the weak spot.",
-      "cost": {"hw": 65, "renew": 9.99, "src": "TIDRADIO: first year free, published $9.99 per year after"}
+      "cost": {
+        "hw": 65,
+        "renew": 9.99,
+        "src": "TIDRADIO: first year free, published $9.99 per year after"
+      },
+      "faq": [
+        [
+          "Does the TIDRADIO TD-M2 Pro need a subscription?",
+          "The SIM ships pre-activated with the first year free and 800 MB per month. After that TIDRADIO publishes a renewal of $9.99 per year."
+        ],
+        [
+          "Does the TD-M2 Pro work without cell service?",
+          "Yes. PTT2 talks on license-free FRS radio-to-radio with no SIM or network, while PTT1 uses 4G PoC. Both stay active at the same time."
+        ],
+        [
+          "What app does the TD-M2 Pro use?",
+          "TIDRADIO's Odmaster app, which also runs its other PoC radios. In our testing the app was buggy and finding existing groups was hard, so expect some setup time."
+        ]
+      ],
+      "updated": "November 2026"
     },
     {
       "slug": "wouxun-kg-wv9",
@@ -85,7 +174,22 @@
       "watchOut": "Not sold through US retail; quote-only",
       "ptt": null,
       "desc": "Group and member calling run from the radio's own menu, with no app needed mid-call, backed by Wouxun's long two-way radio track record. Ordered direct from Wouxun or a distributor.",
-      "cost": null
+      "cost": null,
+      "faq": [
+        [
+          "Where can you buy the Wouxun KG-WV9?",
+          "It's sold direct from Wouxun or through distributors rather than US retail like Amazon, so pricing is by quote."
+        ],
+        [
+          "Does the KG-WV9 need an app for calls?",
+          "No. Group and member calling run from the radio's own menu. The menu feels more like a traditional two-way radio than a smartphone."
+        ],
+        [
+          "Does the Wouxun KG-WV9 have GPS and SOS?",
+          "Yes, it lists built-in GPS (platform-dependent) and a dedicated SOS function."
+        ]
+      ],
+      "updated": "November 2026"
     },
     {
       "slug": "carrborg-x13",
@@ -102,7 +206,26 @@
       "watchOut": "More PTT lag than faster rivals; large body",
       "ptt": "Slower than rivals (untimed)",
       "desc": "A genuinely bright, easy-to-read screen and clear voice audio, with lifetime free data that undercuts most rivals on long-term cost. A touch more PTT lag than faster radios, and a big body for small hands.",
-      "cost": {"hw": 155, "renew": 0, "src": "Seller listing: lifetime free data included"}
+      "cost": {
+        "hw": 155,
+        "renew": 0,
+        "src": "Seller listing: lifetime free data included"
+      },
+      "faq": [
+        [
+          "Does the CARRBORG X13 have a monthly fee?",
+          "No. It's sold with a pre-activated SIM and lifetime free data, so the purchase price is the whole cost, as long as the seller's service continues."
+        ],
+        [
+          "Is the CARRBORG X13 fast to key up?",
+          "It has a touch more PTT lag than faster PoC radios in our testing. Fine for casual and team use, noticeable in quick back-and-forth."
+        ],
+        [
+          "Is the CARRBORG X13 good for small hands?",
+          "It's a large handheld. The upside is a genuinely bright, easy-to-read screen."
+        ]
+      ],
+      "updated": "November 2026"
     }
   ],
   "radar": [

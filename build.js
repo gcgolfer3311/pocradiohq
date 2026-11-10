@@ -13,7 +13,9 @@ fs.mkdirSync(reviewsDir, { recursive: true });
 // ---- shared styles: HQ Network design system lives in data/hq-shared.css ----
 const sharedCSS = fs.readFileSync(path.join(__dirname, 'data/hq-shared.css'), 'utf8');
 const bench = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/bench.json'), 'utf8'));
-const { brandify, homeBlocks } = require('./hq-brand');
+const { brandify, homeBlocks, sigBars, llmsTxt } = require('./hq-brand');
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+const BUILD_MONTH = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 const LOGO_SVG = '<svg class="logo-mark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M8.5 8a5 5 0 0 1 7 0"/><path d="M5.5 5a9 9 0 0 1 13 0"/><circle cx="12" cy="21" r="1.4" fill="currentColor" stroke="none"/></svg>';
 
@@ -355,14 +357,26 @@ const usecaseDir = path.join(distDir, 'guides');
 fs.mkdirSync(usecaseDir, { recursive: true });
 
 function usecasePage(uc) {
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+  const bySlug = Object.fromEntries(bench.tested.map(r => [r.slug, r]));
+  const picks = uc.picks.map(([slug, role, why]) => {
+    const r = bySlug[slug];
+    if (!r) throw new Error(`Use-case ${uc.slug}: ${slug} is not a bench-tested radio in data/bench.json`);
+    return { r, role, why };
+  });
+  const url = `${SITE}/guides/${uc.slug}.html`;
+  const schema = [
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/" },
-      { "@type": "ListItem", "position": 2, "name": uc.h1, "item": `${SITE}/guides/${uc.slug}.html` }
-    ]
-  };
+      { "@type": "ListItem", "position": 2, "name": uc.h1, "item": url } ] },
+    { "@context": "https://schema.org", "@type": "ItemList", "name": uc.h1, "itemListElement": picks.map((p, i) => ({ "@type": "ListItem", "position": i + 1, "name": p.r.name, "url": `${SITE}/${p.r.path}` })) },
+    { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": uc.faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) },
+    { "@context": "https://schema.org", "@type": "Article", "headline": uc.title, "dateModified": BUILD_DATE, "author": { "@type": "Person", "name": "Michael Smith" }, "publisher": { "@type": "Organization", "name": "POC Radio HQ" }, "mainEntityOfPage": url }
+  ];
+  const costRows = bench.tested.filter(r => r.cost).map(r => {
+    const n = uc.crew, y3 = r.cost.hw * n + r.cost.renew * n * 2;
+    return `<tr><td><a href="../${r.path}">${r.name}</a></td><td class="mono">$${(r.cost.hw * n).toLocaleString('en-US')}</td><td class="mono">$${(Math.round(y3 * 100) / 100).toLocaleString('en-US')}</td><td class="mono">$${(y3 / n / 36).toFixed(2)}</td></tr>`;
+  }).join('');
+  const buyAttr = u => u.startsWith('mailto:') ? '' : ' rel="sponsored nofollow" target="_blank"';
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -370,12 +384,40 @@ function usecasePage(uc) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${uc.title} | POC Radio HQ</title>
 <meta name="description" content="${uc.metaDesc}">
-<link rel="canonical" href="${SITE}/guides/${uc.slug}.html">
+<link rel="canonical" href="${url}">
 <meta property="og:title" content="${uc.title}">
 <meta property="og:description" content="${uc.metaDesc}">
-<meta property="og:url" content="${SITE}/guides/${uc.slug}.html">
+<meta property="og:url" content="${url}">
+<meta property="og:type" content="article">
+<meta property="og:image" content="${SITE}/${picks[0].r.img}">
 <link rel="stylesheet" href="../styles.css">
-<script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
+${schema.map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n')}
+<style>
+  .uc-tbl{width:100%;font-size:.9rem;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card);}
+  .uc-tbl th{font:600 .64rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--m2);text-align:left;padding:12px 14px;background:var(--panel);border-bottom:1px solid var(--line2);}
+  .uc-tbl td{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--sub);vertical-align:middle;}
+  .uc-tbl tr:last-child td{border-bottom:none;}
+  .uc-tbl .mono{font-family:var(--mono);color:var(--text);white-space:nowrap;}
+  .tblx{overflow-x:auto;}
+  .uc-pick{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--line);}
+  .uc-pick:last-child{border-bottom:none;}
+  .uc-pick img{width:150px;height:200px;object-fit:cover;border-radius:8px;border:1px solid var(--line2);}
+  .uc-role{font:600 .66rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+  .uc-pick h3{font-size:1.35rem;margin-bottom:8px;}
+  .uc-pick h3 a{color:var(--text);}
+  .uc-watch{font-size:.86rem;color:var(--m2);margin:6px 0 14px;}
+  .uc-watch b{font:600 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--bad);margin-right:6px;}
+  .uc-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+  .needs{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .needs div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;}
+  .needs b{display:block;font:700 1rem/1.3 var(--disp);color:var(--text);margin-bottom:4px;}
+  .needs p{font-size:.9rem;margin:0;}
+  .faq-item{padding:14px 0;border-bottom:1px solid var(--line);}
+  .faq-item h3{font-size:1.05rem;margin-bottom:6px;}
+  .faq-item p{margin:0;}
+  .updated{font:500 .72rem/1.4 var(--mono);letter-spacing:.06em;color:var(--m2);text-transform:uppercase;}
+  @media(max-width:620px){.uc-pick{grid-template-columns:1fr;}.uc-pick img{width:120px;height:160px;}.needs{grid-template-columns:1fr;}}
+</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
 <script>
@@ -386,53 +428,76 @@ function usecasePage(uc) {
 </script>
 </head>
 <body>
-<header>
-  <div class="nav">
-    <a href="../index.html" class="logo">${LOGO_SVG} POC Radio HQ</a>
-    <a href="../index.html#guide" class="btn" style="padding:8px 16px;font-size:.85rem;">Full Buying Guide</a>
-  </div>
-</header>
+<header></header>
 <div class="wrap">
-  <div class="breadcrumb"><a href="../index.html">Home</a> / ${uc.h1}</div>
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#guides">Guides</a> / ${uc.job}</div>
 
   <div class="review-hero">
+    <span class="badge">Use-case guide · bench-tested picks only</span>
     <h1>${uc.h1}</h1>
-    <p style="max-width:65ch;">${uc.intro}</p>
+    <p class="updated">Updated ${BUILD_MONTH} · Picks drawn only from radios we've tested by hand</p>
+    <p style="max-width:65ch;margin-top:14px;">${uc.intro}</p>
   </div>
 
   <section class="block">
-    <h2>🏆 Top pick: <a href="../reviews/${uc.topPick}.html">${uc.topPickName}</a></h2>
-    <p>${uc.topPickWhy}</p>
+    <h2>Quick picks</h2>
+    <div class="tblx"><table class="uc-tbl">
+      <thead><tr><th>Pick</th><th>Radio</th><th>Score</th><th>Price</th></tr></thead>
+      <tbody>${picks.map(p => `<tr><td class="mono">${p.role}</td><td><a href="../${p.r.path}">${p.r.name}</a></td><td>${sigBars(p.r.score)}</td><td class="mono">${p.r.price}</td></tr>`).join('')}</tbody>
+    </table></div>
   </section>
 
   <section class="block">
-    <h2>Runner-up: <a href="../reviews/${uc.runnerUp}.html">${uc.runnerUpName}</a></h2>
-    <p>${uc.runnerUpWhy}</p>
+    <h2>What matters for ${uc.job}</h2>
+    <div class="needs">${uc.needs.map(([t, d]) => `<div><b>${t}</b><p>${d}</p></div>`).join('')}</div>
   </section>
 
   <section class="block">
-    <h2>Budget pick: <a href="../reviews/${uc.budgetPick}.html">${uc.budgetPickName}</a></h2>
-    <p>${uc.budgetPickWhy}</p>
+    <h2>The picks, and why</h2>
+    ${picks.map(p => `<div class="uc-pick">
+      <a href="../${p.r.path}"><img src="../${p.r.img}" width="150" height="200" loading="lazy" alt="${p.r.name} PoC radio"></a>
+      <div>
+        <div class="uc-role">${p.role}</div>
+        <h3><a href="../${p.r.path}">${p.r.name}</a></h3>
+        ${sigBars(p.r.score)}
+        <p style="margin-top:12px;">${p.why}</p>
+        <p class="uc-watch"><b>Watch out</b>${p.r.watchOut}</p>
+        <div class="uc-cta"><a class="btn" href="${p.r.buy}"${buyAttr(p.r.buy)}>${p.r.buyLabel} · ${p.r.price}</a><a href="../${p.r.path}">Full review →</a></div>
+      </div>
+    </div>`).join('')}
   </section>
 
+  ${costRows ? `<section class="block">
+    <h2>3-year cost for ${uc.crew} radios</h2>
+    <p>Hardware plus each brand's published renewal, with year-one service included. Only radios with confirmed pricing are listed. <a href="./poc-radio-subscription-costs.html">Full subscription cost comparison</a>.</p>
+    <div class="tblx"><table class="uc-tbl">
+      <thead><tr><th>Radio</th><th>Hardware</th><th>3-year total</th><th>Per radio / month</th></tr></thead>
+      <tbody>${costRows}</tbody>
+    </table></div>
+  </section>` : ''}
+
+  ${uc.dispatch ? `<section class="block">
+    <h2>Need GPS dispatch?</h2>
+    <p>${uc.dispatch}</p>
+  </section>` : ''}
+
   <section class="block">
-    <h2>Compare all options</h2>
-    <div class="related">
-      <a href="../index.html#picker">🎯 Radio Picker Quiz</a>
-      <a href="../index.html#cost">💰 Cost Calculator</a>
-      <a href="../index.html#compare">📊 POC vs GMRS vs Ham vs CB</a>
-      <a href="../index.html#quote">📋 Request a Fleet Quote</a>
-    </div>
+    <h2>Questions</h2>
+    ${uc.faq.map(([q, a]) => `<div class="faq-item"><h3>${q}</h3><p>${a}</p></div>`).join('')}
   </section>
 
   <section class="block" style="border-bottom:none;">
-    <h2>Other use-case guides</h2>
+    <h2>Keep comparing</h2>
     <div class="related">
-      ${usecases.filter(u => u.slug !== uc.slug).map(u => `<a href="./${u.slug}.html">${u.h1.replace('Best POC radio for ','')}</a>`).join('')}
+      <a href="../index.html#bench">The Bench: every tested radio</a>
+      <a href="./poc-radio-subscription-costs.html">PoC subscription costs</a>
+      <a href="../index.html#picker">Radio Picker</a>
+      <a href="../index.html#quote">Fleet quote</a>
+      ${usecases.filter(u => u.slug !== uc.slug).map(u => `<a href="./${u.slug}.html">Best for ${u.job}</a>`).join('')}
     </div>
   </section>
 </div>
-<footer>© 2026 POC Radio HQ. As an Amazon Associate we earn from qualifying purchases. <a href="../index.html">Back to home</a></footer>
+<footer></footer>
 </body>
 </html>`;
 }
@@ -443,7 +508,7 @@ for (const uc of usecases) {
 
 // Copy standalone guide pages into dist/guides/
 const standaloneGuides = path.join(__dirname, 'data');
-['hobbyist-guide.html', 'best-poc-apps.html', 'choyong-wt2-vs-tidradio-td-m2-pro.html', 'poc-radio-setup-guide.html'].forEach(f => {
+['hobbyist-guide.html', 'best-poc-apps.html', 'choyong-wt2-vs-tidradio-td-m2-pro.html', 'poc-radio-setup-guide.html', 'poc-radio-subscription-costs.html', 'radtel-p8-vs-tidradio-td-m2-pro.html'].forEach(f => {
   const src = path.join(standaloneGuides, f);
   const outName = f === 'hobbyist-guide.html' ? 'poc-radio-for-hobbyists.html' : f;
   if (fs.existsSync(src)) {
@@ -458,14 +523,14 @@ const homepageSrc = fs.existsSync(path.join(__dirname, 'data/homepage.html'))
   : path.join(__dirname, 'index.html');
 const hb = homeBlocks(bench);
 let homeHtml = fs.readFileSync(homepageSrc, 'utf8')
-  .replace('<!--HQ:ROWS-->', hb.rows)
-  .replace('<!--HQ:PICKS-->', hb.picks)
-  .replace('<!--HQ:RADAR-->', hb.radar)
-  .replace('<!--HQ:LCD-->', hb.lcd)
-  .replace('<!--HQ:ITEMLIST-->', hb.itemList)
-  .replace('<!--HQ:COUNT-->', hb.count)
-  .replace('/*HQ:COST*/[]', hb.costData)
-  .replace('/*HQ:PICKER*/{}', hb.pickerData);
+  .replace('<!--HQ:ROWS-->', () => hb.rows)
+  .replace('<!--HQ:PICKS-->', () => hb.picks)
+  .replace('<!--HQ:RADAR-->', () => hb.radar)
+  .replace('<!--HQ:LCD-->', () => hb.lcd)
+  .replace('<!--HQ:ITEMLIST-->', () => hb.itemList)
+  .replace('<!--HQ:COUNT-->', () => hb.count)
+  .replace('/*HQ:COST*/[]', () => hb.costData)
+  .replace('/*HQ:PICKER*/{}', () => hb.pickerData);
 if (/<!--HQ:|\/\*HQ:/.test(homeHtml)) throw new Error('Homepage placeholder left unfilled');
 fs.writeFileSync(path.join(distDir, 'index.html'), homeHtml);
 for (const extra of ['how-we-test.html', '_redirects']) {
@@ -541,6 +606,8 @@ const urls = [
   { loc: `${SITE}/guides/best-poc-apps.html`, priority: '0.7' },
   { loc: `${SITE}/guides/choyong-wt2-vs-tidradio-td-m2-pro.html`, priority: '0.7' },
   { loc: `${SITE}/guides/poc-radio-setup-guide.html`, priority: '0.7' },
+  { loc: `${SITE}/guides/poc-radio-subscription-costs.html`, priority: '0.8' },
+  { loc: `${SITE}/guides/radtel-p8-vs-tidradio-td-m2-pro.html`, priority: '0.8' },
   { loc: `${SITE}/blog/`, priority: '0.7' },
   ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}.html`, priority: '0.6' }))
 ];
@@ -569,11 +636,13 @@ for (const file of walkHtml(distDir)) {
   const rel = path.relative(distDir, file).split(path.sep);
   const prefix = rel.length > 1 ? '../'.repeat(rel.length - 1) : './';
   const kind = rel.length === 1 && rel[0] === 'index.html' ? 'home' : rel[0] === 'reviews' ? 'review' : rel[0] === 'ht-radios' ? 'ht' : 'page';
-  const out = brandify(fs.readFileSync(file, 'utf8'), { prefix, bench, kind });
+  const out = brandify(fs.readFileSync(file, 'utf8'), { prefix, bench, kind, rel: rel.join('/') });
   if (!out.includes('class="hq-mast"') || !out.includes('class="hq-foot"')) throw new Error(`Brand layer failed on ${rel.join('/')}`);
   fs.writeFileSync(file, out);
   branded++;
 }
 console.log(`  → HQ brand layer applied to ${branded} pages`);
+fs.writeFileSync(path.join(distDir, 'llms.txt'), llmsTxt(bench, SITE));
+console.log('  → llms.txt written');
 
 console.log(`Built ${reviews.length} review pages + ${usecases.length} use-case guides + index + sitemap + robots.txt into dist/`);

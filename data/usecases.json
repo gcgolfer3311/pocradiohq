@@ -1,66 +1,238 @@
 [
   {
     "slug": "best-poc-radio-for-construction",
-    "title": "Best POC Radio for Construction Sites (2026)",
-    "h1": "Best POC radio for construction crews",
-    "metaDesc": "Which POC radio is best for construction sites? We compare dispatch, durability, offline backup, and cost per crew member for the top PoC handhelds.",
-    "intro": "Construction sites need radios that survive dust, drops, and rain — and that let a foreman broadcast to every crew member at once, regardless of whether they're on the same floor or across town at a second site. POC radios solve the range problem (cellular = nationwide), but the real question for construction is dispatch tracking and ruggedness.",
-    "topPick": "hytera-pnc360s-review",
-    "topPickName": "Hytera PNC360S + Horizon Dispatch",
-    "topPickWhy": "Horizon's browser-based dispatch console shows every radio on a live map — exactly what a project manager needs when crews are split across sites. Emergency SOS with GPS coordinates handles the safety compliance angle. Monthly seat fee is a line item the business can expense, not an upfront capital cost barrier.",
-    "runnerUp": "global-ptt-5288-plus-review",
-    "runnerUpName": "GLOBAL-PTT 5288 Plus",
-    "runnerUpWhy": "For smaller crews that don't need a dispatch platform but do work in mixed-coverage areas — basements, rural framing sites, concrete structures that kill cell signal — the 8W analog VHF/UHF fallback keeps communication alive when cellular can't.",
-    "budgetPick": "tidradio-td-m2-pro-review",
-    "budgetPickName": "TIDRADIO TD-M2 Pro",
-    "budgetPickWhy": "At ~$65/unit, equipping a 10-person crew costs less than a single Hytera radio. FRS backup mode covers jobsite dead zones. Good enough for a GC who needs everyone on the same channel without a dispatch system."
+    "job": "construction",
+    "title": "Best PoC Radio for Construction (2026, Tested)",
+    "h1": "Best PoC radio for construction crews",
+    "metaDesc": "The best Push-to-Talk over Cellular radios for construction crews, picked only from radios we've tested by hand: off-network backup, rugged builds and real 3-year crew costs.",
+    "intro": "Construction crews need a radio that reaches the foreman across a site or across town, survives dust and drops, and keeps talking in basements and concrete cores where cell signal dies. PoC solves the distance problem. The dead zones are where most PoC radios fail, so off-network backup decides the top pick.",
+    "needs": [
+      [
+        "Off-network backup",
+        "Basements, elevator cores and concrete shells kill cell signal. A radio with a second, non-cellular way to talk keeps the crew connected."
+      ],
+      [
+        "Rugged build",
+        "Jobsite radios get dropped, dusted and rained on. Look for metal bodies and sealed speakers, and check whether the brand publishes an IP rating."
+      ],
+      [
+        "Readable screen",
+        "Crews check channels in direct sun. A bright screen matters more here than on a delivery dash."
+      ],
+      [
+        "Low cost per head",
+        "Crews change. A radio you can hand out without worrying about a per-seat monthly fee wins."
+      ]
+    ],
+    "picks": [
+      [
+        "tidradio-td-m2-pro",
+        "Top pick",
+        "Two PTT buttons: PTT1 talks nationwide over LTE, PTT2 drops to license-free FRS with no signal at all. That second button is what keeps a crew talking in a basement or a concrete core. At about $50–80 a radio with a published $9.99 yearly renewal, a whole crew is cheap to equip. The Odmaster app is buggy, so have one person set up the groups."
+      ],
+      [
+        "omizn-m9",
+        "Most rugged",
+        "The aluminum alloy body and dust-proof, noise-reducing speaker earn the outdoor pitch. Sound was great and the screen easy to read in our testing. It's PoC only, with no off-network mode, and at 300 g it's heavier than most."
+      ],
+      [
+        "carrborg-x13",
+        "No data fees",
+        "The brightest, easiest-to-read screen we've tested, clear audio, and lifetime free data from the seller, so there is no renewal to budget. Key-up is slower than faster rivals and the body is large, which matters less on a belt than in a pocket."
+      ]
+    ],
+    "dispatch": "Need a live GPS map of every crew member and a browser dispatch console? That's an enterprise platform such as Hytera Horizon (PNC360S) or Motorola WAVE PTX, billed per user. We haven't tested either yet; see our spec overviews for the <a href=\"../reviews/hytera-pnc360s-review.html\">Hytera PNC360S</a> and <a href=\"../reviews/motorola-wave-ptx-review.html\">Motorola WAVE PTX</a>.",
+    "crew": 10,
+    "faq": [
+      [
+        "Will a PoC radio work in a basement or parking garage?",
+        "Only if there is cell or WiFi signal there. Underground and concrete-heavy areas often have none. A dual-mode radio such as the TIDRADIO TD-M2 Pro adds license-free FRS, which works radio-to-radio with no network."
+      ],
+      [
+        "Do construction crews need an FCC license for PoC radios?",
+        "No. PoC uses cellular data, and FRS is license-free in the US. Only GMRS, business-band or ham transmit features need licensing."
+      ],
+      [
+        "What does it cost to equip a 10-person crew?",
+        "With the TIDRADIO TD-M2 Pro at about $65 each and $9.99 per radio per year after the first year, a 10-radio crew is about $850 over three years, roughly $2.36 per radio per month."
+      ]
+    ]
   },
   {
     "slug": "best-poc-radio-for-delivery-drivers",
-    "title": "Best POC Radio for Delivery Drivers (2026)",
-    "h1": "Best POC radio for delivery fleets",
-    "metaDesc": "POC radios for delivery drivers: GPS fleet tracking, instant dispatch, and cost per driver. We compare the top PoC radios for last-mile delivery teams.",
-    "intro": "Delivery operations live and die on real-time coordination: where's each driver, which routes need rerouting, and who's available for the next stop. POC radios replace the phone-call-and-text chaos with instant group broadcast and live GPS tracking — the two features that actually matter for last-mile logistics.",
-    "topPick": "hytera-pnc360s-review",
-    "topPickName": "Hytera PNC360S + Horizon Dispatch",
-    "topPickWhy": "The dispatch platform is the product here. A dispatcher sees every driver on a map, broadcasts to the whole fleet or one driver, and logs every transmission. Emergency SOS means the company has a safety paper trail. Per-seat monthly pricing maps to operating expense, not capital outlay.",
-    "runnerUp": "motorola-wave-ptx-review",
-    "runnerUpName": "Motorola WAVE PTX",
-    "runnerUpWhy": "For larger fleets (50+ drivers) or companies that already run Motorola LMR systems. Enterprise admin console, phone-or-hardware flexibility, and IT-grade user provisioning. Overkill for a 10-van operation, but the right platform once you scale.",
-    "budgetPick": "tidradio-td-m2-pro-review",
-    "budgetPickName": "TIDRADIO TD-M2 Pro",
-    "budgetPickWhy": "Odmaster app handles group management for up to 200 members at $9.99/yr/radio after the free year. No GPS dispatch view, but for a small delivery operation that just needs a shared talk channel, the economics are hard to beat."
+    "job": "delivery",
+    "title": "Best PoC Radio for Delivery Drivers (2026, Tested)",
+    "h1": "Best PoC radio for delivery drivers",
+    "metaDesc": "The best Push-to-Talk over Cellular radios for delivery drivers and small fleets, picked from radios we've tested: loud audio in the cab, low cost per driver and no-fee options.",
+    "intro": "Delivery drivers are the textbook PoC user: spread across a metro area or several counties, almost always inside cell coverage, and talking from a noisy cab. Range is solved by the network, so the picks come down to audio you can hear over the road, a price you can multiply by every driver, and running costs that don't creep up.",
+    "needs": [
+      [
+        "Loud, clear audio",
+        "Road noise, the radio and the engine all compete. Speaker volume and clarity matter more than features."
+      ],
+      [
+        "Cost per driver",
+        "Fleets buy in multiples. Multi-packs with SIMs included change the math fast."
+      ],
+      [
+        "Predictable running cost",
+        "A published yearly renewal, or no renewal at all, is easier to budget than a quote-only plan."
+      ],
+      [
+        "Simple operation",
+        "Drivers should press one button and talk, with groups set up by the dispatcher, not on the road."
+      ]
+    ],
+    "picks": [
+      [
+        "radtel-p8",
+        "Top pick",
+        "The clearest, loudest audio of the radios we've tested, a solid zinc-alloy body, and SIMs included for the first year in 2-packs and larger multi-packs (about $10 per SIM per year after, per Radtel). Expect a 1 to 2 second pause after pressing PTT, which drivers get used to quickly. GPS is a separate, pricier version."
+      ],
+      [
+        "carrborg-x13",
+        "No data fees",
+        "Lifetime free data from the seller means the purchase price is the whole cost, and the bright screen is easy to glance at. It keys up slower than faster rivals and is large in hand."
+      ],
+      [
+        "tidradio-td-m2-pro",
+        "Budget pick",
+        "The cheapest tested radio per driver, with a published $9.99 yearly renewal and an FRS button for depot-yard chatter with no network. Plan for some app wrestling when setting up groups."
+      ]
+    ],
+    "dispatch": "Need live GPS tracking of every vehicle and a dispatcher console? That's a dispatch platform such as Hytera Horizon (PNC360S) or Motorola WAVE PTX, priced per user per month. We haven't tested them yet: <a href=\"../reviews/hytera-pnc360s-review.html\">Hytera PNC360S overview</a>, <a href=\"../reviews/motorola-wave-ptx-review.html\">Motorola WAVE PTX overview</a>.",
+    "crew": 8,
+    "faq": [
+      [
+        "Is a PoC radio legal to use while driving?",
+        "Laws on handheld devices while driving vary by state, and some treat a handheld radio like a phone. Check your state's rules; many fleets use a dash mount and speaker mic."
+      ],
+      [
+        "How much delay is there on a PoC call?",
+        "We measured about 1 to 2 seconds on the Radtel P8. Every PoC radio has some delay because voice is relayed through a server, and it grows on weak signal."
+      ],
+      [
+        "What does it cost to equip 8 drivers?",
+        "With the Radtel P8 at about $50 per radio (2-pack pricing) and about $10 per SIM per year after the first year, 8 radios come to about $560 over three years, roughly $1.94 per driver per month."
+      ]
+    ]
   },
   {
     "slug": "best-poc-radio-for-security",
-    "title": "Best POC Radio for Security Guards & Patrols (2026)",
-    "h1": "Best POC radio for security teams",
-    "metaDesc": "Which POC radio works best for security guards, patrols, and event security? GPS tracking, SOS alerts, and dispatch compared across the top PoC handhelds.",
-    "intro": "Security operations need three things from a radio: instant one-to-many broadcast (not a phone call), GPS location of every guard on a central display, and a panic/SOS button that sends coordinates to the control room. POC radios deliver all three over cellular, without the range limits of traditional analog security radios.",
-    "topPick": "hytera-pnc360s-review",
-    "topPickName": "Hytera PNC360S + Horizon Dispatch",
-    "topPickWhy": "Emergency SOS with GPS is the feature that matters most for security — a guard hits one button, dispatch sees exactly where they are. Horizon's web console is the command center view security operations are built around. Monthly cost is tax-deductible as an operational expense.",
-    "runnerUp": "inrico-t320-review",
-    "runnerUpName": "Inrico T320",
-    "runnerUpWhy": "For contract security companies that can't justify Hytera's per-seat fee. Runs Zello, which has its own dispatch-like features at lower cost. Android-based means guards can also use it for incident-report photo capture.",
-    "budgetPick": "radtel-p8-review",
-    "budgetPickName": "Radtel P8",
-    "budgetPickWhy": "Sold as a 2-pack with SIMs included for the first year (about $10 per card per year after, per Radtel), so a small-site team can be equipped cheaply. In our hands-on testing the audio was clear and loud and the zinc-alloy body felt solid. Expect a 1 to 2 second PTT delay and no dispatch console."
+    "job": "security",
+    "title": "Best PoC Radio for Security Teams (2026, Tested)",
+    "h1": "Best PoC radio for security teams",
+    "metaDesc": "The best Push-to-Talk over Cellular radios for security guards and patrol teams, picked from radios we've tested: rugged builds, clear audio, emergency features and low running cost.",
+    "intro": "Security teams carry a radio for a whole shift, often outdoors, sometimes across several sites. They need clear audio, a build that survives a long shift, and fast one-to-one or group calls. Multi-site patrols are where PoC beats conventional radio, because range is wherever the network reaches.",
+    "needs": [
+      [
+        "Clear audio on patrol",
+        "Wind, traffic and crowds. A loud, clean speaker beats spec-sheet features."
+      ],
+      [
+        "Durability",
+        "Shift-long carry and the occasional drop. Metal bodies hold up better."
+      ],
+      [
+        "Individual and group calls",
+        "Supervisors need to reach one guard or the whole team quickly."
+      ],
+      [
+        "Emergency features",
+        "GPS and an SOS button help lone workers. Check which version of a radio actually has them."
+      ]
+    ],
+    "picks": [
+      [
+        "omizn-m9",
+        "Top pick",
+        "The aluminum alloy body, dust-proof speaker, great sound and readable screen suit outdoor patrol. It's heavier than most at 300 g, and there's no public directory for finding other users, which doesn't matter for a closed team."
+      ],
+      [
+        "wouxun-kg-wv9",
+        "Best for supervisors",
+        "Group and member calling run from the radio's own menu, so a supervisor can reach one guard without an app, and the KG-WV9 is listed with GPS and SOS. It's sold direct or through distributors, not US retail."
+      ],
+      [
+        "radtel-p8",
+        "Budget pick",
+        "Clear, loud audio and a solid body at the lowest per-radio price we've tested, with SIMs included for year one. Expect a 1 to 2 second PTT delay; GPS is a separate version."
+      ]
+    ],
+    "dispatch": "Running a control room that needs every guard on a live map with recorded calls? That's a dispatch platform such as Hytera Horizon or Motorola WAVE PTX, billed per user. Not tested yet: <a href=\"../reviews/hytera-pnc360s-review.html\">Hytera PNC360S overview</a>, <a href=\"../reviews/motorola-wave-ptx-review.html\">Motorola WAVE PTX overview</a>.",
+    "crew": 6,
+    "faq": [
+      [
+        "Do security guards need a license for PoC radios?",
+        "No. PoC radios use cellular data, so no FCC license is required in the US."
+      ],
+      [
+        "Do PoC radios have an emergency or SOS button?",
+        "Some do. The Wouxun KG-WV9 is listed with GPS and SOS. On other radios, GPS or SOS may only come on a separate model version, so check the exact listing."
+      ],
+      [
+        "What happens if the cell network goes down during an incident?",
+        "PoC stops working. Sites with poor coverage, or that need guaranteed communication, should keep a conventional radio as a backup."
+      ]
+    ]
   },
   {
     "slug": "best-poc-radio-for-events",
-    "title": "Best POC Radio for Event Staff & Coordination (2026)",
-    "h1": "Best POC radio for event coordination",
-    "metaDesc": "POC radios for event staff: instant group talk, no license, works across venue floors. We compare the best PoC radios for concerts, festivals, and corporate events.",
-    "intro": "Event coordination means dozens of staff spread across a venue — some indoors, some outside, some in parking, some backstage — all needing instant voice contact with the event manager. Traditional radios work but require renting UHF handhelds with limited channels. POC radios let you bring your own, with unlimited range and no rental fees.",
-    "topPick": "tidradio-td-m2-pro-review",
-    "topPickName": "TIDRADIO TD-M2 Pro",
-    "topPickWhy": "At ~$65/unit you can equip 20 event staff for the price of a weekend UHF rental. Odmaster app handles group setup in minutes. FRS backup mode covers venue dead zones (underground loading docks, concrete hallways). Published $9.99/yr renewal means no surprise costs between events.",
-    "runnerUp": "inrico-t320-review",
-    "runnerUpName": "Inrico T320",
-    "runnerUpWhy": "For event companies that run productions regularly and want a more capable device. Android-based means it doubles as a communication tool and a field reference device. Zello groups are easy to set up and tear down per event.",
-    "budgetPick": "radtel-p8-review",
-    "budgetPickName": "Radtel P8",
-    "budgetPickWhy": "Hand-it-to-a-volunteer simple: SIM included for year one, about $10 per card per year after (per Radtel). Our test unit had clear, loud audio, which matters in noisy venues. The trade-off is a 1 to 2 second PTT delay, so staff need to pause a beat before talking."
+    "job": "events",
+    "title": "Best PoC Radio for Events (2026, Tested)",
+    "h1": "Best PoC radio for events and volunteers",
+    "metaDesc": "The best Push-to-Talk over Cellular radios for event staff and volunteers, picked from radios we've tested: loud audio for noisy venues, cheap multi-packs and a backup when crowds jam the network.",
+    "intro": "Events hand radios to people who've never used one, for a day or a weekend, in loud places. The radio has to be dead simple, loud enough to hear over a crowd, and cheap enough that a lost one isn't a disaster. Big crowds can also overload the local cell network, which is the one situation where a PoC radio's backup plan matters.",
+    "needs": [
+      [
+        "Loud audio",
+        "Stages, crowds and generators. If staff can't hear it, nothing else matters."
+      ],
+      [
+        "Hand-off simple",
+        "Volunteers should only need to know which button to press."
+      ],
+      [
+        "Backup when cells jam",
+        "Packed venues can overload cell towers. A radio with a non-cellular mode keeps the core team talking."
+      ],
+      [
+        "Cheap in bulk",
+        "Multi-packs and low or no renewal fees suit seasonal use."
+      ]
+    ],
+    "picks": [
+      [
+        "radtel-p8",
+        "Top pick",
+        "The loudest, clearest audio we've tested, which is exactly what a noisy venue needs, sold in 2- to 8-packs with SIMs included for the first year. Brief volunteers to pause a beat after pressing PTT, since there's a 1 to 2 second delay."
+      ],
+      [
+        "tidradio-td-m2-pro",
+        "Best backup",
+        "If the venue's cell network jams, PTT2 switches to license-free FRS radio-to-radio with no network. Give these to the core crew (security, stage manager, medical) and P8s to everyone else."
+      ],
+      [
+        "carrborg-x13",
+        "No renewal fees",
+        "For events that run once or twice a year, lifetime free data means the radios don't cost anything sitting in a box between events. Bigger in hand and slower to key up."
+      ]
+    ],
+    "dispatch": "",
+    "crew": 12,
+    "faq": [
+      [
+        "Will PoC radios work at a crowded festival?",
+        "Usually, but very large crowds can overload local cell towers. Keep a few dual-mode radios like the TIDRADIO TD-M2 Pro for the core crew, since their FRS mode needs no network."
+      ],
+      [
+        "Can volunteers use them without training?",
+        "Yes. Once groups are set up in advance, users just press and hold the talk button. Remind them to pause about a second before speaking."
+      ],
+      [
+        "What does a 12-radio event kit cost?",
+        "With the Radtel P8 at about $50 per radio and about $10 per SIM per year after year one, 12 radios run about $840 over three years."
+      ]
+    ]
   }
 ]

@@ -112,6 +112,32 @@ h3{font-size:1.1rem;}
 .related a:hover{border-color:var(--accent);text-decoration:none;}
 .review-photo{display:block;margin:0 auto 20px;max-height:420px;width:auto;max-width:100%;border-radius:8px;border:1px solid var(--line);}
 table{border-collapse:collapse;}
+/* ---------- key facts / review faq / buy bar ---------- */
+.kf{border:1px solid var(--line);border-radius:8px;background:var(--card);margin:6px 0 20px;overflow:hidden;}
+.kf-h{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line);font:600 .64rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+.kf-h span:last-child{color:var(--m2);}
+.kf dl{display:grid;grid-template-columns:1fr 1fr;}
+.kf dl div{padding:11px 16px;border-bottom:1px solid var(--line);}
+.kf dl div:nth-child(odd){border-right:1px solid var(--line);}
+.kf dl div:nth-last-child(-n+2){border-bottom:none;}
+.kf dt{font:600 .6rem/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--m2);margin-bottom:4px;}
+.kf dd{font-size:.9rem;color:var(--text);line-height:1.45;}
+.rv-faq .faq-item{padding:14px 0;border-bottom:1px solid var(--line);}
+.rv-faq .faq-item:last-child{border-bottom:none;}
+.rv-faq h3{font-size:1.05rem;margin-bottom:6px;}
+.rv-faq p{margin:0;}
+.buybar{display:none;}
+@media(max-width:760px){
+  .kf dl{grid-template-columns:1fr;}
+  .kf dl div{border-right:none!important;border-bottom:1px solid var(--line)!important;}
+  .kf dl div:last-child{border-bottom:none!important;}
+  body.has-buybar{padding-bottom:74px;}
+  .buybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,11,14,.97);border-top:2px solid var(--accent);backdrop-filter:blur(8px);}
+  .buybar b{display:block;font:700 .95rem/1.2 var(--disp);color:var(--text);}
+  .buybar span{font:500 .72rem/1.4 var(--mono);color:var(--m2);display:flex;align-items:center;gap:6px;}
+  .buybar .sig-bars{height:12px;}.buybar .sig-bars i{width:3px;}.buybar .sig-num{font-size:.72rem;}
+  .buybar .btn{padding:11px 14px;font-size:.7rem;white-space:nowrap;}
+}
 /* ---------- author card ---------- */
 .author-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;margin:34px 0 10px;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:8px;}
 .author-plate{width:72px;height:72px;border-radius:6px;background:var(--panel);border:1px solid var(--line2);display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 .78rem/1.1 var(--mono);color:var(--accent);letter-spacing:.06em;text-align:center;}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radtel P8 vs TIDRADIO TD-M2 Pro: Tested Side by Side</title>
+<meta name="description" content="Radtel P8 vs TIDRADIO TD-M2 Pro, both tested by hand: audio, build, PTT delay, off-network FRS backup, app setup and 3-year cost. Which budget PoC radio should you buy?">
+<link rel="canonical" href="https://pocradiohq.com/guides/radtel-p8-vs-tidradio-td-m2-pro.html">
+<meta property="og:title" content="Radtel P8 vs TIDRADIO TD-M2 Pro: Tested Side by Side">
+<meta property="og:description" content="Two budget PoC radios, both bench tested. Which one fits your team?">
+<meta property="og:url" content="https://pocradiohq.com/guides/radtel-p8-vs-tidradio-td-m2-pro.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://pocradiohq.com/images/radtel_p8_pic.jpg">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Radtel P8 vs TIDRADIO TD-M2 Pro: Tested Side by Side","datePublished":"2026-11-10","dateModified":"2026-11-10","author":{"@type":"Person","name":"Michael Smith"},"publisher":{"@type":"Organization","name":"POC Radio HQ"},"mainEntityOfPage":"https://pocradiohq.com/guides/radtel-p8-vs-tidradio-td-m2-pro.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://pocradiohq.com/"},{"@type":"ListItem","position":2,"name":"Radtel P8 vs TIDRADIO TD-M2 Pro","item":"https://pocradiohq.com/guides/radtel-p8-vs-tidradio-td-m2-pro.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Which is better, the Radtel P8 or the TIDRADIO TD-M2 Pro?","acceptedAnswer":{"@type":"Answer","text":"In our hands-on testing the Radtel P8 scored higher (4.5 vs 4.2) thanks to clearer, louder audio and a more solid zinc-alloy build. The TIDRADIO TD-M2 Pro is the better choice if you need to talk with no cell signal, because its second PTT button uses license-free FRS radio-to-radio."}},
+{"@type":"Question","name":"Does the Radtel P8 work without cell service?","acceptedAnswer":{"@type":"Answer","text":"No. The Radtel P8 is a PoC-only radio and needs 4G LTE signal. The TIDRADIO TD-M2 Pro adds an FRS mode that works with no network over short range."}},
+{"@type":"Question","name":"Which costs less over three years?","acceptedAnswer":{"@type":"Answer","text":"For 4 radios, the Radtel P8 is about $280 over three years (about $50 per radio from 2-pack pricing plus about $10 per SIM per year after year one). The TD-M2 Pro is about $340 (about $65 per radio plus $9.99 per year after year one)."}}
+]}</script>
+<style>
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0 6px;}
+  .vs-card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .vs-card img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;display:block;}
+  .vs-card div{padding:16px;}
+  .vs-card h3{font-size:1.2rem;margin-bottom:6px;}
+  .vs-card h3 a{color:var(--text);}
+  .vs-card p{font-size:.88rem;margin:8px 0 12px;}
+  .vs-card .btn{width:100%;text-align:center;}
+  .win{font:600 .64rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+  .tblx{overflow-x:auto;margin:14px 0;}
+  .ct{width:100%;min-width:620px;font-size:.9rem;border:1px solid var(--line);border-radius:8px;background:var(--card);}
+  .ct th{font:600 .62rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--m2);text-align:left;padding:12px 14px;background:var(--panel);border-bottom:1px solid var(--line2);}
+  .ct td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--sub);vertical-align:top;}
+  .ct td:first-child{font:600 .74rem/1.4 var(--mono);color:var(--text);letter-spacing:.03em;white-space:nowrap;}
+  .ct tr:last-child td{border-bottom:none;}
+  .ct .w{color:var(--text);background:rgba(240,185,85,.06);}
+  .updated{font:500 .72rem/1.4 var(--mono);letter-spacing:.06em;color:var(--m2);text-transform:uppercase;}
+  .faq-item{padding:14px 0;border-bottom:1px solid var(--line);}
+  .faq-item h3{font-size:1.05rem;margin-bottom:6px;}
+  .faq-item p{margin:0;}
+  @media(max-width:620px){.vs{grid-template-columns:1fr;}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QHPFB16VF4');
+</script>
+</head>
+<body>
+<header></header>
+<div class="wrap">
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#guides">Guides</a> / Radtel P8 vs TD-M2 Pro</div>
+  <div class="review-hero">
+    <span class="badge">Head to head · both bench tested</span>
+    <h1>Radtel P8 vs TIDRADIO TD-M2 Pro</h1>
+    <p class="updated">Updated November 2026 · Tested by Michael Smith, KM7FMJ</p>
+    <p style="max-width:65ch;margin-top:14px;">Two of the cheapest PoC radios worth buying, and we've used both. The short version: the <strong>Radtel P8</strong> sounds better and feels better built; the <strong>TD-M2 Pro</strong> is the one to get if you ever need to talk with no cell signal.</p>
+    <div class="vs">
+      <div class="vs-card">
+        <a href="../reviews/radtel-p8-review.html"><img src="../images/card_radtel_p8.webp" width="480" height="640" alt="Radtel P8 PoC radio"></a>
+        <div>
+          <span class="win">Better audio and build</span>
+          <h3><a href="../reviews/radtel-p8-review.html">Radtel P8</a></h3>
+          <span class="stars">★★★★½</span> <span class="rating-num">4.5/5</span>
+          <p>From ~$99 per 2-pack, SIMs included for year one.</p>
+          <a class="btn" href="https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20" rel="sponsored nofollow" target="_blank">Check P8 price</a>
+        </div>
+      </div>
+      <div class="vs-card">
+        <a href="../reviews/tidradio-td-m2-pro-review.html"><img src="../images/card_tidradio_td_m2_pro.webp" width="480" height="640" alt="TIDRADIO TD-M2 Pro PoC radio"></a>
+        <div>
+          <span class="win">Works with no signal</span>
+          <h3><a href="../reviews/tidradio-td-m2-pro-review.html">TIDRADIO TD-M2 Pro</a></h3>
+          <span class="stars">★★★★☆</span> <span class="rating-num">4.2/5</span>
+          <p>About $50–80, PoC plus license-free FRS.</p>
+          <a class="btn" href="https://www.amazon.com/dp/B0GCRMGKJ6?tag=pocradio-20" rel="sponsored nofollow" target="_blank">Check TD-M2 Pro price</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="block">
+    <h2>Side by side</h2>
+    <div class="tblx"><table class="ct">
+      <thead><tr><th></th><th>Radtel P8</th><th>TIDRADIO TD-M2 Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Our score</td><td class="w">4.5 / 5</td><td>4.2 / 5</td></tr>
+        <tr><td>Audio</td><td class="w">Clear and loud</td><td>Clear</td></tr>
+        <tr><td>Build</td><td class="w">Solid zinc alloy, premium for the price</td><td>Solid for the price</td></tr>
+        <tr><td>Screen</td><td>1.77" display</td><td class="w">Bright LED display, easy outdoors</td></tr>
+        <tr><td>PTT delay</td><td>1–2 s (measured)</td><td>Not timed yet</td></tr>
+        <tr><td>No-signal backup</td><td>None: PoC only</td><td class="w">FRS on a second PTT button</td></tr>
+        <tr><td>Setup</td><td class="w">Ready out of the box; Radtel can pre-group orders</td><td>Odmaster app: QR pairing, buggy, groups hard to find</td></tr>
+        <tr><td>SIM</td><td>Included yr 1, ~$10 / SIM / yr after (or bring your own)</td><td>Included yr 1, 800 MB/mo, $9.99 / yr after</td></tr>
+        <tr><td>Battery</td><td>3000 mAh, USB-C</td><td><span style="color:var(--m2)">Not in our test notes</span></td></tr>
+        <tr><td>Water rating</td><td>No IP rating published</td><td><span style="color:var(--m2)">Not in our test notes</span></td></tr>
+        <tr><td>Price</td><td class="w">From ~$99 per 2-pack (~$50 each)</td><td>~$50–80</td></tr>
+        <tr><td>3-yr cost, 4 radios</td><td class="w">~$280</td><td>~$340</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="block">
+    <h2>Audio and build: P8 wins</h2>
+    <p>The P8 was the clearer, louder radio on calls, and its zinc-alloy body feels a step above its price. The TD-M2 Pro is solid in hand and its audio is clear, but the P8 is the one we'd hand someone working in a noisy place.</p>
+  </section>
+
+  <section class="block">
+    <h2>No signal: TD-M2 Pro wins, and it isn't close</h2>
+    <p>Like every PoC-only radio, the P8 is useless without LTE signal. The TD-M2 Pro has a second PTT button that talks on license-free FRS, radio to radio, with no SIM, no network and no setup. Both modes stay live at the same time. For basements, rural dead zones, packed venues where the cell network jams, or a basic emergency backup, that button is the whole reason to buy it.</p>
+  </section>
+
+  <section class="block">
+    <h2>Setup: P8 is easier</h2>
+    <p>The P8 arrives ready to use, and Radtel can join separate orders into one group for you. The TD-M2 Pro activates through the Odmaster app: insert the SIM, press PTT1 for a QR code, scan it in the app. That's fine once, but in our testing the app was buggy and finding existing groups was harder than it should be. First-time PoC buyers will find the P8 less frustrating.</p>
+  </section>
+
+  <section class="block">
+    <h2>Cost: close, P8 slightly cheaper</h2>
+    <p>Both include year-one service and renew for about $10 per radio per year. Bought in 2-packs, the P8 works out to about $50 a radio, so four radios cost about $280 over three years against about $340 for the TD-M2 Pro. See the <a href="./poc-radio-subscription-costs.html">full subscription cost comparison</a>.</p>
+  </section>
+
+  <section class="block">
+    <h2>Verdict</h2>
+    <div class="verdict-box">
+      <p><strong>Buy the Radtel P8</strong> if your team is always in cell coverage: delivery drivers, event staff, family between towns. It sounds better, feels better and is easier to set up.</p>
+      <p style="margin:0;"><strong>Buy the TIDRADIO TD-M2 Pro</strong> if you'll ever be somewhere without signal: jobsite basements, rural property, emergency kits. Accept the app headaches for the FRS button. Mixed teams can run both: P8s for most people, TD-M2 Pros for the core crew who need the backup.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Questions</h2>
+    <div class="faq-item"><h3>Which is better, the Radtel P8 or the TIDRADIO TD-M2 Pro?</h3><p>In our hands-on testing the Radtel P8 scored higher (4.5 vs 4.2) thanks to clearer, louder audio and a more solid zinc-alloy build. The TIDRADIO TD-M2 Pro is the better choice if you need to talk with no cell signal, because its second PTT button uses license-free FRS radio-to-radio.</p></div>
+    <div class="faq-item"><h3>Does the Radtel P8 work without cell service?</h3><p>No. The Radtel P8 is a PoC-only radio and needs 4G LTE signal. The TIDRADIO TD-M2 Pro adds an FRS mode that works with no network over short range.</p></div>
+    <div class="faq-item"><h3>Which costs less over three years?</h3><p>For 4 radios, the Radtel P8 is about $280 over three years (about $50 per radio from 2-pack pricing plus about $10 per SIM per year after year one). The TD-M2 Pro is about $340 (about $65 per radio plus $9.99 per year after year one).</p></div>
+  </section>
+
+  <section class="block" style="border-bottom:none;">
+    <h2>Keep comparing</h2>
+    <div class="related">
+      <a href="../reviews/radtel-p8-review.html">Radtel P8 full review</a>
+      <a href="../reviews/tidradio-td-m2-pro-review.html">TD-M2 Pro full review</a>
+      <a href="./choyong-wt2-vs-tidradio-td-m2-pro.html">ChoYong WT2 vs TD-M2 Pro</a>
+      <a href="../index.html#bench">The Bench</a>
+    </div>
+    <p style="font-size:.82rem;margin-top:18px;">Some links are affiliate links. <a href="../affiliate-disclosure.html">Disclosure</a>.</p>
+  </section>
+</div>
+<footer></footer>
+</body>
+</html>

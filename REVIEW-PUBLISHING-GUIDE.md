@@ -12,6 +12,9 @@ To publish a new hands-on review:
 2. Card photo → `images/card_<slug>.webp`, 480x640 (3:4). Full photo can stay as-is.
 3. Add an entry at the TOP of `"tested"` in `data/bench.json` (top entry = hero LCD + ticker "latest").
    `ptt` = measured PTT delay text or `null`. `cost` = `{hw, renew, src}` only if the brand publishes renewal pricing, else `null`.
+   `faq` = 3-4 `[question, answer]` pairs from YOUR test notes (becomes the on-page Q&A + FAQ schema). `updated` = e.g. "November 2026".
+   The build then adds automatically: key-facts box, Q&A section, mobile sticky buy bar, llms.txt entry, homepage table/card.
+   Use-case guides (`data/usecases.json` → `picks`) may only reference slugs in `"tested"` — the build fails otherwise.
 4. `node build.js` — must end with "HQ brand layer applied to N pages" and no errors.
 5. Push. Header, footer, network bar, signal-bar ratings and emoji cleanup are applied to every page at build time by `hq-brand.js`.
 
