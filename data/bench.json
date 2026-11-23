@@ -60,6 +60,43 @@
       "updated": "November 2026"
     },
     {
+      "slug": "herda-hp1",
+      "name": "Herda HP1",
+      "path": "reviews/herda-hp1-review.html",
+      "score": 4.5,
+      "badge": "Smallest & Easiest to Carry",
+      "cat": "Handheld · 4G LTE · 63 g · SIM included",
+      "img": "images/card_herda_hp1.webp",
+      "price": "Quote from Herda",
+      "buy": "https://herdaradio.com/product/hp1/",
+      "buyLabel": "Get a Quote",
+      "bestAt": "Tiny 63 g body with a loud, clear 2W speaker",
+      "watchOut": "No public groups; $25/yr renewal after year 1",
+      "ptt": "1–2 s",
+      "desc": "The smallest PoC radio we've tested, and surprisingly loud for its size. SIM and year one of service are included; renewal is $25 a year. Closed groups only, with no public directory.",
+      "cost": null,
+      "faq": [
+        [
+          "Does the Herda HP1 need a subscription?",
+          "The SIM comes pre-installed with one year of service. After that, renewal is optional at $25 per radio per year, with no monthly fees or contracts."
+        ],
+        [
+          "How small is the Herda HP1?",
+          "It measures 99 × 41 × 27 mm and weighs 63 grams, small enough for a pocket or the included neck strap. It's the smallest PoC radio we've tested."
+        ],
+        [
+          "Can you join public groups on the Herda HP1?",
+          "No. There's no public group directory, so you only talk to radios in your own group. That suits families and work teams but not hobbyists looking for open channels."
+        ],
+        [
+          "How much delay does the Herda HP1 have?",
+          "We measured about 1 to 2 seconds between pressing PTT and the other radio hearing us, in line with other PoC radios we've timed."
+        ]
+      ],
+      "updated": "November 2026",
+      "renewNote": "$25 per radio per year after year 1 (optional)"
+    },
+    {
       "slug": "choyong-wt2",
       "name": "ChoYong WT2",
       "path": "reviews/choyong-wt2-review.html",

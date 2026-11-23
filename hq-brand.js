@@ -136,7 +136,7 @@ function starsToBars(html) {
 
 // kind: 'home' | 'review' | 'ht' | 'page'
 function keyFacts(e) {
-  const cost = e.cost ? (e.cost.renew === 0 ? 'No renewal (lifetime data, per seller)' : `About $${e.cost.renew} per radio per year after year 1`) : 'Renewal price not published';
+  const cost = e.cost ? (e.cost.renew === 0 ? 'No renewal (lifetime data, per seller)' : `About $${e.cost.renew} per radio per year after year 1`) : esc(e.renewNote || 'Renewal price not published');
   const rows = [['Our score', sigBars(e.score)], ['Best at', esc(e.bestAt)], ['Watch out', esc(e.watchOut)], ['PTT delay', e.ptt ? esc(e.ptt) : 'Not timed yet'], ['Price', esc(e.price)], ['Running cost', cost]];
   return `<div class="kf"><div class="kf-h"><span>Key facts</span><span>Updated ${esc(e.updated || '')}</span></div><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>`;
 }
