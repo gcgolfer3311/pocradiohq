@@ -32,6 +32,18 @@
   .table-scroll{overflow-x:auto;margin:14px 0;}
   ul.box{margin:10px 0 0 20px;color:var(--sub);}
   ul.box li{margin:5px 0;}
+  .watch{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:28px;align-items:center;background:linear-gradient(135deg,rgba(240,185,85,.07),rgba(240,185,85,0) 60%),var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;}
+  .watch-frame{position:relative;width:100%;aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:#000;border:1px solid var(--line2);box-shadow:0 18px 40px rgba(0,0,0,.45);}
+  .watch-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .watch-kicker{font:600 .66rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .watch-kicker i{width:8px;height:8px;border-radius:50%;background:#ff5a4a;}
+  .watch h2{font-size:1.5rem;margin-bottom:10px;}
+  .watch p{font-size:.95rem;}
+  .watch dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:16px 0 18px;font-size:.9rem;}
+  .watch dt{font:600 .62rem/1.6 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--m2);}
+  .watch dd{color:var(--text);margin:0;}
+  .watch-actions{display:flex;gap:10px;flex-wrap:wrap;}
+  @media(max-width:700px){.watch{grid-template-columns:1fr;padding:16px;}.watch-frame{max-width:320px;margin:0 auto;}}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
@@ -56,13 +68,37 @@
       <span class="rating-num">4.5/5</span>
       <span class="rating-count">Hands-on tested · POC Radio HQ · updated November 2026</span>
     </div>
-    <p style="max-width:65ch;">The HP1 is the smallest push-to-talk-over-cellular radio I've had on the bench. At 63 grams it disappears into a pocket or hangs off its neck strap, and it is a lot louder than something this size has any right to be. It talks over 4G LTE, so range is anywhere both radios have cell signal. Herda sent me two units to review. Here's what's good, what isn't, and who should buy it.</p>
+    <p style="max-width:65ch;">The HP1 is the smallest push-to-talk-over-cellular radio I've had on the bench. At 63 grams it disappears into a pocket or hangs off its neck strap, and it is a lot louder than something this size has any right to be. It talks over 4G LTE, so range is anywhere both radios have cell signal. Herda sent me two units to review. <a href="#video">Watch the hands-on Short</a>, then here's what's good, what isn't, and who should buy it.</p>
     <div class="specs-grid"><span>4G LTE PoC, no license needed</span><span>63 g, palm-sized</span><span>2W speaker</span><span>SIM included yr 1, then $25/yr optional</span><span>1200mAh, USB-C</span></div>
     <div class="price-box">
       <div><div style="font-size:.78rem;color:var(--sub);text-transform:uppercase;">Price</div><div class="price">Quote from Herda</div></div>
       <a href="https://herdaradio.com/product/hp1/" class="btn" target="_blank" rel="noopener">Get a Quote</a>
     </div>
   </div>
+
+
+  <section class="block" id="video" style="border-bottom:none;">
+    <div class="watch">
+      <div class="watch-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/JBRBL0X803M?rel=0&amp;modestbranding=1" title="Herda HP1 hands-on review video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div>
+        <div class="watch-kicker"><i></i>Hands-on video</div>
+        <h2>See and hear the HP1 for yourself</h2>
+        <p>The two things that won me over are hard to judge from a spec sheet: how small it is in the hand, and how loud that 2W speaker is. Watch the Short, then read the full breakdown below.</p>
+        <dl>
+          <dt>Score</dt><dd>4.5 / 5</dd>
+          <dt>Loved</dt><dd>The size and the sound</dd>
+          <dt>Watch out</dt><dd>No public groups; $25/yr renewal after year 1</dd>
+          <dt>PTT delay</dt><dd>About 1–2 seconds (measured)</dd>
+        </dl>
+        <div class="watch-actions">
+          <a class="btn" href="https://herdaradio.com/product/hp1/" target="_blank" rel="noopener">Get a Quote</a>
+          <a class="btn btn-ghost" href="https://youtube.com/shorts/JBRBL0X803M" target="_blank" rel="noopener">Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="block">
     <h2>Hands-on: what it's like to use</h2>
@@ -180,12 +216,6 @@
     <div class="verdict-box"><p style="margin:0;">The HP1 earns 4.5 out of 5 because it nails the two things that decide whether a radio actually gets used: it's small enough to carry everywhere, and it's loud enough to hear when you do. Delay is normal for PoC, setup is nothing, and year one of service is in the box. Know the trade-offs going in: closed groups only, a $25 yearly renewal that's higher than rivals, and a price you have to ask for. For families and small teams who want a radio people will actually keep on them, it's one of the easiest recommendations on the bench.</p></div>
   </section>
 
-  <!-- VIDEO SLOT: replace YOUR_VIDEO_ID, then uncomment.
-  <section class="block">
-    <h2>Our hands-on video</h2>
-    <div class="video-wrap" style="max-width:360px;aspect-ratio:9/16;padding-bottom:0;height:auto;position:relative;overflow:hidden;border-radius:12px;border:1px solid var(--line);"><iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Herda HP1 hands-on" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-  </section>
-  -->
 
   <section class="block" style="border-bottom:none;">
     <h2>Compare with other PoC radios</h2>
