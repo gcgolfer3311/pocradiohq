@@ -1,17 +1,17 @@
 {
   "_readme": "Drives /deals.html. Update 'checked' and any radio's entry when a price or code changes, then rebuild. Only list a code or sale you've confirmed on the seller's page. Radios not listed under 'items' show their bench price and 'No holiday deal confirmed yet'.",
-  "checked": "2026-11-22",
+  "checked": "2026-11-23",
   "season": "Black Friday & Cyber Monday 2026",
   "items": {
     "radtel-p8": {
-      "where": "Radtel store",
-      "price": "$159 / 2-pack",
-      "note": "Radtel's site is running a store-wide \"mid-season sale\" banner. The P8 2-pack shows $159 (Nov 22). An earlier $99 listing is sold out. Compare with the Amazon price before you buy.",
+      "where": "Amazon",
+      "price": "$121.95 / 2-pack",
+      "note": "Amazon is about $37 cheaper than Radtel's own store ($159 per 2-pack) as of Nov 23, and showed only a few left in stock.",
       "code": "",
-      "link": "https://www.radtels.com/products/radtel-p8-radios-unlimited-range-5000-miles-above-walkie-talkie-nationwide-handheld-poc-for-adults-rechargeable-ptt-long-distance-walkie-talkies-with-lights2-pack",
-      "linkLabel": "See Radtel price",
-      "alt": "https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20",
-      "altLabel": "Check Amazon"
+      "link": "https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20",
+      "linkLabel": "Check Amazon",
+      "alt": "https://www.radtels.com/products/radtel-p8-radios-unlimited-range-5000-miles-above-walkie-talkie-nationwide-handheld-poc-for-adults-rechargeable-ptt-long-distance-walkie-talkies-with-lights2-pack",
+      "altLabel": "Radtel store"
     },
     "herda-hp1": {
       "where": "Herda direct",

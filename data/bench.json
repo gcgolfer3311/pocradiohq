@@ -9,7 +9,7 @@
       "badge": "Best Value, SIM Included",
       "cat": "Handheld · 4G LTE · 2-pack with SIMs",
       "img": "images/card_radtel_p8.webp",
-      "price": "~$159 / 2-pack",
+      "price": "$122 / 2-pack",
       "buy": "https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20",
       "buyLabel": "Check Price",
       "bestAt": "Clear, loud audio and a solid zinc-alloy body",
@@ -35,9 +35,9 @@
         ]
       ],
       "cost": {
-        "hw": 80,
+        "hw": 61,
         "renew": 10,
-        "src": "Radtel store: $159 per 2-pack (Nov 2026); about $10 per SIM per year after year 1"
+        "src": "Amazon: $121.95 per 2-pack (Nov 23, 2026); about $10 per SIM per year after year 1"
       },
       "faq": [
         [
@@ -104,7 +104,7 @@
       "badge": "Best Multi-Mode",
       "cat": "Handheld · PoC + UHF + SW/AM/FM + internet radio",
       "img": "images/card_choyong_wt2.webp",
-      "price": "~$100–140",
+      "price": "~$95",
       "buy": "https://www.amazon.com/dp/B0FWKF3NPJ?tag=pocradio-20",
       "buyLabel": "Check Price",
       "bestAt": "PoC, analog UHF, shortwave and internet radio in one",
@@ -136,8 +136,8 @@
       "badge": "Best Built for Outdoors",
       "cat": "Handheld · 4G LTE · Aluminum alloy body",
       "img": "images/card_omizn_m9.webp",
-      "price": "~$90–130",
-      "buy": "https://www.amazon.com/s?k=OMIZN+M9&tag=pocradio-20",
+      "price": "$239 / 3-pack",
+      "buy": "https://www.amazon.com/dp/B0DP89T57V?tag=pocradio-20",
       "buyLabel": "Check Price",
       "bestAt": "Rugged aluminum body, great sound, readable screen",
       "watchOut": "Heavy at 300 g; no public group directory",
@@ -168,7 +168,7 @@
       "badge": "Best Budget Dual-Mode",
       "cat": "Handheld · PoC + FRS/PMR446",
       "img": "images/card_tidradio_td_m2_pro.webp",
-      "price": "~$50–80",
+      "price": "$148 / 2-pack",
       "buy": "https://www.amazon.com/dp/B0GCRMGKJ6?tag=pocradio-20",
       "buyLabel": "Check Price",
       "bestAt": "Two PTT buttons: nationwide PoC plus local FRS",
@@ -176,9 +176,9 @@
       "ptt": null,
       "desc": "The cheapest way into dual-mode: PTT1 talks over LTE nationwide, PTT2 drops to license-free FRS when there is no signal. Solid in hand with clear audio. The Odmaster app is the weak spot.",
       "cost": {
-        "hw": 65,
+        "hw": 74,
         "renew": 9.99,
-        "src": "TIDRADIO: first year free, published $9.99 per year after"
+        "src": "Amazon: $148 per 2-pack (Nov 23, 2026); TIDRADIO publishes $9.99 per year after year 1"
       },
       "faq": [
         [
@@ -236,17 +236,17 @@
       "badge": "Best Bright-Screen Value",
       "cat": "Handheld · 4G LTE · Lifetime free data",
       "img": "images/card_carrborg_x13.webp",
-      "price": "~$130–180",
-      "buy": "https://www.amazon.com/s?k=CARRBORG+X13&tag=pocradio-20",
+      "price": "$129 / 2-pack",
+      "buy": "https://www.amazon.com/dp/B0DPF8MPVR?tag=pocradio-20",
       "buyLabel": "Check Price",
       "bestAt": "Bright screen, clear audio, no data subscription",
       "watchOut": "More PTT lag than faster rivals; large body",
       "ptt": "Slower than rivals (untimed)",
       "desc": "A genuinely bright, easy-to-read screen and clear voice audio, with lifetime free data that undercuts most rivals on long-term cost. A touch more PTT lag than faster radios, and a big body for small hands.",
       "cost": {
-        "hw": 155,
+        "hw": 64.5,
         "renew": 0,
-        "src": "Seller listing: lifetime free data included"
+        "src": "Amazon: $129 per 2-pack (Nov 23, 2026); seller lists lifetime free data"
       },
       "faq": [
         [
