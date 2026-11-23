@@ -112,10 +112,10 @@ function authorCard(prefix) {
   return `<div class="wrap"><aside class="author-card" aria-label="About the reviewer">
   <div class="author-plate">${AUTHOR.call}<small>LICENSED</small></div>
   <div>
-    <h3>Tested by ${AUTHOR.name}</h3>
+    <h3>Tested by <a href="${prefix}michael-smith.html">${AUTHOR.name}</a></h3>
     <div class="role">Licensed ham · ${AUTHOR.call} · ${AUTHOR.where} · HQ Radio Network</div>
     <p>I run POC Radio HQ and HQ Shortwave Radio. A radio only gets a score here after I've used it myself on a live cell network. Many review units are sent by manufacturers; every review still lists the cons.</p>
-    <div class="author-links"><a href="${prefix}how-we-test.html">How I test</a><a href="${SOCIAL[0].url}" target="_blank" rel="noopener">Videos on YouTube</a><a href="https://hqshortwaveradio.com" target="_blank" rel="noopener">HQ Shortwave Radio</a></div>
+    <div class="author-links"><a href="${prefix}michael-smith.html">About me</a><a href="${prefix}how-we-test.html">How I test</a><a href="${SOCIAL[0].url}" target="_blank" rel="noopener">Videos on YouTube</a><a href="https://hqshortwaveradio.com" target="_blank" rel="noopener">HQ Shortwave Radio</a></div>
   </div>
 </aside></div>`;
 }
@@ -139,10 +139,10 @@ function starsToBars(html) {
 }
 
 // kind: 'home' | 'review' | 'ht' | 'page'
-function keyFacts(e) {
+function keyFacts(e, checked) {
   const cost = e.cost ? (e.cost.renew === 0 ? 'No renewal (lifetime data, per seller)' : `About $${e.cost.renew} per radio per year after year 1`) : esc(e.renewNote || 'Renewal price not published');
   const rows = [['Our score', sigBars(e.score)], ['Best at', esc(e.bestAt)], ['Watch out', esc(e.watchOut)], ['PTT delay', e.ptt ? esc(e.ptt) : 'Not timed yet'], ['Price', esc(e.price)], ['Running cost', cost]];
-  return `<div class="kf"><div class="kf-h"><span>Key facts</span><span>Updated ${esc(e.updated || '')}</span></div><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>`;
+  return `<div class="kf"><div class="kf-h"><span>Key facts</span><span>${checked ? 'Prices checked ' + esc(checked) : 'Updated ' + esc(e.updated || '')}</span></div><dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>`;
 }
 function faqBlock(e) {
   return `<div class="wrap"><section class="block rv-faq"><h2>${esc(e.name)}: common questions</h2>${e.faq.map(([q, a]) => `<div class="faq-item"><h3>${esc(q)}</h3><p>${esc(a)}</p></div>`).join('')}</section></div>`;
@@ -176,6 +176,8 @@ ${bench.radar.map(r => `- [${r.name}](${SITE}/${r.path}): ${r.note}`).join('\n')
 - [Zello vs a PoC radio](${SITE}/guides/zello-vs-poc-radio.html)
 - [All PoC radio comparisons](${SITE}/guides/poc-radio-comparisons.html)
 - [Best PoC radio for families](${SITE}/guides/best-poc-radio-for-families.html)
+- [PoC radio PTT delay, measured](${SITE}/guides/poc-radio-ptt-delay.html)
+- [About the reviewer, Michael Smith (KM7FMJ)](${SITE}/michael-smith.html)
 - [PoC radio subscription costs and no-monthly-fee options](${SITE}/guides/poc-radio-subscription-costs.html)
 - [Radtel P8 vs TIDRADIO TD-M2 Pro](${SITE}/guides/radtel-p8-vs-tidradio-td-m2-pro.html)
 - [ChoYong WT2 vs TIDRADIO TD-M2 Pro](${SITE}/guides/choyong-wt2-vs-tidradio-td-m2-pro.html)
@@ -226,7 +228,7 @@ function brandify(html, { prefix, bench, kind, rel }) {
   if (kind === 'review' || kind === 'ht') {
     const heroEnd = /(<div class="review-hero">[\s\S]*?<h1[^>]*>[\s\S]*?<\/h1>)/;
     if (tested) {
-      const stamp = `\n    <div class="bench-stamp"><b></b>Bench tested · ${AUTHOR.call} · ${AUTHOR.where}</div>${entry ? '\n    ' + keyFacts(entry) : ''}`;
+      const stamp = `\n    <div class="bench-stamp"><b></b>Bench tested · ${AUTHOR.call} · ${AUTHOR.where}</div>${entry ? '\n    ' + keyFacts(entry, bench.pricesChecked) : ''}`;
       html = html.replace(heroEnd, m => m + stamp);
       foot = (entry ? faqBlock(entry) + '\n' : '') + authorCard(prefix) + '\n' + foot + (entry ? '\n' + buyBar(entry) : '');
       if (entry) html = html.replace('</head>', () => `${faqSchema(entry)}\n</head>`).replace(/<body([^>]*)>/, '<body$1 class="has-buybar">');
@@ -286,4 +288,4 @@ function homeBlocks(bench) {
   return { rows, picks, radar, lcd, itemList, costData, pickerData, count: String(t.length) };
 }
 
-module.exports = { brandify, homeBlocks, sigBars, llmsTxt };
+module.exports = { brandify, homeBlocks, sigBars, llmsTxt, AUTHOR, SOCIAL, NETWORK };

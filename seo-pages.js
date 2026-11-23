@@ -205,7 +205,7 @@ function buildSeoPages({ distDir, bench, SITE, BUILD_DATE }) {
   write('rapid-radios-alternatives', alternativesPage(ctx, 'rapid-radios', {
     slug: 'rapid-radios-alternatives',
     crumb: 'Rapid Radios alternatives',
-    title: 'Rapid Radios Alternatives: Cheaper Nationwide Walkie Talkies (Tested)',
+    title: 'Rapid Radios Alternatives: Cheaper Walkie Talkies, Tested',
     desc: `Rapid Radios G1 costs ${rr.priceText.split(' (')[0]} and renews at $50 a radio. These hands-on tested nationwide PoC radios cost less to buy and to keep running.`,
     h1: 'Rapid Radios alternatives',
     intro: `Rapid Radios is one of the best-known names in nationwide walkie talkies, and the G1 sells for ${rr.priceText}. That's roughly three times what the cheapest radios on our bench cost, and renewal is $50 a radio a year. Below: what the G1 offers on paper, what four radios cost over three years, and the tested radios we'd look at first.`,
@@ -232,7 +232,7 @@ function buildSeoPages({ distDir, bench, SITE, BUILD_DATE }) {
     slug: 'peakptt-alternatives',
     crumb: 'PeakPTT alternatives',
     title: 'PeakPTT Alternatives: PoC Radios With No Monthly Fee (Tested)',
-    desc: 'PeakPTT charges $24.95 a radio every month. These hands-on tested PoC radios include a year of service and renew for $0 to $25 a year. Real 3-year cost math inside.',
+    desc: 'PeakPTT charges $24.95 a radio a month. These hands-on tested PoC radios include a year of service and renew for $0 to $25 a year.',
     h1: 'PeakPTT alternatives with no monthly fee',
     intro: `PeakPTT sells business push-to-talk: the PTT-84G is ${pk.priceText}. That monthly fee is the whole story. Over three years it costs far more than the radio itself. If you don't need PeakPTT's GPS portal and dispatch tools, the radios below do the talking part for a fraction of the price.`,
     short: (ch, theirs) => `four PeakPTT radios cost about ${money(theirs)} over three years once monthly service is counted. Four ${ch.r.name}s cost about ${money(threeYr(ch.r.cost, 4))}, and four Radtel P8s about ${y3('radtel-p8')}. Stay with PeakPTT only if you need live GPS tracking and a dispatch console.`,
@@ -257,7 +257,7 @@ function buildSeoPages({ distDir, bench, SITE, BUILD_DATE }) {
   const zWork = z.coreMonthly * 36 * 4;
   write('zello-vs-poc-radio', page({ ...ctx, slug: 'zello-vs-poc-radio', crumb: 'Zello vs PoC radio',
     title: 'Zello vs a PoC Radio: Phone App or Real Walkie Talkie?',
-    desc: 'Zello turns a phone into a walkie talkie for free. A PoC radio costs money but has a real PTT button, a loud speaker and its own SIM. Who should use which, with 3-year costs.',
+    desc: 'Zello turns a phone into a free walkie talkie. A PoC radio adds a real PTT button, a loud speaker and its own SIM. Who should use which, with costs.',
     img: by['radtel-p8'].img,
     faq: [
       ['Is Zello free?', `The personal Zello app is free. Zello's business plans, Zello Work, list at $${z.coreMonthly.toFixed(2)} per user per month for Core and $${z.plusMonthly.toFixed(2)} for Plus as of ${comp.checked}.`],
@@ -329,7 +329,7 @@ function buildSeoPages({ distDir, bench, SITE, BUILD_DATE }) {
   const listSchema = { "@context": "https://schema.org", "@type": "ItemList", "name": "Best PoC radios of 2026", "itemListElement": ranked.map((r, i) => ({ "@type": "ListItem", "position": i + 1, "name": r.name, "url": `${SITE}/${r.path}` })) };
   write('best-poc-radios', page({ ...ctx, slug: 'best-poc-radios', crumb: 'Best PoC radios',
     title: `Best PoC Radios of 2026: ${ranked.length} Nationwide Walkie Talkies Tested`,
-    desc: `The best push-to-talk over cellular radios of 2026, ranked from ${ranked.length} we've tested by hand: audio, build, PTT delay, renewal fees and real 3-year costs. No spec-sheet rankings.`,
+    desc: `The best PoC radios of 2026, ranked from ${ranked.length} we've tested by hand: audio, build, PTT delay, renewal fees and real 3-year costs.`,
     img: ranked[0].img, extraSchema: [listSchema],
     faq: [
       ['What is the best PoC radio in 2026?', `Of the ${ranked.length} we've tested by hand, the ${ranked[0].name} ranks first: ${ranked[0].bestAt.toLowerCase()}. The best pick still depends on what you need: smallest size, a no-signal backup, or no renewal fee.`],
@@ -383,12 +383,13 @@ function buildSeoPages({ distDir, bench, SITE, BUILD_DATE }) {
     ['Head to head', 'Zello vs a PoC radio', 'Phone app or real walkie talkie?', './zello-vs-poc-radio.html'],
     ['Alternatives', 'Rapid Radios alternatives', 'Tested radios for far less than the G1.', './rapid-radios-alternatives.html'],
     ['Alternatives', 'PeakPTT alternatives', 'Skip the $24.95 monthly fee.', './peakptt-alternatives.html'],
+    ['Bench data', 'PoC radio PTT delay, measured', 'How long until the other radio hears you.', './poc-radio-ptt-delay.html'],
     ['Costs', 'PoC subscription costs', 'Renewal fees and 3-year team costs.', './poc-radio-subscription-costs.html'],
     ['Apps', 'Best PoC apps compared', 'Which app works with which radio.', './best-poc-apps.html']
   ];
   write('poc-radio-comparisons', page({ ...ctx, slug: 'poc-radio-comparisons', crumb: 'All comparisons',
     title: 'PoC Radio Comparisons: Head to Heads, Alternatives and Costs',
-    desc: 'Every PoC radio comparison on POC Radio HQ in one place: bench-tested head to heads, alternatives to Rapid Radios and PeakPTT, Zello vs a radio, and 3-year costs.',
+    desc: 'Every PoC radio comparison in one place: bench-tested head to heads, Rapid Radios and PeakPTT alternatives, Zello vs a radio, and 3-year costs.',
     img: by['radtel-p8'].img, faq: [],
     body: `
   <div class="review-hero">
@@ -405,6 +406,111 @@ function buildSeoPages({ distDir, bench, SITE, BUILD_DATE }) {
     <p>Every tested radio has a full review with a key-facts box. Start from <a href="../index.html#bench">the Bench table</a>, or let the <a href="../index.html#picker">Radio Picker</a> narrow it down.</p>
   </section>
 `}));
+
+  // 6. PTT delay data page (bench driven: only measured values, never guesses)
+  const timed = bench.tested.filter(r => r.ptt && /\d/.test(r.ptt));
+  const untimed = bench.tested.filter(r => !(r.ptt && /\d/.test(r.ptt)));
+  write('poc-radio-ptt-delay', page({ ...ctx, slug: 'poc-radio-ptt-delay', crumb: 'PTT delay, measured',
+    title: 'PoC Radio PTT Delay: Measured on Radios We Tested',
+    desc: 'How long after pressing PTT does the other radio hear you? Delay we measured on bench-tested PoC radios, what causes it, and how to talk around it.',
+    img: by['radtel-p8'].img,
+    faq: [
+      ['How much delay does a PoC radio have?', `On the radios we've timed so far, about ${timed.map(r => r.ptt).filter((v, i, a) => a.indexOf(v) === i).join(' or ')} from pressing PTT to the other radio hearing you (${timed.map(r => r.name).join(', ')}). Every PoC radio has some delay, because voice travels through the cell network and a server rather than radio to radio.`],
+      ['Why do PoC radios have a delay?', 'Your voice goes from the radio over the cell network to the PoC provider\'s server, then back out to every radio in the group. Each hop adds time, and a weak signal adds more. A regular walkie talkie sends straight radio to radio, so it has almost no delay.'],
+      ['How do you talk on a radio with a delay?', 'Press PTT, wait about a second, then speak, and hold the button a beat after your last word. Otherwise the first and last words get clipped.'],
+      ['How do you measure PTT delay?', 'We time from pressing the talk button on one radio to the other radio starting to play, with a stopwatch or on video. Radios we haven\'t timed yet are marked "not timed" rather than given a guess.']
+    ],
+    body: `
+  <div class="review-hero">
+    <span class="badge">Bench data · measured, not quoted</span>
+    <h1>PoC radio PTT delay, measured</h1>
+    <p class="updated">Updated ${comp.checked} · Timed by Michael Smith, KM7FMJ</p>
+    <p style="max-width:65ch;margin-top:14px;">PTT delay is the gap between pressing the talk button and the other radio hearing you. Spec sheets don't list it and most reviews skip it, but it decides how natural a PoC radio feels to talk on. These are the numbers we've measured ourselves.</p>
+    <div class="verdict-box" style="margin-top:18px;"><p style="margin:0;"><strong>Short answer:</strong> expect about ${timed.length ? timed[0].ptt : '1–2 s'} on a good signal. Press PTT, wait a beat, then talk.</p></div>
+  </div>
+
+  <section class="block">
+    <h2>Measured delay by radio</h2>
+    <div class="tblx"><table class="ct">
+      <thead><tr><th>Radio</th><th>PTT delay</th><th>Our score</th><th>Price</th></tr></thead>
+      <tbody>
+        ${timed.map(r => `<tr><td><a href="../${r.path}">${r.name}</a></td><td class="mono w">${r.ptt}</td><td>${rating(r.score)}</td><td class="mono">${r.price}</td></tr>`).join('\n        ')}
+        ${untimed.map(r => `<tr><td><a href="../${r.path}">${r.name}</a></td><td>${r.ptt ? r.ptt : '<span class="note">Not timed yet</span>'}</td><td>${rating(r.score)}</td><td class="mono">${r.price}</td></tr>`).join('\n        ')}
+      </tbody>
+    </table></div>
+    <p class="note">Timed from pressing PTT on one radio to the other radio starting to play, with a stopwatch or on video. Radios tested before we started timing show "not timed yet" until we re-test them. <a href="../how-we-test.html">How we test</a>.</p>
+  </section>
+
+  <section class="block">
+    <h2>Why the delay happens</h2>
+    <p>A regular walkie talkie sends your voice straight to the other radio. A PoC radio sends it over the cell network to the provider's server, which relays it to every radio in your group. Each hop adds time, so some delay is built into every PoC radio. A weak signal makes it longer.</p>
+  </section>
+
+  <section class="block">
+    <h2>How to talk around it</h2>
+    <ul>
+      <li><strong>Pause before you speak.</strong> Press PTT, count "one", then talk.</li>
+      <li><strong>Hold after your last word.</strong> Let go a beat late so the end isn't clipped.</li>
+      <li><strong>Brief your group.</strong> New users clip their first words for a day or two, then adjust.</li>
+      <li><strong>Need instant replies?</strong> A dual-mode radio like the <a href="../${by['tidradio-td-m2-pro'].path}">TIDRADIO TD-M2 Pro</a> adds license-free FRS for short-range talk with no network.</li>
+    </ul>
+  </section>
+`}));
+
+  // 7. Author page (site root)
+  const { AUTHOR, SOCIAL } = require('./hq-brand');
+  const authorUrl = `${SITE}/michael-smith.html`;
+  const person = { "@context": "https://schema.org", "@type": "ProfilePage", "url": authorUrl, "dateModified": BUILD_DATE,
+    "mainEntity": { "@type": "Person", "name": AUTHOR.name, "alternateName": AUTHOR.call, "url": authorUrl, "jobTitle": "Radio reviewer and founder, POC Radio HQ",
+      "description": `Licensed amateur radio operator (${AUTHOR.call}) in ${AUTHOR.where} who tests push-to-talk over cellular radios by hand for POC Radio HQ and reviews shortwave and ham radios for HQ Shortwave Radio.`,
+      "hasCredential": { "@type": "EducationalOccupationalCredential", "credentialCategory": "FCC Amateur Radio License", "name": `Amateur Radio License ${AUTHOR.call}` },
+      "knowsAbout": ["Push-to-Talk over Cellular radios", "Amateur radio", "Shortwave listening", "GMRS radio", "CB radio"],
+      "worksFor": { "@type": "Organization", "name": "POC Radio HQ", "url": SITE + "/" },
+      "sameAs": [...SOCIAL.map(s => s.url), "https://hqshortwaveradio.com"] } };
+  fs.writeFileSync(path.join(distDir, 'michael-smith.html'), `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Smith (${AUTHOR.call}): PoC Radio Reviewer | POC Radio HQ</title>
+<meta name="description" content="Michael Smith, ${AUTHOR.call}, is a licensed ham in ${AUTHOR.where} who tests every PoC radio on POC Radio HQ by hand. His reviews, videos and how he tests.">
+<link rel="canonical" href="${authorUrl}">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="${SITE}/${by['radtel-p8'].img}">
+<link rel="stylesheet" href="./styles.css">
+<script type="application/ld+json">${JSON.stringify(person)}</script>
+${CSS}
+${GTAG}
+</head>
+<body>
+<header></header>
+<div class="wrap">
+  <div class="breadcrumb"><a href="./index.html">Home</a> / <a href="./about.html">About</a> / Michael Smith</div>
+  <div class="review-hero">
+    <span class="badge">Reviewer · ${AUTHOR.call}</span>
+    <h1>Michael Smith, ${AUTHOR.call}</h1>
+    <p style="max-width:65ch;margin-top:14px;">I'm a licensed amateur radio operator in ${AUTHOR.where}. I run POC Radio HQ and <a href="https://hqshortwaveradio.com" target="_blank" rel="noopener">HQ Shortwave Radio</a>, part of the HQ Radio Network. Every radio that gets a score here, I've used myself on a live cell network. Radios I haven't tested are labelled as spec overviews and carry no score.</p>
+  </div>
+  <section class="block">
+    <h2>Radios I've tested</h2>
+    <div class="tblx"><table class="ct">
+      <thead><tr><th>Radio</th><th>Score</th><th>Best at</th></tr></thead>
+      <tbody>${bench.tested.map(r => `<tr><td><a href="./${r.path}">${r.name}</a></td><td>${rating(r.score)}</td><td>${r.bestAt}</td></tr>`).join('')}</tbody>
+    </table></div>
+  </section>
+  <section class="block">
+    <h2>How I review</h2>
+    <p>I check audio, build, screen, PTT delay, app and group setup, and the real cost of keeping a radio running after year one. Many review units are sent by manufacturers; that never buys a score, and every review lists the cons. Full details: <a href="./how-we-test.html">How we test</a> and the <a href="./affiliate-disclosure.html">affiliate disclosure</a>.</p>
+  </section>
+  <section class="block" style="border-bottom:none;">
+    <h2>Find me</h2>
+    <div class="related">${SOCIAL.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join('')}<a href="https://hqshortwaveradio.com" target="_blank" rel="noopener">HQ Shortwave Radio</a><a href="./about.html">About POC Radio HQ</a><a href="./index.html#contact">Contact</a></div>
+  </section>
+</div>
+<footer></footer>
+</body>
+</html>
+`);
 
   return pages;
 }

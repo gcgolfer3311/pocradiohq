@@ -1,0 +1,89 @@
+{
+  "_readme": "Visible + schema dates for hand-written pages (dist path). Set modified to the day you change a page's content.",
+  "pages": {
+    "about.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "guides/best-poc-apps.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-10"
+    },
+    "guides/choyong-wt2-vs-tidradio-td-m2-pro.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "guides/poc-radio-for-hobbyists.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "guides/poc-radio-setup-guide.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "guides/poc-radio-subscription-costs.html": {
+      "published": "2026-11-10",
+      "modified": "2026-11-23"
+    },
+    "guides/radtel-p8-vs-tidradio-td-m2-pro.html": {
+      "published": "2026-11-10",
+      "modified": "2026-11-23"
+    },
+    "guides/walkie-talkie-gift-guide.html": {
+      "published": "2026-11-22",
+      "modified": "2026-11-23"
+    },
+    "how-we-test.html": {
+      "published": "2026-11-09",
+      "modified": "2026-11-23"
+    },
+    "ht-radios/tidradio-td-h9-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/carrborg-x13-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/choyong-wt2-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/global-ptt-5288-plus-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/herda-hp1-review.html": {
+      "published": "2026-11-22",
+      "modified": "2026-11-23"
+    },
+    "reviews/hytera-pnc360s-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/inrico-t320-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/motorola-wave-ptx-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/omizn-m9-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/radtel-p8-review.html": {
+      "published": "2026-11-09",
+      "modified": "2026-11-23"
+    },
+    "reviews/tidradio-td-m2-pro-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-23"
+    },
+    "reviews/wouxun-kg-wv9-review.html": {
+      "published": "2026-09-12",
+      "modified": "2026-11-09"
+    }
+  }
+}

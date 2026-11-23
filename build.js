@@ -15,6 +15,7 @@ const sharedCSS = fs.readFileSync(path.join(__dirname, 'data/hq-shared.css'), 'u
 const bench = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/bench.json'), 'utf8'));
 const { brandify, homeBlocks, sigBars, llmsTxt } = require('./hq-brand');
 const { buildSeoPages } = require('./seo-pages');
+const { boostDist } = require('./seo-boost');
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const BUILD_MONTH = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
@@ -628,7 +629,7 @@ let homeHtml = fs.readFileSync(homepageSrc, 'utf8')
   .replace('/*HQ:PICKER*/{}', () => hb.pickerData);
 if (/<!--HQ:|\/\*HQ:/.test(homeHtml)) throw new Error('Homepage placeholder left unfilled');
 fs.writeFileSync(path.join(distDir, 'index.html'), homeHtml);
-for (const extra of ['how-we-test.html', '_redirects']) {
+for (const extra of ['how-we-test.html', '_redirects', 'ef0d807a12c8ea050c55b8508eb7ecc2.txt']) {
   if (fs.existsSync(path.join(__dirname, extra))) {
     fs.copyFileSync(path.join(__dirname, extra), path.join(distDir, extra));
     console.log(`  → Copied ${extra}`);
@@ -690,6 +691,7 @@ const urls = [
   { loc: `${SITE}/`, priority: '1.0' },
   { loc: `${SITE}/about.html`, priority: '0.6' },
   { loc: `${SITE}/how-we-test.html`, priority: '0.7' },
+  { loc: `${SITE}/michael-smith.html`, priority: '0.6' },
   { loc: `${SITE}/deals.html`, priority: '0.8' },
   { loc: `${SITE}/guides/walkie-talkie-gift-guide.html`, priority: '0.8' },
   { loc: `${SITE}/privacy-policy.html`, priority: '0.3' },
@@ -742,5 +744,6 @@ for (const file of walkHtml(distDir)) {
 console.log(`  → HQ brand layer applied to ${branded} pages`);
 fs.writeFileSync(path.join(distDir, 'llms.txt'), llmsTxt(bench, SITE));
 console.log('  → llms.txt written');
+console.log(`  → SEO/AEO boost applied to ${boostDist(distDir, { SITE, bench })} pages`);
 
 console.log(`Built ${reviews.length} review pages + ${usecases.length} use-case guides + index + sitemap + robots.txt into dist/`);

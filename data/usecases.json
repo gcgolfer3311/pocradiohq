@@ -4,7 +4,7 @@
     "job": "construction",
     "title": "Best PoC Radio for Construction (2026, Tested)",
     "h1": "Best PoC radio for construction crews",
-    "metaDesc": "The best Push-to-Talk over Cellular radios for construction crews, picked only from radios we've tested by hand: off-network backup, rugged builds and real 3-year crew costs.",
+    "metaDesc": "The best PoC radios for construction crews, picked only from radios we've tested by hand: off-network backup, rugged builds and 3-year crew costs.",
     "intro": "Construction crews need a radio that reaches the foreman across a site or across town, survives dust and drops, and keeps talking in basements and concrete cores where cell signal dies. PoC solves the distance problem. The dead zones are where most PoC radios fail, so off-network backup decides the top pick.",
     "needs": [
       [
@@ -63,7 +63,7 @@
     "job": "delivery",
     "title": "Best PoC Radio for Delivery Drivers (2026, Tested)",
     "h1": "Best PoC radio for delivery drivers",
-    "metaDesc": "The best Push-to-Talk over Cellular radios for delivery drivers and small fleets, picked from radios we've tested: loud audio in the cab, low cost per driver and no-fee options.",
+    "metaDesc": "The best PoC radios for delivery drivers and small fleets, tested by hand: loud audio in the cab, low cost per driver and no-fee options.",
     "intro": "Delivery drivers are the textbook PoC user: spread across a metro area or several counties, almost always inside cell coverage, and talking from a noisy cab. Range is solved by the network, so the picks come down to audio you can hear over the road, a price you can multiply by every driver, and running costs that don't creep up.",
     "needs": [
       [
@@ -122,7 +122,7 @@
     "job": "security",
     "title": "Best PoC Radio for Security Teams (2026, Tested)",
     "h1": "Best PoC radio for security teams",
-    "metaDesc": "The best Push-to-Talk over Cellular radios for security guards and patrol teams, picked from radios we've tested: rugged builds, clear audio, emergency features and low running cost.",
+    "metaDesc": "The best PoC radios for security guards and patrol teams, picked from radios we've tested: rugged builds, clear audio and low running cost.",
     "intro": "Security teams carry a radio for a whole shift, often outdoors, sometimes across several sites. They need clear audio, a build that survives a long shift, and fast one-to-one or group calls. Multi-site patrols are where PoC beats conventional radio, because range is wherever the network reaches.",
     "needs": [
       [
@@ -181,7 +181,7 @@
     "job": "events",
     "title": "Best PoC Radio for Events (2026, Tested)",
     "h1": "Best PoC radio for events and volunteers",
-    "metaDesc": "The best Push-to-Talk over Cellular radios for event staff and volunteers, picked from radios we've tested: loud audio for noisy venues, cheap multi-packs and a backup when crowds jam the network.",
+    "metaDesc": "The best PoC radios for event staff and volunteers, tested by hand: loud audio for noisy venues, cheap multi-packs and a backup when cells jam.",
     "intro": "Events hand radios to people who've never used one, for a day or a weekend, in loud places. The radio has to be dead simple, loud enough to hear over a crowd, and cheap enough that a lost one isn't a disaster. Big crowds can also overload the local cell network, which is the one situation where a PoC radio's backup plan matters.",
     "needs": [
       [
@@ -238,9 +238,9 @@
   {
     "slug": "best-poc-radio-for-families",
     "job": "families",
-    "title": "Best PoC Radio for Families and Kids (2026, Tested)",
+    "title": "Best PoC Radio for Families & Kids (2026, Tested)",
     "h1": "Best PoC radio for families and kids",
-    "metaDesc": "The best nationwide walkie talkies for families, kids and older relatives, picked only from PoC radios we've tested by hand: small, loud, one button to talk, with real 3-year costs.",
+    "metaDesc": "The best nationwide walkie talkies for families and kids, all tested by hand: small, loud, one button to talk, with real 3-year costs.",
     "intro": "A family radio has one job: let a kid, a teenager or a grandparent reach you with one button, wherever they are, without a smartphone. PoC radios do that over the cell network, so range is anywhere there's signal. The picks below favor small size, a loud speaker and setups simple enough that nobody needs help.",
     "needs": [
       [

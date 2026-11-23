@@ -1,5 +1,6 @@
 {
   "_readme": "Single source of truth for the homepage bench table, tested picks, 'on our radar' list, ticker and cost calculator. To publish a new hands-on review: add an entry to 'tested' (newest first), put a 480x640 card image at images/card_<slug>.webp, and run node build.js. ptt = measured PTT delay text, or null if not timed. cost = {hw: per-radio USD, renew: per-radio per-year USD after year 1, src: where the fee came from} or null if not confirmed.",
+  "pricesChecked": "November 23, 2026",
   "tested": [
     {
       "slug": "radtel-p8",

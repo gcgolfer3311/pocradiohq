@@ -160,3 +160,7 @@ table{border-collapse:collapse;}
 @media(max-width:520px){.hq-btag{display:none!important;}.hq-bname{font-size:1.12rem;}}
 @media(max-width:640px){.pros-cons{grid-template-columns:1fr;}.author-card{grid-template-columns:1fr;}body{font-size:1rem;}}
 @media(prefers-reduced-motion:reduce){.hq-tk-track{animation:none}.hq-tk-lbl i{animation:none}html{scroll-behavior:auto}}
+.answer{margin:14px 0 4px;padding:14px 16px;border-left:3px solid var(--accent);background:rgba(240,185,85,.06);border-radius:0 8px 8px 0;font-size:.98rem;line-height:1.6;color:var(--text);max-width:70ch;}
+.answer strong{font:600 .68rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-right:6px;}
+.author-card h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;}
+.spec-note + .updated{font:500 .72rem/1.4 var(--mono);letter-spacing:.06em;color:var(--m2);text-transform:uppercase;margin:10px 0 0;}

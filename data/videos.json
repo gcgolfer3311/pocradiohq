@@ -1,0 +1,25 @@
+{
+  "_readme": "Review videos, keyed by dist path. Emitted as VideoObject schema on that page. uploadDate/duration from YouTube.",
+  "reviews/radtel-p8-review.html": {
+    "name": "Radtel P8 PoC Radio First Look: Walkie-Talkies With NO Range Limit?",
+    "description": "Michael Smith, KM7FMJ, takes a first hands-on look at the Radtel P8 4G push-to-talk over cellular radio: build, audio and the 1 to 2 second PTT delay.",
+    "youtube": "kx0t19tlhZA",
+    "uploadDate": "2026-11-08T23:57:44-08:00",
+    "duration": "PT53S"
+  },
+  "reviews/herda-hp1-review.html": {
+    "name": "Herda HP1 PoC Radio Review: Tiny Radio, Big Punch (My Honest Rating)",
+    "description": "Hands-on review of the Herda HP1, a 63 g 4G push-to-talk over cellular walkie talkie with a 2W speaker, by Michael Smith, KM7FMJ.",
+    "youtube": "JBRBL0X803M",
+    "uploadDate": "2026-11-22T21:09:09-08:00",
+    "duration": "PT2M13S"
+  },
+  "reviews/wouxun-kg-wv9-review.html": {
+    "name": "Wouxun KG-WV9 PoC Radio Hands-On Review",
+    "description": "Unboxing, first power-on, and a walkthrough of group and member calling on the Wouxun KG-WV9 PoC radio, by Michael Smith, KM7FMJ.",
+    "file": "videos/wouxun-kg-wv9-review-video.mp4",
+    "thumbnail": "images/wouxun_kg_wv9_pic.jpg",
+    "uploadDate": "2026-09-12T22:51:22-07:00",
+    "duration": "PT3M50S"
+  }
+}
