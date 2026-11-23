@@ -234,5 +234,68 @@
         "With the Radtel P8 at about $61 per radio ($122 per 2-pack on Amazon) and about $10 per SIM per year after year one, 12 radios run about $972 over three years."
       ]
     ]
+  },
+  {
+    "slug": "best-poc-radio-for-families",
+    "job": "families",
+    "title": "Best PoC Radio for Families and Kids (2026, Tested)",
+    "h1": "Best PoC radio for families and kids",
+    "metaDesc": "The best nationwide walkie talkies for families, kids and older relatives, picked only from PoC radios we've tested by hand: small, loud, one button to talk, with real 3-year costs.",
+    "intro": "A family radio has one job: let a kid, a teenager or a grandparent reach you with one button, wherever they are, without a smartphone. PoC radios do that over the cell network, so range is anywhere there's signal. The picks below favor small size, a loud speaker and setups simple enough that nobody needs help.",
+    "needs": [
+      [
+        "One button, nothing to learn",
+        "No apps, no menus, no unlocking. Press and talk is the whole interface for a kid or an older relative."
+      ],
+      [
+        "Small and easy to keep on you",
+        "A radio left in a bag is no use. Light radios on a neck strap or lanyard actually get carried."
+      ],
+      [
+        "Loud enough to hear",
+        "Playgrounds, cars and TVs are loud. A strong speaker matters more than features."
+      ],
+      [
+        "Private groups",
+        "Families don't need public channels. A closed group means only your radios can talk to each other."
+      ]
+    ],
+    "picks": [
+      [
+        "herda-hp1",
+        "Top pick",
+        "At 63 g with a neck strap, the HP1 is small enough that kids and grandparents keep it on them, and its 2W speaker is loud for the size. One button to talk, and closed groups only, which is what a family wants. Herda sells it for $129.99 a 2-pack; renewal is $25 a radio a year after year one."
+      ],
+      [
+        "radtel-p8",
+        "Best value",
+        "The clearest, loudest audio we've tested, a tough zinc-alloy body, and SIMs included for year one at about $122 per 2-pack on Amazon. It's heavier than the HP1, and there's a 1 to 2 second pause after pressing PTT that kids pick up fast."
+      ],
+      [
+        "tidradio-td-m2-pro",
+        "Camping and outages",
+        "A second PTT button talks on license-free FRS with no network at all, handy at a campsite, on a ski hill or in a power outage when cell service drops. The Odmaster app is buggy, so a parent should do the setup."
+      ]
+    ],
+    "dispatch": "",
+    "crew": 4,
+    "faq": [
+      [
+        "Do kids need a license to use a PoC radio?",
+        "No. PoC radios talk over cellular data, so no FCC license is needed. FRS mode on dual-mode radios is license-free too."
+      ],
+      [
+        "Can my kid reach me if we're in different cities?",
+        "Yes, as long as both radios have cell signal. PoC range is wherever the network reaches, not a few miles like a regular walkie talkie."
+      ],
+      [
+        "What does a family set of four cost?",
+        "With the Herda HP1 at $129.99 per 2-pack and $25 per radio per year after year one, four radios are about $460 over three years. Four Radtel P8s are about $324."
+      ],
+      [
+        "Can strangers talk to my kids on a PoC radio?",
+        "On radios with closed groups only, like the Herda HP1, only radios you've added to your group can talk to each other. Check how groups work on any radio before giving it to a child."
+      ]
+    ]
   }
 ]

@@ -1,0 +1,64 @@
+{
+  "_readme": "Brands we have NOT tested. Facts come only from each brand's own pages on the 'checked' date. Update prices here; alternatives pages rebuild from this file and data/bench.json. hw = hardware per radio at the smallest pack; renew = per radio per year after year 1; monthly = per radio per month (billed from day one).",
+  "checked": "November 23, 2026",
+  "rapid-radios": {
+    "name": "Rapid Radios",
+    "model": "Rapid Radios G1",
+    "maker": "Rapid Radios, a Grand Rapids, Michigan company (part of Rapid Consulting LLC)",
+    "site": "https://rapidradios.com/products/rapid-radios-nationwide-ptt-walkie-talkie",
+    "amazon": "https://www.amazon.com/dp/B0F2GK2JPG?tag=pocradio-20",
+    "priceText": "$399 per 2-pack (about $200 a radio), on Rapid Radios' site and Amazon",
+    "packs": "2-pack $399, 3-pack $549.99, 4-pack $699, 6-pack $899, 10-pack $1,495",
+    "hw": 199.5,
+    "renew": 50,
+    "monthly": 0,
+    "upfrontExtra": 0,
+    "renewText": "First year included, then $50 per radio per year ($40 with auto-pay)",
+    "facts": [
+      ["Price", "$399 per 2-pack on rapidradios.com and Amazon; packs up to 10 radios ($1,495)"],
+      ["Service", "First year included; then $50 per radio per year, or $40 on auto-pay; no monthly bill"],
+      ["Network", "Multi-carrier SIM that connects to Verizon, AT&T or T-Mobile"],
+      ["Battery", "8800 mAh listed, USB-C, \"5+ days\" standby claimed"],
+      ["Weight", "165 g listed"],
+      ["Other models", "RAD1 (LTE + Wi-Fi, IPX6 listed) from $399 for one radio; a base/car unit for $299"]
+    ],
+    "stayIf": [
+      "You want a US company with a Michigan phone line to call when something goes wrong.",
+      "You want one SIM that can use any of the three big US carriers.",
+      "You want a matching base or car unit from the same brand."
+    ]
+  },
+  "peakptt": {
+    "name": "PeakPTT",
+    "model": "Peak PTT-84G",
+    "maker": "Peak PTT, a US business push-to-talk provider",
+    "site": "https://www.peakptt.com/products/peak-4g-push-to-talk-over-cellular-radio",
+    "amazon": "",
+    "priceText": "$229 per radio, plus $19.95 activation and $24.95 per radio per month",
+    "packs": "Sold per radio; leasing available",
+    "hw": 229,
+    "renew": 0,
+    "monthly": 24.95,
+    "upfrontExtra": 19.95,
+    "renewText": "$24.95 per radio per month from activation, month to month",
+    "facts": [
+      ["Price", "$229 per radio, plus a $19.95 activation fee per radio"],
+      ["Service", "$24.95 per radio per month, billed from activation; month to month, no contract"],
+      ["Extras", "GPS tracking portal included; dispatch seat $12/month; phone app $9.95/user/month"],
+      ["Battery", "5200 mAh listed, 8–12 hours of use claimed"],
+      ["Rugged", "IP54 listed; 1.44-inch color screen; GPS"],
+      ["Guarantee", "45-day refund, minus airtime"]
+    ],
+    "stayIf": [
+      "You need every radio on a live GPS map with a dispatcher console.",
+      "You want one company handling hardware, airtime and support on a business account.",
+      "You'd rather pay monthly and cancel anytime than buy a year of service up front."
+    ]
+  },
+  "zello": {
+    "name": "Zello",
+    "site": "https://zello.com/pricing/",
+    "coreMonthly": 6.8,
+    "plusMonthly": 12.75
+  }
+}

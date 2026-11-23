@@ -83,6 +83,8 @@ function footer(prefix) {
       <li><a href="${prefix}index.html#picks">Tested Reviews</a></li>
       <li><a href="${prefix}index.html#picker">Radio Picker</a></li>
       <li><a href="${prefix}index.html#cost">Cost Calculator</a></li>
+      <li><a href="${prefix}guides/best-poc-radios.html">Best PoC Radios 2026</a></li>
+      <li><a href="${prefix}guides/poc-radio-comparisons.html">Compare</a></li>
       <li><a href="${prefix}guides/poc-radio-subscription-costs.html">Subscription Costs</a></li>
       <li><a href="${prefix}guides/radtel-p8-vs-tidradio-td-m2-pro.html">Radtel P8 vs TD-M2 Pro</a></li>
       <li><a href="${prefix}guides/poc-radio-setup-guide.html">Setup Guide</a></li>
@@ -168,6 +170,12 @@ ${bench.radar.map(r => `- [${r.name}](${SITE}/${r.path}): ${r.note}`).join('\n')
 ## Buying guides
 - [PoC radio deals: current prices on bench-tested radios](${SITE}/deals.html)
 - [Gift guide: walkie talkies that work anywhere](${SITE}/guides/walkie-talkie-gift-guide.html)
+- [Best PoC radios of 2026, ranked from bench-tested radios](${SITE}/guides/best-poc-radios.html)
+- [Rapid Radios alternatives](${SITE}/guides/rapid-radios-alternatives.html)
+- [PeakPTT alternatives with no monthly fee](${SITE}/guides/peakptt-alternatives.html)
+- [Zello vs a PoC radio](${SITE}/guides/zello-vs-poc-radio.html)
+- [All PoC radio comparisons](${SITE}/guides/poc-radio-comparisons.html)
+- [Best PoC radio for families](${SITE}/guides/best-poc-radio-for-families.html)
 - [PoC radio subscription costs and no-monthly-fee options](${SITE}/guides/poc-radio-subscription-costs.html)
 - [Radtel P8 vs TIDRADIO TD-M2 Pro](${SITE}/guides/radtel-p8-vs-tidradio-td-m2-pro.html)
 - [ChoYong WT2 vs TIDRADIO TD-M2 Pro](${SITE}/guides/choyong-wt2-vs-tidradio-td-m2-pro.html)

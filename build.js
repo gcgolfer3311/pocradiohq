@@ -14,6 +14,7 @@ fs.mkdirSync(reviewsDir, { recursive: true });
 const sharedCSS = fs.readFileSync(path.join(__dirname, 'data/hq-shared.css'), 'utf8');
 const bench = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/bench.json'), 'utf8'));
 const { brandify, homeBlocks, sigBars, llmsTxt } = require('./hq-brand');
+const { buildSeoPages } = require('./seo-pages');
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const BUILD_MONTH = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
@@ -607,6 +608,10 @@ const standaloneGuides = path.join(__dirname, 'data');
   }
 });
 
+// Generated SEO pages (best-of ranking, alternatives, Zello vs radio, comparison hub)
+const seoPages = buildSeoPages({ distDir, bench, SITE, BUILD_DATE });
+console.log(`  → SEO pages: ${seoPages.join(', ')}`);
+
 // copy homepage + about.html + netlify.toml into dist
 const homepageSrc = fs.existsSync(path.join(__dirname, 'data/homepage.html'))
   ? path.join(__dirname, 'data/homepage.html')
@@ -700,6 +705,7 @@ const urls = [
   { loc: `${SITE}/guides/poc-radio-setup-guide.html`, priority: '0.7' },
   { loc: `${SITE}/guides/poc-radio-subscription-costs.html`, priority: '0.8' },
   { loc: `${SITE}/guides/radtel-p8-vs-tidradio-td-m2-pro.html`, priority: '0.8' },
+  ...seoPages.map(s => ({ loc: `${SITE}/guides/${s}.html`, priority: s === 'best-poc-radios' ? '0.9' : '0.8' })),
   { loc: `${SITE}/blog/`, priority: '0.7' },
   ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}.html`, priority: '0.6' }))
 ];
