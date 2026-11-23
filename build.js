@@ -502,13 +502,103 @@ ${schema.map(o => `<script type="application/ld+json">${JSON.stringify(o)}</scri
 </html>`;
 }
 
+
+// ── Deals page (data/deals.json + bench.json) ──
+function dealsPage() {
+  const d = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/deals.json'), 'utf8'));
+  const buyAttr = u => u.startsWith('mailto:') ? '' : ' rel="sponsored nofollow" target="_blank"';
+  const cards = bench.tested.map(r => {
+    const x = d.items[r.slug] || {};
+    const has = !!d.items[r.slug];
+    return `<article class="deal">
+  <a class="deal-img" href="./${r.path}"><img src="./${r.img}" width="480" height="640" loading="lazy" alt="${r.name} PoC radio"></a>
+  <div class="deal-body">
+    <div class="deal-top"><h3><a href="./${r.path}">${r.name}</a></h3>${sigBars(r.score)}</div>
+    <div class="deal-price"><span>${has ? x.where : 'Typical price'}</span><b>${has ? x.price : r.price}</b></div>
+    ${x.code ? `<div class="deal-code">Code <b>${x.code}</b></div>` : ''}
+    <p>${has ? x.note : 'No holiday deal confirmed yet. We check this page daily through Cyber Monday.'}</p>
+    <p class="deal-why"><b>Why it's on the bench:</b> ${r.bestAt}. <b>Watch out:</b> ${r.watchOut}.</p>
+    <div class="deal-cta"><a class="btn" href="${x.link || r.buy}"${buyAttr(x.link || r.buy)}>${x.linkLabel || r.buyLabel}</a>${x.alt ? `<a class="btn btn-ghost" href="${x.alt}" rel="sponsored nofollow" target="_blank">${x.altLabel}</a>` : ''}<a href="./${r.path}">Review →</a></div>
+  </div>
+</article>`;
+  }).join('\n');
+  const checked = new Date(d.checked + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PoC Radio Deals: ${d.season}</title>
+<meta name="description" content="Current prices and confirmed deals on the PoC walkie talkies we've tested by hand: Radtel P8, Herda HP1, TIDRADIO TD-M2 Pro and more. Checked ${checked}.">
+<link rel="canonical" href="${SITE}/deals.html">
+<meta property="og:title" content="PoC Radio Deals: ${d.season}">
+<meta property="og:description" content="Confirmed prices and deals on bench-tested PoC radios, checked ${checked}.">
+<meta property="og:url" content="${SITE}/deals.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="${SITE}/${bench.tested[0].img}">
+<link rel="stylesheet" href="./styles.css">
+<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", "name": `PoC radio deals: ${d.season}`, "itemListElement": bench.tested.map((r, i) => ({ "@type": "ListItem", "position": i + 1, "name": r.name, "url": `${SITE}/${r.path}` })) })}</script>
+<style>
+  .deals{display:grid;grid-template-columns:1fr;gap:16px;margin-top:10px;}
+  .deal{display:grid;grid-template-columns:140px 1fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;}
+  .deal-img img{width:140px;height:187px;object-fit:cover;border-radius:8px;border:1px solid var(--line2);display:block;}
+  .deal-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+  .deal h3{font-size:1.3rem;}
+  .deal h3 a{color:var(--text);}
+  .deal-price{display:flex;align-items:baseline;gap:4px 10px;margin-bottom:8px;flex-wrap:wrap;}
+  .deal-price b{white-space:nowrap;}
+  .deal-price span{font:600 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--m2);}
+  .deal-price b{font:700 1.25rem/1 var(--mono);color:var(--lcd);}
+  .deal-code{display:inline-block;border:1px dashed var(--accent);color:var(--accent);font:600 .72rem/1 var(--mono);letter-spacing:.08em;padding:6px 9px;border-radius:4px;margin-bottom:8px;}
+  .deal p{font-size:.9rem;margin-bottom:8px;}
+  .deal-why{color:var(--m2);font-size:.84rem!important;}
+  .deal-why b{font:600 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sub);}
+  .deal-cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px;}
+  .deal-cta .btn{padding:10px 14px;font-size:.7rem;}
+  .checked{font:600 .7rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--good);}
+  @media(max-width:620px){.deal{grid-template-columns:96px 1fr;gap:14px;padding:12px;}.deal-img img{width:96px;height:128px;}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QHPFB16VF4');
+</script>
+</head>
+<body>
+<header></header>
+<div class="wrap">
+  <div class="breadcrumb"><a href="./index.html">Home</a> / Deals</div>
+  <div class="review-hero">
+    <span class="badge">${d.season}</span>
+    <h1>PoC radio deals, checked by hand</h1>
+    <p class="checked">Prices last checked ${checked}</p>
+    <p style="max-width:65ch;margin-top:12px;">Every radio here has been on our bench, so you're only looking at radios worth buying. We list a deal or code only after confirming it on the seller's page; otherwise you see the normal price. Prices change fast this week, so check the seller before you pay.</p>
+    <div class="spec-note" style="margin-top:16px;"><strong>Gift tip</strong>Buy pairs: one radio can't talk to anything. Some brands ship from China (Radtel lists 8–15 days, or 3–7 from a local warehouse), so order early for the holidays. New to PoC? Start with the <a href="./guides/walkie-talkie-gift-guide.html">gift guide</a>.</div>
+  </div>
+  <section class="block">
+    <div class="deals">
+${cards}
+    </div>
+    <p style="font-size:.82rem;margin-top:18px;">Some links are affiliate links; we may earn a commission at no extra cost to you. <a href="./affiliate-disclosure.html">Disclosure</a>.</p>
+  </section>
+</div>
+<footer></footer>
+</body>
+</html>`;
+}
+fs.writeFileSync(path.join(distDir, 'deals.html'), dealsPage());
+console.log('  → deals.html written');
+
 for (const uc of usecases) {
   fs.writeFileSync(path.join(usecaseDir, `${uc.slug}.html`), usecasePage(uc));
 }
 
 // Copy standalone guide pages into dist/guides/
 const standaloneGuides = path.join(__dirname, 'data');
-['hobbyist-guide.html', 'best-poc-apps.html', 'choyong-wt2-vs-tidradio-td-m2-pro.html', 'poc-radio-setup-guide.html', 'poc-radio-subscription-costs.html', 'radtel-p8-vs-tidradio-td-m2-pro.html'].forEach(f => {
+['hobbyist-guide.html', 'best-poc-apps.html', 'choyong-wt2-vs-tidradio-td-m2-pro.html', 'poc-radio-setup-guide.html', 'poc-radio-subscription-costs.html', 'radtel-p8-vs-tidradio-td-m2-pro.html', 'walkie-talkie-gift-guide.html'].forEach(f => {
   const src = path.join(standaloneGuides, f);
   const outName = f === 'hobbyist-guide.html' ? 'poc-radio-for-hobbyists.html' : f;
   if (fs.existsSync(src)) {
@@ -595,6 +685,8 @@ const urls = [
   { loc: `${SITE}/`, priority: '1.0' },
   { loc: `${SITE}/about.html`, priority: '0.6' },
   { loc: `${SITE}/how-we-test.html`, priority: '0.7' },
+  { loc: `${SITE}/deals.html`, priority: '0.8' },
+  { loc: `${SITE}/guides/walkie-talkie-gift-guide.html`, priority: '0.8' },
   { loc: `${SITE}/privacy-policy.html`, priority: '0.3' },
   { loc: `${SITE}/terms.html`, priority: '0.3' },
   { loc: `${SITE}/affiliate-disclosure.html`, priority: '0.3' },

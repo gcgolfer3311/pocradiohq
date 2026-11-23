@@ -9,7 +9,7 @@
       "badge": "Best Value, SIM Included",
       "cat": "Handheld · 4G LTE · 2-pack with SIMs",
       "img": "images/card_radtel_p8.webp",
-      "price": "From ~$99 / 2-pack",
+      "price": "~$159 / 2-pack",
       "buy": "https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20",
       "buyLabel": "Check Price",
       "bestAt": "Clear, loud audio and a solid zinc-alloy body",
@@ -35,9 +35,9 @@
         ]
       ],
       "cost": {
-        "hw": 50,
+        "hw": 80,
         "renew": 10,
-        "src": "Radtel: 2-pack from ~$99; about $10 per SIM per year after year 1"
+        "src": "Radtel store: $159 per 2-pack (Nov 2026); about $10 per SIM per year after year 1"
       },
       "faq": [
         [

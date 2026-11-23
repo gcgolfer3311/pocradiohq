@@ -192,6 +192,11 @@
     .bench td[data-l="Best at"],.bench td[data-l="Watch out"]{grid-column:1/-1;}
     .bench tr:hover td{background:none;}
   }
+  .holiday{padding:0;background:linear-gradient(90deg,rgba(240,185,85,.14),rgba(240,185,85,.04));border-top:1px solid rgba(240,185,85,.35);border-bottom:1px solid rgba(240,185,85,.35);}
+  .holiday-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap;}
+  .holiday strong{display:block;font:800 1.35rem/1.2 var(--disp);color:var(--text);margin-bottom:4px;}
+  .holiday-sub{display:block;font-size:.92rem;color:var(--sub);}
+  .holiday-cta{display:flex;gap:10px;flex-wrap:wrap;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHPFB16VF4"></script>
@@ -223,6 +228,14 @@
       </div>
     </div>
     <!--HQ:LCD-->
+  </div>
+</section>
+
+
+<section class="holiday" aria-label="Holiday deals">
+  <div class="wrapx holiday-in">
+    <div><span class="kicker" style="margin:0 0 6px;">Black Friday · Cyber Monday</span><strong>Shopping for a radio this week?</strong><span class="holiday-sub">Prices checked by hand on every bench-tested radio, plus who each one is the right gift for.</span></div>
+    <div class="holiday-cta"><a class="btn" href="./deals.html">See the deals</a><a class="btn btn-ghost" href="./guides/walkie-talkie-gift-guide.html">Gift guide</a></div>
   </div>
 </section>
 
@@ -424,6 +437,7 @@
       <h2>Start here.</h2>
     </div>
     <div class="guides">
+      <a class="guide" href="./guides/walkie-talkie-gift-guide.html"><em>Gifts</em><strong>Walkie talkies that work anywhere: gift guide</strong><span>Tested picks for kids, grandparents, road trips, campers and crews.</span></a>
       <a class="guide" href="./guides/poc-radio-subscription-costs.html"><em>Costs</em><strong>Which PoC radios have no monthly fee?</strong><span>Renewal fees for every radio we cover, plus 3-year team costs.</span></a>
       <a class="guide" href="./guides/radtel-p8-vs-tidradio-td-m2-pro.html"><em>Head to head</em><strong>Radtel P8 vs TIDRADIO TD-M2 Pro</strong><span>Better audio or a no-signal backup? Both bench tested.</span></a>
       <a class="guide" href="./guides/poc-radio-setup-guide.html"><em>Setup</em><strong>I just bought a PoC radio. Now what?</strong><span>SIM, app pairing, first group and the fixes for common problems.</span></a>
@@ -512,7 +526,7 @@
   // ---- Radio picker ----
   var RADIOS = /*HQ:PICKER*/{};
   var REC = {
-    'personal|low|no':  ['Radtel P8', 'Clear, loud audio, a solid metal body, and SIMs included for year one. The cheapest tested way into PoC.'],
+    'personal|low|no':  ['Radtel P8', 'Clear, loud audio, a solid metal body, and SIMs included for year one, about $10 a year after that.'],
     'personal|low|yes': ['TIDRADIO TD-M2 Pro', 'Two PTT buttons: nationwide PoC plus license-free FRS when there is no signal.'],
     'personal|mid|no':  ['OMIZN M9', 'Rugged aluminum body, great sound and a readable screen for everyday carry.'],
     'personal|mid|yes': ['ChoYong WT2', 'PoC plus a 2W analog UHF radio, with shortwave and internet radio on top.'],

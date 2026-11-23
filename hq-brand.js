@@ -52,11 +52,11 @@ function ticker(prefix, bench) {
 function masthead(prefix, bench, isHome) {
   const h = isHome ? '' : `${prefix}index.html`;
   const nav = [
+    [`${prefix}deals.html`, 'Deals'],
     [`${h}#bench`, 'The Bench'],
     [`${h}#picks`, 'Reviews'],
     [`${h}#picker`, 'Radio Picker'],
     [`${h}#cost`, 'Cost'],
-    [`${prefix}guides/poc-radio-setup-guide.html`, 'Setup Guide'],
     [`${prefix}blog/`, 'Blog'],
     [`${prefix}how-we-test.html`, 'How We Test']
   ];
@@ -77,6 +77,8 @@ function footer(prefix) {
       <p>Run by ${AUTHOR.name}, ${AUTHOR.call}. Part of the HQ Radio Network.</p>
     </div>
     <div><h4>Site</h4><ul>
+      <li><a href="${prefix}deals.html">Deals</a></li>
+      <li><a href="${prefix}guides/walkie-talkie-gift-guide.html">Gift Guide</a></li>
       <li><a href="${prefix}index.html#bench">The Bench</a></li>
       <li><a href="${prefix}index.html#picks">Tested Reviews</a></li>
       <li><a href="${prefix}index.html#picker">Radio Picker</a></li>
@@ -164,6 +166,8 @@ ${t.map(r => `- [${r.name} review](${SITE}/${r.path}): ${r.score.toFixed(1)}/5. 
 ${bench.radar.map(r => `- [${r.name}](${SITE}/${r.path}): ${r.note}`).join('\n')}
 
 ## Buying guides
+- [PoC radio deals: current prices on bench-tested radios](${SITE}/deals.html)
+- [Gift guide: walkie talkies that work anywhere](${SITE}/guides/walkie-talkie-gift-guide.html)
 - [PoC radio subscription costs and no-monthly-fee options](${SITE}/guides/poc-radio-subscription-costs.html)
 - [Radtel P8 vs TIDRADIO TD-M2 Pro](${SITE}/guides/radtel-p8-vs-tidradio-td-m2-pro.html)
 - [ChoYong WT2 vs TIDRADIO TD-M2 Pro](${SITE}/guides/choyong-wt2-vs-tidradio-td-m2-pro.html)
@@ -181,6 +185,22 @@ ${bench.radar.map(r => `- [${r.name}](${SITE}/${r.path}): ${r.note}`).join('\n')
 - [Affiliate disclosure](${SITE}/affiliate-disclosure.html)
 `;
 }
+
+const TRACK = `<script>
+(function(){
+  var BUY=/amazon\\.|herdaradio\\.com|radtels\\.com|tidradio\\.com|omizn\\.com|carrborg|wouxun|choyong|global-ptt|^mailto:/i;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a'); if(!a) return;
+    var href=a.getAttribute('href')||''; var rel=a.getAttribute('rel')||'';
+    if(!(BUY.test(href)||rel.indexOf('sponsored')>-1)) return;
+    var box=a.closest('.pick,.buybar,.deal,.gift,.vs-card,.uc-pick,.watch,.price-box,tr,.kf');
+    var n=box&&box.querySelector('h3,b,.bt-radio a,td a');
+    var radio=(n?n.textContent:(document.querySelector('h1')||{}).textContent||'').replace(/\\s*\\d\\.\\d\\s*\\/\\s*5.*$/,'').replace(/[:\\s]*(PoC Radio )?(Review|Spec Overview).*$/i,'').replace(/\\s+/g,' ').trim().slice(0,80);
+    var dest=/^mailto:/i.test(href)?'email':(a.hostname||'').replace(/^www\\./,'');
+    if(typeof gtag==='function') gtag('event','buy_click',{radio:radio,destination:dest,placement:box?box.className.split(' ')[0]||box.tagName.toLowerCase():'body',page_path:location.pathname,transport_type:'beacon'});
+  },true);
+})();
+</script>`;
 
 function brandify(html, { prefix, bench, kind, rel }) {
   const entry = kind === 'review' ? bench.tested.find(r => r.path === rel) : null;
@@ -208,6 +228,7 @@ function brandify(html, { prefix, bench, kind, rel }) {
   }
   if (/<footer\b[\s\S]*?<\/footer>/.test(html)) html = html.replace(/<footer\b[\s\S]*?<\/footer>/, () => foot);
   else html = html.replace('</body>', () => `${foot}\n</body>`);
+  if (!html.includes("'buy_click'")) html = html.replace('</body>', () => `${TRACK}\n</body>`);
   html = starsToBars(html);
   html = stripEmoji(html);
   return html;

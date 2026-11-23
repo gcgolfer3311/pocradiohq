@@ -1,0 +1,25 @@
+{
+  "_readme": "Drives /deals.html. Update 'checked' and any radio's entry when a price or code changes, then rebuild. Only list a code or sale you've confirmed on the seller's page. Radios not listed under 'items' show their bench price and 'No holiday deal confirmed yet'.",
+  "checked": "2026-11-22",
+  "season": "Black Friday & Cyber Monday 2026",
+  "items": {
+    "radtel-p8": {
+      "where": "Radtel store",
+      "price": "$159 / 2-pack",
+      "note": "Radtel's site is running a store-wide \"mid-season sale\" banner. The P8 2-pack shows $159 (Nov 22). An earlier $99 listing is sold out. Compare with the Amazon price before you buy.",
+      "code": "",
+      "link": "https://www.radtels.com/products/radtel-p8-radios-unlimited-range-5000-miles-above-walkie-talkie-nationwide-handheld-poc-for-adults-rechargeable-ptt-long-distance-walkie-talkies-with-lights2-pack",
+      "linkLabel": "See Radtel price",
+      "alt": "https://www.amazon.com/dp/B0FT86ZQ6T?tag=pocradio-20",
+      "altLabel": "Check Amazon"
+    },
+    "herda-hp1": {
+      "where": "Herda direct",
+      "price": "By quote",
+      "note": "Herda sells by quote. Ask for the pair price and the $25/yr renewal terms in writing, and ask about holiday pricing.",
+      "code": "",
+      "link": "https://herdaradio.com/product/hp1/",
+      "linkLabel": "Request a quote"
+    }
+  }
+}
