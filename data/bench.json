@@ -67,14 +67,18 @@
       "badge": "Smallest & Easiest to Carry",
       "cat": "Handheld · 4G LTE · 63 g · SIM included",
       "img": "images/card_herda_hp1.webp",
-      "price": "Quote from Herda",
+      "price": "$130 / 2-pack",
       "buy": "https://herdaradio.com/product/hp1/",
-      "buyLabel": "Get a Quote",
+      "buyLabel": "Check price at Herda",
       "bestAt": "Tiny 63 g body with a loud, clear 2W speaker",
       "watchOut": "No public groups; $25/yr renewal after year 1",
       "ptt": "1–2 s",
       "desc": "The smallest PoC radio we've tested, and surprisingly loud for its size. SIM and year one of service are included; renewal is $25 a year. Closed groups only, with no public directory.",
-      "cost": null,
+      "cost": {
+        "hw": 65,
+        "renew": 25,
+        "src": "Herda store: $129.99 per 2-pack (Nov 23, 2026); $25 per radio per year after year 1 (optional)"
+      },
       "faq": [
         [
           "Does the Herda HP1 need a subscription?",

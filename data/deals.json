@@ -15,11 +15,11 @@
     },
     "herda-hp1": {
       "where": "Herda direct",
-      "price": "By quote",
-      "note": "Herda sells by quote. Ask for the pair price and the $25/yr renewal terms in writing, and ask about holiday pricing.",
+      "price": "$129.99 / 2-pack",
+      "note": "Sold direct from Herda in 2-, 3-, 4- and 6-packs ($129.99 to $369.99), listed below the regular $69.99-a-radio price. Not on Amazon. Renewal is $25 per radio per year after year one.",
       "code": "",
       "link": "https://herdaradio.com/product/hp1/",
-      "linkLabel": "Request a quote"
+      "linkLabel": "Check Herda price"
     }
   }
 }
