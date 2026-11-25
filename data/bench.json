@@ -72,18 +72,22 @@
       "buy": "https://herdaradio.com/product/hp1/?ref=pocradiohq",
       "buyLabel": "Check price at Herda",
       "bestAt": "Tiny 63 g body with a loud, clear 2W speaker",
-      "watchOut": "No public groups; $25/yr renewal after year 1",
+      "watchOut": "No public groups; $25/yr on Herda's SIM after year 1",
       "ptt": "1–2 s",
-      "desc": "The smallest PoC radio we've tested, and surprisingly loud for its size. SIM and year one of service are included; renewal is $25 a year. Closed groups only, with no public directory.",
+      "desc": "The smallest PoC radio we've tested, and surprisingly loud for its size. SIM and year one of service are included; after that, renew on Herda's SIM for $25 a year or switch to your own SIM. Closed groups only, with no public directory.",
       "cost": {
         "hw": 65,
         "renew": 25,
-        "src": "Herda store: $129.99 per 2-pack (Nov 23, 2026); $25 per radio per year after year 1 (optional)"
+        "src": "Herda store: $129.99 per 2-pack (Nov 23, 2026); $25 per radio per year on Herda's SIM after year 1, or your own SIM (per Herda)"
       },
       "faq": [
         [
           "Does the Herda HP1 need a subscription?",
-          "The SIM comes pre-installed with one year of service. After that, renewal is optional at $25 per radio per year, with no monthly fees or contracts."
+          "The SIM comes pre-installed with one year of service. After that, you can top up Herda's SIM for $25 per radio per year or switch to your own SIM card. There are no monthly fees or contracts."
+        ],
+        [
+          "Can I change the Herda HP1's settings myself?",
+          "Yes. The HP1 runs on the GXIN PoC platform, and Herda ships each order with a GXIN account and password, so you can rename radios and change channel settings yourself."
         ],
         [
           "How small is the Herda HP1?",
@@ -99,7 +103,7 @@
         ]
       ],
       "updated": "November 2026",
-      "renewNote": "$25 per radio per year after year 1 (optional)"
+      "renewNote": "$25 per radio per year on Herda's SIM after year 1, or use your own SIM"
     },
     {
       "slug": "choyong-wt2",
